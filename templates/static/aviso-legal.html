@@ -1,0 +1,50 @@
+{#
+(C) Copyright 2011 Jose Carrasco <jose.carrasco at vikuit dot com>
+(C) Copyright 2011 Jose Blanco <jose.blanco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+{% extends "layouts/module-layout.html" %}
+{% block title %}
+	{{ _('Terms and conditions') }}
+{% endblock %}
+
+{% block content %}
+	<h1 class="center">{{ _('Terms of Use') }}</h1>
+	
+	<ol>
+		<li>Cualquier usuario que visite {% if app.url %}{{ app.url }}{% endif %} (en adelante <strong>{% if app.name %}{{ app.name }}{% endif %}</strong>) está aceptando estos términos y condiciones.</li>
+   
+		<li>Estos términos y condiciones del servicio pueden cambiar en cualquier momento sin aviso previo.</li>
+		
+		<li><strong>{% if app.name %}{{ app.name }}{% endif %}</strong>: no se responsabiliza de los contenidos publicados en la página. Cada usuario es responsable de los contenidos que publica en la página.</li>
+   
+		<li><strong>{% if app.name %}{{ app.name }}{% endif %}</strong>: no se responsabiliza de plagios o de la no autoría de los artículos sean publiquen en esta página, así como de las imágenes subidas por los usuarios.</li>
+	
+		<li><strong>{% if app.name %}{{ app.name }}{% endif %}</strong>: se reserva el derecho de eliminar cualquier contenido que considere inadecuado sin aviso previo.</li>
+   
+		<li><strong>{% if app.name %}{{ app.name }}{% endif %}</strong>: no asegura la disponibilidad total del servicio de la página. Es posible que por causas ajenas a nuestra voluntad la página deje de funcionar en períodos de tiempo de duración indefinida.</li>
+   
+		<li><strong>{% if app.name %}{{ app.name }}{% endif %}</strong>: no se reponsabilizará de la pérdida de información publicada. Sin embargo intentará en todo momento velar porque esto no suceda.</li>
+   
+		<li><strong>{% if app.name %}{{ app.name }}{% endif %}</strong>: permite insertar publicidad de Google Adsense a los usuarios en diferentes sitios de la página. <strong>{% if app.name %}{{ app.name }}{% endif %}</strong> se reserva el derecho de modificar el tamaño y posición de la publicidad y no se reponsabiliza de su cuenta de Google Adsense. Cualquier indicente referente a Google Adsense será resuelto entre Google Inc. y su cliente de Adsense.</li>
+   
+		<li><strong>{% if app.name %}{{ app.name }}{% endif %}</strong>: se reserva el derecho de eliminar la publicidad de Google Adsense de un usuario o todos los usuarios sin aviso previo.</li>
+   
+		<li><strong>{% if app.name %}{{ app.name }}{% endif %}</strong>: se reserva el derecho de hacer uso comercial de las obras publicadas en la página a través de publicidad en la misma, independientemente de que el usuario elija una licencia de uso no comercial al publicar la obra.</li>
+	</ol>
+{% endblock %}

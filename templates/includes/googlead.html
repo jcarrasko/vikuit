@@ -1,0 +1,41 @@
+{#
+(C) Copyright 2011 Jose Carrasco <jose.carrasco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+<script type="text/javascript"><!--
+google_ad_client = "{{ article.author.google_adsense|escape }}";
+google_ad_width = 468;
+google_ad_height = 70;
+google_ad_format = "468x60_as";
+google_ad_type = "text";
+{#
+if (!empty($globals['user_adchannel'])) 
+	google_ad_channel ="'.$globals['user_adchannel'].'";
+#}
+google_color_border = "FFFFFF";
+google_color_bg = "E0EAEF";
+google_color_link = "0000FF";
+google_color_url = "E1771E";
+google_color_text = "000000";
+//--></script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+ 
+{% block javascript %}
+	
+{% endblock %}

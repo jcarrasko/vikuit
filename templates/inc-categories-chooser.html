@@ -1,0 +1,33 @@
+{#
+(C) Copyright 2011 Jose Blanco <jose.blanco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+<p>
+	<label for="category">{{ _('Category') }}</label>
+	<select name="category">
+		{% for cat in categories %}
+		<optcommunity label="{{ cat.title|escape }}">
+		{% if cat.subcategories %}
+		{% for subcategory in cat.subcategories %}
+		<option value="{{ subcategory.key() }}"{% if category and category.key() == subcategory.key() %} selected="selected"{% endif %}>{{ subcategory.title|escape }}</option>
+		{% endfor %}
+		{% endif %}
+		</optcommunity>
+		{% endfor %}
+	</select>
+</p>

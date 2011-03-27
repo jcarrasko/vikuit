@@ -1,0 +1,130 @@
+{#
+(C) Copyright 2011 Jose Blanco <jose.blanco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+{% extends "layouts/module-layout.html" %}
+{% block title %} {{ community.title|escape }} | {{ _('Discussion forum') }}{% endblock %}
+{% block head %}
+	<link rel="alternate" type="application/rss+xml" title="{{ _('%s community articles')|format(community.title|escape) }}" href="/feed/module/community/{{ community.url_path }}" />
+	<link rel="alternate" type="application/rss+xml" title="{{ _('%s community forums')|format(community.title|escape) }}" href="/feed/module/community.forum/{{ community.url_path }}" />
+	<meta name="description" content="{{ community.description|escape }}" />
+{% endblock %}
+
+{% block rightSidebar %}
+	<div class="box">
+		<div class="vk_title">{{ _('RSS') }}</div>
+		<ul><li><a href="/feed/module/community/{{ community.url_path }}"><img src="/static/images/feed.png" alt="feed" class="icon" /> {{ _('%s community articles')|format(community.title|escape) }}</a></li>
+		<li><a href="/feed/module/community.forum/{{ community.url_path }}"><img src="/static/images/feed.png" alt="feed" class="icon" /> {{ _('%s community forums')|format(community.title|escape) }}</a></li></ul>
+	</div>
+{% endblock %}
+
+{% block content %}
+	{% include 'inc-community-header.html' %}
+
+	<div>
+
+	{% if not threads %}
+		<p class="message">{{ _('There is no message in forums') }}</p>
+		<br/>
+	{% else %}
+	<table class="grid">
+		<thead>
+			<tr>
+				<th class="center">{{ _('Autor') }}</th>
+				<th class="left">{{ _('Topic') }}</th>
+				<th class="right">{{ _('Reads') }}</th>
+				<th class="right">{{ _('Answers') }}</th>
+				<th class="right">{{ _('Updated') }}</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for thread in threads %}
+			<tr {% if loop.index % 2 == 0 %}class="even"{% endif %}>
+				<td class="center"><a href="/module/user/{{ thread.author_nickname }}"><img src="/images/user/thumbnail/{{ thread.author_nickname }}" alt="{{ thread.author_nickname }}" title="{{ thread.author_nickname }}" /></a></td>
+				<td class="left">
+					<strong>
+						<a href="/module/community.forum/{{ thread.url_path }}">{{ thread.title|escape }}</a>
+						{% if app.max_results_sublist and thread.responses > app.max_results_sublist %}
+							<br/> {{ _('Pages') }}:
+							{% for page in range(1, ((thread.responses / app.max_results_sublist)|round(0, 'ceil') +1)) %}
+								{% if page == 1%}
+									&nbsp;<a href="/module/community.forum/{{ thread.url_path }}">[{{ page }}]</a>
+								{% else %}
+									&nbsp;<a href="/module/community.forum/{{ thread.url_path }}?p={{ page }}">[{{ page }}]</a>
+								{% endif %}
+							{% endfor %}
+						{% endif %}
+					</strong>
+				</td>
+				<td class="right">{{ thread.views }}</td>
+				<td class="right">{{ thread.responses }}</td>
+				<td class="right">{{ _('<strong>%s</strong> ago')|format(thread.last_response_date|relativize) }}</td>
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+
+	{% include 'inc-pagination.html' %}
+	
+	{% endif %}
+
+{% if user and can_write %}
+	<h3><a name="new">{{ _('Start a topic') }}</a></h3>
+	
+	<form action="/module/community.forum.edit" method="post" accept-charset="utf-8">
+		<input type="hidden" name="auth" value="{{ auth }}" />
+		<input type="hidden" name="key" value="{{ community.key() }}" />
+		
+		<div class="form">
+		
+		<p>
+		<label for="title">{{ _('Title') }}</label>
+		<input type="text" name="title" style="font-size: 200%;width:98%" value="{{ _('Topic') }}..." />
+		</p>
+		
+		<p>
+		<label for="content">{{ _('Content') }}</label>
+		<textarea name="content" rows="8" cols="70" id="markdown_example"></textarea>
+		</p>
+		<p>
+			<input type="checkbox" name="subscribe" value="True" id="subscribe" checked="checked" />{{ _('Mail subscription') }}
+		</p>
+
+		<p><input type="submit" value="{{ _('Start topic') }}" />&nbsp;<input type="submit" name="preview" value="{{ _('Preview') }}" /></p>
+
+		{#
+		<p>
+			<label for="preview">{{ _('Preview') }}</label>
+			<div class="comment"><div id="markdown_formatted"></div></div>
+		</p>
+		#}
+		</div>
+	</form>
+{% else%}
+	{% if user and not can_write %}
+		<p class="options right">{{ _('Only community members can write') }}. <a href="/module/community.user.join?community={{ community.key()|escape }}&amp;redirect={{ redirect }}"> <img src="/static/images/add.png" /> {{ _('Join this community') }}</a></p>
+	{% endif %}
+{% endif %}
+	</div>
+	<div class="clear">&nbsp;</div>
+{% endblock %}
+{% block javascript %}
+{% if user and can_write%}
+{# Removed imports #}
+{% endif %}
+{% endblock %}

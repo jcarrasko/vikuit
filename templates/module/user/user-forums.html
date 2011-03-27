@@ -1,0 +1,67 @@
+{#
+(C) Copyright 2011 Jose Blanco <jose.blanco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+{% extends "layouts/module-layout.html" %}
+{% block title %} {{ this_user.nickname }}: {{ _('started threads') }} {% endblock %}
+{% block head %}
+	<!-- TODO -->
+{% endblock %}
+
+{% block content %}
+	<h1><img src="/images/user/thumbnail/{{ this_user.nickname }}" alt="{{ this_user.nickname}}" style="vertical-align: middle" /> <a href="/module/user/{{ this_user.nickname }}">{{ this_user.nickname }}</a>: {{ _('started threads') }}</h1>
+
+	<div class="grid_9 alpha omega">
+	<table class="grid">
+	<thead>
+		<tr>
+			<th class="center">{{ _('Community') }}</th>
+			<th class="left">{{ _('Topic') }}</th>
+			<th class="right">{{ _('Visits') }}</th>
+			<th class="right">{{ _('Replies') }}</th>
+			<th class="right">{{ _('Updated') }}</th>
+		</tr>
+	</thead>
+	<tbody>
+	{% for thread in threads %}
+		<tr {% if loop.index % 2 == 0 %}class="even"{% endif %}>
+			<td class="center"><a href="/module/community/{{ thread.community_url_path }}">
+				<img src="/images/community/thumbnail/{{ thread.community.key().id() }}"
+					alt="{{ thread.community_title|escape }}" title="{{ thread.community_title|escape }}" /></a></td>
+			<td class="left">
+				<strong>
+					<a href="/module/community.forum/{{ thread.url_path }}">{{ thread.title|escape }}</a>
+					{% if app.max_results_sublist and thread.responses > app.max_results_sublist %}
+						<br/> {{ _('Pages') }}:
+						{% for page in range(1, ((thread.responses / app.max_results_sublist)|round(0, 'ceil') +1)) %}
+							&nbsp;<a href="/module/community.forum/{{ thread.url_path }}?p={{ page }}">[{{ page }}]</a>
+						{% endfor %}
+					{% endif %}
+				</strong>
+			</td>
+			<td class="right">{{ thread.views }}</td>
+			<td class="right">{{ thread.responses }}</td>
+			<td class="right">{{ _('<strong>%s</strong> ago')|format(thread.last_response_date|relativize) }}</td>
+		</tr>
+	{% endfor %}
+	</tbody>
+	</table>
+	{% include 'inc-pagination.html' %}
+	</div>
+	<div class="clear">&nbsp;</div>
+{% endblock %}

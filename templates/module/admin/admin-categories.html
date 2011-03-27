@@ -1,0 +1,45 @@
+{#
+(C) Copyright 2011 Jose Blanco <jose.blanco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+{% extends "layouts/module-layout.html" %}
+
+{% block title %} {{ _('Categories administration') }} {% endblock %}
+
+{% block content %}
+
+	<h1>{{ _('Categories administration') }}</h1>
+
+	<ul>
+		{% for category in categories %}
+		<li><a href="/module/admin.category.edit?key={{ category.key() }}">{{ category.title|escape }}</a>
+		{% if category.subcategories %}
+		<ul>
+		{% for subcategory in category.subcategories %}
+		<li><a href="/module/admin.category.edit?key={{ subcategory.key() }}">{{ subcategory.title|escape }}</a> {{ subcategory.communities }} {{ _('communities') }}</li>
+		{% endfor %}
+		</ul>
+		{% endif %}
+		</li>
+		{% endfor %}
+	</ul>
+	
+	<p class="options"><a href="/module/admin.category.edit">{{ _('New category') }}</a></p>
+
+
+{% endblock %}

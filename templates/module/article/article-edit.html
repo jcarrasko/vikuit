@@ -1,0 +1,186 @@
+{#
+(C) Copyright 2011 Jose Carrasco <jose.carrasco at vikuit dot com>
+(C) Copyright 2011 Jose Blanco <jose.blanco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+{% extends "layouts/module-layout.html" %}
+
+{% block title %}
+	{% if key %}
+		{{ _('Editing') }}: {{ title|escape }}
+	{% else %}
+		{{ _('New article') }}
+	{% endif %}
+{% endblock %}
+
+{% block content %}
+	{% if key %}
+		<h1>{{ _('Edit article') }}</h1>
+	{% else %}
+		<h1>{{ _('New article') }}</h1>
+	{% endif %}
+
+<form id="art_edit" action="/module/article.edit" method="post" accept-charset="utf-8">
+	<input type="hidden" name="auth" value="{{ auth }}" />
+	
+	{% if key %}
+		<input id="key" type="hidden" name="key" value="{{ key|escape }}" />
+	{% else %}
+		<input id="key" type="hidden" name="key" value="" />
+	{% endif %}
+
+	<div class="form">
+		<p>
+			<label for="title">{{ _('Title') }}</label>
+			<input id="title" type="text" name="title" value="{{ title|escape }}" size="40"{% if not draft %} disabled="disabled"{% endif %}/>
+		</p>
+
+		<p>
+			<label for="lic">{{ _('License') }}</label>
+			<select id="lic" name="lic">
+			{% for l in licenses %}
+				<option value="{{ l.id }}"{% if l.id == lic %} selected="selected"{% endif %}>{{ l.lic }}</option>
+			{% endfor %}
+			</select>
+		</p>
+
+		<p>
+			<label for="tags">{{ _('Tags comma separated') }}</label>
+			<input id="tags" type="text" name="tags" value="{{ tags|escape }}" size="50" /> {{ _('ex.: first, second, another one') }}
+		</p>
+
+		<p>
+			<label for="description">{{ _('Summary') }}</label>
+			<textarea id="description" name="description" rows="4" cols="50">{{ description|escape }}</textarea>
+		</p>
+		<p>
+			<label for="content">{{ _('Content') }}</label>
+			<textarea name="content" rows="30" cols="50" id="content" >{{ content|escape }}</textarea>
+		</p>
+
+	{% if key and not draft %}
+		<p><input type="submit" value="{{ _('Save changes') }}" /></p>
+	{% else %}
+		<p><input type="submit" value="{{ _('Publish article') }}" />&nbsp;<input id="save_draft" type="submit" name="save_draft" value="{{ _('Save draft') }}" />&nbsp;<label id="auto_saved"></label></p>
+	{% endif %}
+
+	</div>
+</form>
+{% endblock %}
+{% block javascript %}
+<script type="text/javascript" src="/static/js/editor/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="/static/js/jquery.validate.min.js"></script>
+<script type="text/javascript" charset="utf-8">
+	CKEDITOR.replace( 'content',{toolbar : 'Article', filebrowserUploadUrl : '/images/upload', filebrowserBrowseUrl : '/images/browse'});
+
+{% if draft or not key %}
+
+	$('#lic').attr('onclick', 'fieldChanged()');
+	$('#tags').attr('onkeydown', 'fieldChanged()');
+	$('#title').attr('onkeydown', 'fieldChanged()');
+	$('#content').attr('onkeydown', 'fieldChanged()');
+	$('#description').attr('onkeydown', 'fieldChanged()');
+
+	setTimeout("saveChanges()", 30000);
+	var modified = false;
+
+	function saveChanges() {
+		var form = $('#form');
+		var href = form.action + "?x=1&save_draft=1";
+		var params = form.serialize();
+		if (modified) {
+            $.ajax({
+                type: 'post',
+                url: href,
+                data: params,
+                dataType: 'json',
+                async: true,
+                error: function(){
+                        parent.innerHTML = '{{ _("There was an error :(") }}';
+                        setTimeout("saveChanges()", 60000);
+                    },
+                success: function(json){
+                        modified = false;
+                        var saved = json.saved;
+                        if (saved == true){
+                            var updated = json.updated;
+                            if (!updated) {
+                                var key = json.key;
+                                $('#key').value = key;
+                                var draft_articles = json.draft_articles;
+                                $('#drafts').innerHTML = "<img src='/static/images/page_white_text.png' alt='' class='icon' /> {{ _('Drafts') }} (" + draft_articles + ")";
+                            }    
+                            var date = new Date();
+                            var hours = date.getHours();
+                            if(hours < 10) hours = '0'+hours;
+                            var min = date.getMinutes();
+                            if(min < 10) min = '0'+min;
+                            var sec = date.getSeconds();
+                            if(sec < 10) sec = '0'+sec;
+                            $('#auto_saved').innerHTML = "{{ _('Saved at') }} " + hours + ":" + min + ":" + sec;
+    
+                        }
+                        setTimeout("saveChanges()", 30000);
+                    }
+            });
+		} else {
+			setTimeout("saveChanges()", 30000);
+		}
+	}
+
+	function fieldChanged() {
+		modified = true;
+	}
+
+
+	$(document).ready(function(){
+		$('#art_edit').validate({
+			rules: {
+				title: {
+					required: true
+				},
+				description: {
+					required: true
+				},
+				tags:{
+					required: true
+				},
+				content: {
+					required: false
+				}
+			},
+			messages: {
+					title: {
+						required: "{{ _('Mandatory field') }}"
+					},
+					description: {
+						required: "{{ _('Mandatory field') }}"
+					},
+					tags:{
+						required: "{{ _('Mandatory field') }}"
+					},
+					content: {
+						required: "{{ _('Mandatory field') }}"
+					}	
+				}
+			});
+	});
+
+{% endif %}
+</script>
+{% endblock %}

@@ -1,0 +1,45 @@
+#############
+# Changelog #
+#############
+
+ V.1
+	Beta
+	
+ V.2-1
+	Look and feel
+	
+ V.2-2
+	i18n
+	Categories bug fixed
+	
+ V.2-3
+ 	Tags cloud
+	CKEditor
+	Google user API
+	About page
+	
+ V.2-4
+ 	Global properties taken from DB
+ 	Language selected by Admin (Only available languages: spanish and english)
+ 	App name and subject by Admin
+ 	Google user API to import user data
+ 	About page with "temporary" license
+ 	
+ V.2-5
+  	Changed Apocalipto to Initialization
+ 	Microblogging enabled
+ 	Modules
+ 	Automatic populate
+ 	
+ V.2-6
+ 	New Look And Feel
+ 	Layouts
+ 	More vikuitlets
+ 	New CSS
+ 	Themes
+ 	
+ V.2-7 (*Work in progress / Future release)
+ 	Clean CSS
+ 	FCK with images
+ 	Voice *
+ 	Chat *

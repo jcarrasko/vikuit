@@ -1,0 +1,84 @@
+{#
+(C) Copyright 2011 Jose Blanco <jose.blanco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+{% extends "layouts/module-layout.html" %}
+{% block title %}
+	{{ message.title|escape }}
+{% endblock %}
+
+{% block content %}
+	
+	{% if user.nickname == message.user_to_nickname %}
+		<h1>{{ _('Received message') }}: {{ message.title|escape }}</h1>
+	
+		<div class="grid_2 alpha">
+			<p class="info comment-info">
+				<a href="/module/user/{{ message.user_from_nickname }}">
+					<img src="/images/user/thumbnail/{{ message.user_from_nickname }}" alt"{{ message.user_from_nickname }}" />
+				</a> <br/>
+				<strong><a href="/module/user/{{ message.user_from_nickname }}">{{ message.user_from_nickname }}</a></strong> escribió <br/> 
+				{{ _('<strong>%s</strong> ago')|format(message.creation_date|relativize) }} <br/>
+			</p>
+		</div>
+		<div class="grid_7 omega">
+			<div class="comment">
+			{{ message.content|markdown }}
+			</div>
+   
+			<p class="options">
+				<a href="/message.edit?user_to={{ message.user_from_nickname }}&amp;title={{ message.title|quote|escape }}">
+					<img src="/static/images/email_edit.png" alt="" class="icon" /> {{ _('Reply') }}</a>
+				| <a href="/message.delete?key={{ message.key() }}&amp;auth={{ auth }}"
+					onclick="return confirm('{{ _('Are you sure to delete this message?') }}')">
+					<img src="/static/images/cross.png" alt="" class="icon" /> {{ _('Delete message') }}</a>
+			</p>
+   
+		</div>
+		<div class="clear">&nbsp;</div>
+	{% else %}
+		<h1>{{ _('Sent message') }}: {{ message.title|escape }}</h1>
+		
+		<div class="grid_2 alpha">
+			<p class="info comment-info">
+				<a href="/module/user/{{ message.user_to_nickname }}">
+					<img src="/images/user/thumbnail/{{ message.user_to_nickname }}" alt"{{ message.user_to_nickname }}" />
+				</a> <br/>
+					{{ _('sent to') }} <strong><a href="/module/user/{{ message.user_to_nickname }}">{{ message.user_to_nickname }}</a></strong> <br/>
+					{{ _('<strong>%s</strong> ago')|format(message.creation_date|relativize) }} <br/>
+			</p>
+		</div>
+		<div class="grid_7 omega">
+			<div class="comment">
+			{{ message.content|markdown }}
+			</div>
+   
+			<p class="options">
+				<a href="/message.edit?user_to={{ message.user_to_nickname }}&amp;title={{ message.title|quote|escape }}">
+					<img src="/static/images/email_edit.png" alt="" class="icon" /> {{ _('Sent message to') }} 
+					{{ message.user_to_nickname }}</a>
+				| <a href="/message.delete?key={{ message.key() }}&amp;auth={{ auth }}"
+					onclick="return confirm('{{ _('Are you sure to delete this message?') }}')">
+					<img src="/static/images/cross.png" alt="" class="icon" /> {{ _('Delete message') }}</a>
+			</p>
+   
+		</div>
+		<div class="clear">&nbsp;</div>
+	{% endif %}
+	
+{% endblock %}

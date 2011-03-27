@@ -1,0 +1,145 @@
+{#
+(C) Copyright 2011 Jose Blanco <jose.blanco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+{% extends "layouts/module-layout.html" %}
+{% block title %}
+	{{ _('Register new user') }}
+{% endblock %}
+
+{% block content %}
+    
+       <h1>{{ _('Register new user') }}</h1>
+		<form id="user_register" action="/module/user.register" method="post" accept-charset="utf-8">
+   
+		<input type="hidden" name="redirect_to" value="{{ redirect_to }}" />
+		
+		{% if error %}
+			<p class="center" style="color:red">{{ error }}</p>
+		{% endif %}
+		
+		<div class="form">
+			<p>
+				<label for="nickname">{{ _('Username') }}</label>
+				<input id="nickname" type="text" name="nickname" value="{{ nickname }}" style="width:270px" maxlength="20" />
+			</p>
+			<p>
+				<label for="email">{{ _('Mail') }}</label>
+				<input id="email" type="text" name="email" value="{{ email }}" style="width:270px" />
+			</p>
+			<p>
+				<label for="re_email">{{ _('Repeat mail') }}</label>
+				<input id="re_email" type="text" name="re_email" value="" style="width:270px" />
+			</p>
+			<p>
+				<label for="password">{{ _('Password') }}</label>
+				<input id="password" type="password" name="password" value="" style="width:270px" maxlength="30" />
+			</p>
+			<p>
+				<label for="re_password">{{ _('Repeat password') }}</label>
+				<input id="re_password" type="password" name="re_password" value="" style="width:270px" maxlength="30" />
+			</p>
+			<p>
+				<input type="checkbox" name="terms-and-conditions" value="true" id="terms-and-conditions" /> {{ _('I have read, understand, and accept the <br/><strong><a href="/html/aviso-legal.html" target="_blank">terms and conditions</a></strong>') }}
+			</p>
+		</div>
+		<div style="margin-left:15px;">
+			{{ captchahtml }}
+		</div>
+		<div class="form">
+			<p><input type="submit" value="{{ _('Register') }}" id="register-submit" /></p>
+		</div>
+
+	</form>
+{% endblock %}
+
+{% block javascript %}
+<script type="text/javascript" src="/static/js/jquery.validate.min.js"></script>
+<script type="text/javascript" charset="utf-8">
+	$('#nickname').focus()
+	
+	$.validator.addMethod("formatnn", function(value) {
+		return value.match(/^[\w\.-]+$/);
+	}, "{{ _('Username can contain letters, numbers, dots, hyphens and underscores') }}");
+
+	$(document).ready(function(){
+		$('#user_register').validate({
+		rules: {
+			nickname: {
+				required: true,
+				minlength: 4,
+				maxlength: 20,
+				formatnn: true
+			},
+			email: {
+				required: true,
+				email: true
+			},
+			re_email:{
+				required: true,
+				email: true,
+				equalTo: "#email"
+			},
+			password: {
+				required: true,
+				minlength: 4,
+				maxlength: 30
+			},
+			re_password:{
+				required: true,
+				minlength: 4,
+				maxlength: 30,
+				equalTo: "#password"
+			},
+			"terms-and-conditions": {
+				required: true
+			}
+		},
+		messages: {
+				nickname: {
+					required: "{{ _('Mandatory field') }}",
+					minlength: "4 {{ _('chars is minimum length') }}",
+					maxlength: "20 {{ _('chars is maximum length') }}",
+				},
+				email: {
+					required: "{{ _('Mandatory field') }}",
+					email: "{{ _('Mail address incorrect') }}"
+				},
+				re_email:{
+					required: "{{ _('Mandatory field') }}",
+					email: "{{ _('Mail address incorrect') }}",
+					equalTo: " {{ _('Mail and validation mail are not equals') }}"
+				},
+				password: {
+					required: "{{ _('Mandatory field') }}",
+					minlength: "4 {{ _('chars is minimum length') }}",
+					maxlength: "30 {{ _('chars is maximum length') }}"
+				},
+				re_password:{
+					required: "{{ _('Mandatory field') }}",
+					minlength: "4 {{ _('chars is minimum length') }}",
+					maxlength: "30 {{ _('chars is maximum length') }}",
+					equalTo: " {{ _('New password and validation password are not equal') }}"
+				},
+				"terms-and-conditions": "{{ _('You must accept terms and conditions') }}"		
+			}
+		});
+	});
+
+</script>
+{% endblock %}

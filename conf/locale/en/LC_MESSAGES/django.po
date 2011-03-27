@@ -1,0 +1,1655 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-02-03 20:26+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-02-03 20:26+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: templates/module/message/message-sent.html:3 templates/module/message/message-sent.html.py:7
+#: templates/inc-quick-links.html:29
+msgid "Sent messages"
+msgstr ""
+
+#: templates/module/message/message-sent.html:12
+msgid "Sent"
+msgstr ""
+
+#: templates/module/message/message-sent.html:13 templates/module/message/message-inbox.html:13
+msgid "Subject"
+msgstr ""
+
+#: templates/module/message/message-sent.html:14 templates/module/message/message-inbox.html:14
+msgid "Date"
+msgstr ""
+
+#: templates/module/message/message-sent.html:27 templates/module/community/community-forum-list.html:58
+#: templates/module/community/community-forum-view.html:31 templates/module/community/community-forum-view.html.py:91
+#: templates/module/message/message-read.html:17 templates/module/message/message-read.html.py:44
+#: templates/module/user/user-forums.html:40 templates/module/message/message-inbox.html:33
+#: templates/module/article/article-view.html:236 templates/module/user/user-events.html:70
+#, python-format
+msgid "<strong>%s</strong> ago"
+msgstr ""
+
+#: templates/module/message/message-sent.html:30 templates/module/message/message-read.html:29
+#: templates/module/message/message-read.html.py:57 templates/module/message/message-inbox.html:36
+msgid "Are you sure to delete this message?"
+msgstr ""
+
+#: templates/module/message/message-sent.html:31 templates/module/message/message-read.html:30
+#: templates/module/message/message-read.html.py:58 templates/module/message/message-inbox.html:37
+msgid "Delete message"
+msgstr ""
+
+#: templates/module/community/community-list.html:2 templates/module/community/community-list.html.py:6
+#: templates/error500.html:25 templates/error404.html:17
+#: templates/base.html:263 templates/base.html.py:287
+#: templates/module/user/user-view.html:156 templates/index-communities.html:1
+#: templates/error.html:25 templates/search.html:6
+#: templates/module/admin/admin-application.html:8 templates/module/article/article-view.html:16
+msgid "Groups"
+msgstr ""
+
+#: templates/module/community/community-list.html:8
+msgid "Create a group!! Below you can check list of all groups"
+msgstr ""
+
+#: templates/module/community/community-list.html:14 templates/inc-categories-chooser.html:1
+msgid "Category"
+msgstr ""
+
+#: templates/module/community/community-list.html:16
+msgid "All"
+msgstr ""
+
+#: templates/module/community/community-list.html:27
+msgid "Filter"
+msgstr ""
+
+#: templates/module/community/community-list.html:28 templates/module/article/article-list.html:29
+msgid "Sorted by"
+msgstr ""
+
+#: templates/module/community/community-list.html:28
+msgid "Creation date"
+msgstr ""
+
+#: templates/module/community/community-list.html:28
+msgid "Number of users"
+msgstr ""
+
+#: templates/module/community/community-list.html:28 templates/module/user/user-list.html:11
+msgid "Number of articles"
+msgstr ""
+
+#: templates/module/community/community-list.html:34
+msgid "No groups"
+msgstr ""
+
+#: templates/error500.html:3 templates/error500.html.py:7
+#: templates/error.html:3 templates/error.html.py:7
+msgid "Error"
+msgstr "Error"
+
+#: templates/error500.html:12 templates/error.html:12
+msgid "Well, this is embarrassing"
+msgstr ""
+
+#: templates/error500.html:17 templates/error.html:17
+msgid "Sorry, but there was an error processing the page"
+msgstr ""
+
+#: templates/error500.html:21 templates/error.html:21
+msgid "Continue with one of this options"
+msgstr ""
+
+#: templates/error500.html:23 templates/error404.html:15
+#: templates/base.html:285 templates/error.html:23
+msgid "Init"
+msgstr ""
+
+#: templates/error500.html:24 templates/error404.html:16
+#: templates/base.html:262 templates/base.html.py:286 templates/base.html:322
+#: templates/error.html:24 templates/search.html:4
+#: templates/module/admin/admin-application.html:8 templates/module/article/article-list.html:3
+#: templates/module/article/article-list.html.py:23
+msgid "Articles"
+msgstr ""
+
+#: templates/error500.html:26 templates/error404.html:18
+#: templates/base.html:264 templates/base.html.py:288 templates/error.html:26
+#: templates/search.html:8
+msgid "Forums"
+msgstr ""
+
+#: templates/error500.html:27 templates/error404.html:19
+#: templates/base.html:289 templates/error.html:27 templates/module/user/user-list.html:2
+#: templates/module/user/user-list.html.py:8 templates/module/admin/admin-application.html:8
+msgid "Users"
+msgstr ""
+
+#: templates/error404.html:3 templates/error404.html.py:7
+msgid "Not found"
+msgstr ""
+
+#: templates/error404.html:12
+msgid "Sorry, resource not found"
+msgstr ""
+
+#: templates/error404.html:13
+msgid "Try searching in the search box or browse one of these options"
+msgstr ""
+
+#: templates/module/user/user-resetpassword-login.html:3
+#: templates/module/user/user-resetpassword-login.html:7
+msgid "Password changed"
+msgstr ""
+
+#: templates/module/user/user-resetpassword-login.html:9
+msgid "Password has been changed"
+msgstr ""
+
+#: templates/module/user/user-resetpassword-login.html:11
+msgid "Try to login with your new password"
+msgstr ""
+
+#: templates/module/user/user-resetpassword-login.html:13
+msgid "Go to Login page"
+msgstr ""
+
+#: templates/module/user/user-login.html:3 templates/module/user/user-login.html.py:7
+#: templates/base.html:241 templates/inc-quick-links.html:38
+msgid "Log in"
+msgstr ""
+
+#: templates/module/user/user-login.html:18 templates/invite-friends.html:42
+#: templates/module/user/user-view.html:6 templates/module/user/user-view.html.py:19
+#: templates/inc-user-list.html:1 templates/inc-quick-links.html:44
+msgid "User"
+msgstr ""
+
+#: templates/module/user/user-login.html:22 templates/inc-quick-links.html:47
+#: templates/module/user/user-register.html:32
+msgid "Password"
+msgstr ""
+
+#: templates/module/user/user-login.html:26 templates/inc-quick-links.html:54
+msgid "Stay signed in"
+msgstr ""
+
+#: templates/module/user/user-login.html:28
+msgid "Login"
+msgstr ""
+
+#: templates/module/user/user-favourites.html:4 templates/module/user/user-favourites.html.py:12
+#: templates/module/user/user-view.html:3 templates/module/user/user-view.html.py:11
+#: templates/module/article/article-view.html:54 templates/module/user/user-contacts.html:12
+#: templates/module/user/user-groups.html:4 templates/module/user/user-groups.html.py:12
+#: templates/module/user/user-items.html:4 templates/module/user/user-items.html.py:12
+#, python-format
+msgid "Latest articles by %s"
+msgstr ""
+
+#: templates/module/user/user-favourites.html:18
+msgid "favorites"
+msgstr ""
+
+#: templates/module/user/user-favourites.html:23 templates/module/community/community-item-list.html:25
+#: templates/module/community/community-forum-list.html:30 templates/module/community/community-view.html:55
+#: templates/module/community/community-view.html.py:101 templates/inc-forum-list.html:1
+#: templates/index.html:39
+msgid "Autor"
+msgstr ""
+
+#: templates/module/user/user-favourites.html:24 templates/module/community/community-item-list.html:26
+#: templates/module/community/community-edit.html:25 templates/module/community/community-forum-list.html:78
+#: templates/module/user/user-view.html:109 templates/module/community/community-view.html:102
+#: templates/module/article/article-edit.html:28 templates/module/message/message-edit.html:15
+#: templates/index.html:40
+msgid "Title"
+msgstr ""
+
+#: templates/index-threads.html:1 templates/module/community/community-view.html:42
+msgid "Latest messages in forums"
+msgstr ""
+
+#: templates/index-threads.html:6 templates/module/community/community-view.html:83
+#: templates/module/article/article-view.html:96 templates/module/article/article-deleted.html:13
+#: templates/inc-forum-list.html:33
+#, python-format
+msgid "%s ago"
+msgstr ""
+
+#: templates/index-threads.html:10 templates/index-communities.html:17
+#: templates/module/article/article-view.html:69 templates/index-articles.html:10
+msgid "Check all"
+msgstr ""
+
+#: templates/module/community/community-forum-move.html:3 templates/module/community/community-forum-move.html.py:7
+#: templates/module/community/community-forum-move.html:22
+msgid "Move thread"
+msgstr ""
+
+#: templates/module/community/community-forum-move.html:19
+msgid "Group id"
+msgstr ""
+
+#: templates/module/community/community-item-list.html:2
+msgid "Published articles"
+msgstr ""
+
+#: templates/module/community/community-item-list.html:4 templates/module/community/community-item-list.html.py:13
+#: templates/module/community/community-forum-list.html:4 templates/module/community/community-forum-list.html.py:12
+#: templates/module/community/community-forum-view.html:5 templates/module/community/community-forum-view.html.py:14
+#: templates/module/community/community-user-list.html:5 templates/module/community/community-user-list.html.py:13
+#: templates/module/community/community-view.html:5 templates/module/community/community-view.html.py:30
+#, python-format
+msgid "%s group articles"
+msgstr ""
+
+#: templates/module/community/community-item-list.html:5 templates/module/community/community-item-list.html.py:14
+#: templates/module/community/community-forum-list.html:5 templates/module/community/community-forum-list.html.py:13
+#: templates/module/community/community-forum-view.html:6 templates/module/community/community-forum-view.html.py:15
+#: templates/module/community/community-user-list.html:6 templates/module/community/community-user-list.html.py:14
+#: templates/module/community/community-view.html:6 templates/module/community/community-view.html.py:31
+#, python-format
+msgid "%s group forums"
+msgstr ""
+
+#: templates/module/community/community-item-list.html:12 templates/module/community/community-forum-list.html:11
+#: templates/module/user/user-view.html:10 templates/module/community/community-user-list.html:12
+#: templates/tag.html:11 templates/module/community/community-view.html:29
+#: templates/module/article/article-view.html:53 templates/module/user/user-contacts.html:11
+#: templates/index.html:12 templates/module/article/article-list.html:11
+#: templates/module/user/user-items.html:11
+msgid "RSS"
+msgstr ""
+
+#: templates/module/community/community-edit.html:4 templates/module/admin/admin-category-edit.html:5
+#: templates/module/article/article-edit.html:4
+msgid "Editing"
+msgstr ""
+
+#: templates/module/community/community-edit.html:6 templates/module/community/community-edit.html.py:14
+#: templates/inc-quick-links.html:9
+msgid "New group"
+msgstr ""
+
+#: templates/module/community/community-edit.html:12 templates/inc-community-list.html:36
+#: templates/inc-community-header.html:51
+msgid "Edit group"
+msgstr ""
+
+#: templates/module/community/community-edit.html:32 templates/module/admin/admin-category-edit.html:48
+msgid "Description"
+msgstr ""
+
+#: templates/module/community/community-edit.html:36 templates/module/user/user-edit.html:27
+msgid "Image"
+msgstr ""
+
+#: templates/module/community/community-edit.html:37 templates/module/user/user-edit.html:28
+msgid "Square image is cool"
+msgstr ""
+
+#: templates/module/community/community-edit.html:40
+msgid ""
+"Allow all users to participate in the forum. Users outside the group as well."
+msgstr ""
+
+#: templates/module/community/community-edit.html:43 templates/module/article/article-comment-edit.html:44
+#: templates/module/admin/admin-category-edit.html:53 templates/module/community/community-thread-edit.html:74
+#: templates/module/admin/admin-application.html:67 templates/module/article/article-edit.html:56
+#: templates/module/user/user-edit.html:87
+msgid "Save changes"
+msgstr ""
+
+#: templates/module/community/community-edit.html:45
+msgid "Create group"
+msgstr ""
+
+#: templates/module/community/community-edit.html:56 templates/module/community/community-edit.html.py:59
+#: templates/module/user/user-register.html:65 templates/module/user/user-register.html.py:69
+#: templates/module/user/user-register.html:74 templates/module/article/article-edit.html:138
+#: templates/module/message/message-edit.html:44
+msgid "Mandatory field"
+msgstr ""
+
+#: templates/module/community/community-forum-list.html:2
+msgid "Discussion forum"
+msgstr ""
+
+#: templates/module/community/community-forum-list.html:24
+msgid "There is no message in forums"
+msgstr ""
+
+#: templates/module/community/community-forum-list.html:31 templates/module/community/community-forum-list.html.py:79
+#: templates/module/user/user-forums.html:15 templates/module/community/community-view.html:56
+#: templates/inc-forum-list.html:2
+msgid "Topic"
+msgstr ""
+
+#: templates/module/community/community-forum-list.html:32
+msgid "Reads"
+msgstr ""
+
+#: templates/module/community/community-forum-list.html:33
+msgid "Answers"
+msgstr ""
+
+#: templates/module/community/community-forum-list.html:34 templates/module/user/user-forums.html:18
+#: templates/module/community/community-view.html:59 templates/inc-forum-list.html:5
+msgid "Updated"
+msgstr ""
+
+#: templates/module/community/community-forum-list.html:45 templates/module/user/user-forums.html:31
+#: templates/module/community/community-view.html:74 templates/inc-forum-list.html:18
+msgid "Pages"
+msgstr ""
+
+#: templates/module/community/community-forum-list.html:69
+msgid "Start a topic"
+msgstr ""
+
+#: templates/module/community/community-forum-list.html:83 templates/module/article/article-edit.html:51
+#: templates/module/message/message-edit.html:20
+msgid "Content"
+msgstr ""
+
+#: templates/module/community/community-forum-list.html:87
+msgid "Mail subscription"
+msgstr ""
+
+#: templates/module/community/community-forum-list.html:90
+msgid "Start topic"
+msgstr ""
+
+#: templates/module/community/community-forum-list.html:90 templates/module/community/community-forum-list.html.py:94
+#: templates/module/article/article-comment-edit.html:46 templates/module/community/community-forum-view.html:174
+#: templates/module/community/community-forum-view.html:177 templates/module/community/community-thread-edit.html:72
+#: templates/module/community/community-thread-edit.html:81 templates/module/article/article-view.html:314
+#: templates/module/article/article-view.html.py:318 templates/module/article/article-edit.html:63
+#: templates/module/message/message-edit.html:27
+msgid "Preview"
+msgstr ""
+
+#: templates/module/community/community-forum-list.html:102 templates/module/community/community-forum-view.html:187
+msgid "Only group members can write"
+msgstr ""
+
+#: templates/module/community/community-forum-list.html:102 templates/module/community/community-forum-view.html:187
+msgid "Join this group"
+msgstr ""
+
+#: templates/invite-friends.html:3 templates/invite-friends.html.py:8
+msgid "Invite your contacts"
+msgstr ""
+
+#: templates/invite-friends.html:16
+msgid ""
+"If you want you can write here a personal message to your contacts. "
+"Otherwise a default message will be sent."
+msgstr ""
+
+#: templates/invite-friends.html:21
+msgid "No mail address found"
+msgstr ""
+
+#: templates/invite-friends.html:24
+msgid "You can insert to 20 contacts (use comma as separator)"
+msgstr ""
+
+#: templates/invite-friends.html:28
+msgid "invite"
+msgstr ""
+
+#: templates/invite-friends.html:33
+msgid "Your invitations have been sent"
+msgstr ""
+
+#: templates/invite-friends.html:34
+msgid "Emails which have received an invitation"
+msgstr ""
+
+#: templates/invite-friends.html:37
+msgid "Some of your contacts are already registered"
+msgstr ""
+
+#: templates/invite-friends.html:43
+msgid "Email"
+msgstr ""
+
+#: templates/module/user/user-promote.html:2 templates/module/user/user-promote.html.py:6
+msgid "Promote your profile!!"
+msgstr ""
+
+#: templates/module/user/user-promote.html:7
+msgid ""
+"You can show to the rest of the world what topics interest you, what do you "
+"know, which articles you write, etc. You can add this snippet on your blog, "
+"your e-mail, your web or wherever you want."
+msgstr ""
+
+#: templates/module/user/user-promote.html:14 templates/module/user/user-promote.html.py:24
+#: templates/module/user/user-promote.html:34 templates/module/user/user-promote.html.py:44
+msgid "Check my profile in"
+msgstr ""
+
+#: templates/inc-community-list.html:17 templates/inc-community-header.html:23
+msgid "topics in forum"
+msgstr ""
+
+#: templates/inc-community-list.html:20 templates/inc-community-header.html:31
+#: templates/inc-tag-cloud.html:4
+msgid "articles"
+msgstr ""
+
+#: templates/inc-community-list.html:23 templates/module/community/community-user-list.html:2
+#: templates/inc-community-header.html:34
+msgid "users"
+msgstr ""
+
+#: templates/inc-community-list.html:29 templates/inc-community-header.html:40
+msgid "Unjoin group"
+msgstr ""
+
+#: templates/inc-community-list.html:33 templates/inc-community-header.html:45
+msgid "Join group"
+msgstr ""
+
+#: templates/base.html:220
+msgid "Welcome to "
+msgstr ""
+
+#: templates/base.html:222
+msgid "Register and participate in your community"
+msgstr ""
+
+#: templates/base.html:234 templates/module/admin.html:3 templates/module/admin.html.py:7
+msgid "Administration"
+msgstr ""
+
+#: templates/base.html:236 templates/inc-quick-links.html:11
+#: templates/module/user/user-edit.html:2
+msgid "Preferences"
+msgstr ""
+
+#: templates/base.html:237
+msgid "Logout"
+msgstr ""
+
+#: templates/base.html:238 templates/static-faq.html:3
+#: templates/static-faq.html.py:6
+msgid "FAQ"
+msgstr ""
+
+#: templates/base.html:242 templates/module/user/user-register.html:47
+msgid "Register"
+msgstr ""
+
+#: templates/base.html:243 templates/inc-quick-links.html:60
+msgid "Forgot password?"
+msgstr ""
+
+#: templates/base.html:266 templates/base.html.py:276
+#: templates/search-result.html:3
+msgid "Search"
+msgstr ""
+
+#: templates/base.html:334
+msgid "Most active groups"
+msgstr ""
+
+#: templates/base.html:335
+msgid "Below you can check most active groups"
+msgstr ""
+
+#: templates/base.html:338
+msgid "Go to group"
+msgstr ""
+
+#: templates/base.html:349
+msgid "Web stats"
+msgstr ""
+
+#: templates/module/admin/admin-users.html:3 templates/module/admin/admin-users.html.py:7
+msgid "Users administration"
+msgstr ""
+
+#: templates/module/admin/admin-users.html:18
+msgid "Action"
+msgstr ""
+
+#: templates/module/admin/admin-users.html:20
+msgid "Lock user"
+msgstr ""
+
+#: templates/module/admin/admin-users.html:21
+msgid "Unlock user"
+msgstr ""
+
+#: templates/module/admin/admin-users.html:25
+msgid "User's nickname"
+msgstr ""
+
+#: templates/module/admin/admin-users.html:31 templates/module/message/message-edit.html:24
+#: templates/module/user/user-forgotpassword.html:22
+msgid "Send"
+msgstr ""
+
+#: templates/module/community/community-move.html:3 templates/module/community/community-move.html.py:7
+#: templates/module/community/community-move-result.html:3 templates/module/community/community-move-result.html.py:7
+msgid "Move groups"
+msgstr ""
+
+#: templates/module/community/community-move.html:20
+msgid "Source group id (to remove)"
+msgstr ""
+
+#: templates/module/community/community-move.html:24
+msgid "Target group id (to remain)"
+msgstr ""
+
+#: templates/module/community/community-move.html:28
+msgid "Move users"
+msgstr ""
+
+#: templates/module/community/community-move.html:31
+msgid "Move threads"
+msgstr ""
+
+#: templates/module/community/community-move.html:34
+msgid "Move items"
+msgstr ""
+
+#: templates/module/community/community-move.html:37
+msgid "Delete source group"
+msgstr ""
+
+#: templates/module/community/community-move.html:39 templates/inc-community-header.html:59
+msgid "Move group"
+msgstr ""
+
+#: templates/module/article/article-comment-edit.html:3
+msgid "Edit comment"
+msgstr ""
+
+#: templates/module/article/article-comment-edit.html:46 templates/module/article/article-view.html:314
+msgid "Publish comment"
+msgstr ""
+
+#: templates/module/community/community-forum-view.html:31 templates/module/community/community-forum-view.html.py:91
+#: templates/module/article/article-view.html:236
+msgid "wrote"
+msgstr ""
+
+#: templates/module/community/community-forum-view.html:42 templates/module/community/community-forum-view.html:105
+#: templates/module/article/article-view.html:248
+msgid "Edited %(s) times. Last time %(s2) ago."
+msgstr ""
+
+#: templates/module/community/community-forum-view.html:46
+msgid "delete thread"
+msgstr ""
+
+#: templates/module/community/community-forum-view.html:49 templates/module/community/community-forum-view.html.py:57
+msgid "edit thread"
+msgstr ""
+
+#: templates/module/community/community-forum-view.html:52
+msgid "move thread"
+msgstr ""
+
+#: templates/module/community/community-forum-view.html:65 templates/module/article/article-view.html:175
+#: templates/module/article/article-view.html.py:412
+msgid "Subscribe"
+msgstr ""
+
+#: templates/module/community/community-forum-view.html:66 templates/module/community/community-forum-view.html:228
+msgid "Subscribe by email to the replies of this thread"
+msgstr ""
+
+#: templates/module/community/community-forum-view.html:70 templates/module/community/community-forum-view.html:231
+#: templates/module/community/community-forum-subscribe.html:3
+#: templates/module/community/community-forum-subscribe.html:7
+#: templates/module/article/article-comment-subscribe.html:3
+#: templates/module/article/article-comment-subscribe.html:7 templates/module/article/article-view.html:182
+#: templates/module/article/article-view.html.py:414
+msgid "Unsubscribe"
+msgstr ""
+
+#: templates/module/community/community-forum-view.html:71 templates/module/community/community-forum-view.html:231
+msgid "Unsubscribe this thread"
+msgstr ""
+
+#: templates/module/community/community-forum-view.html:81 templates/module/user/user-forums.html:17
+#: templates/module/community/community-view.html:58 templates/inc-forum-list.html:4
+msgid "Replies"
+msgstr ""
+
+#: templates/module/community/community-forum-view.html:109
+msgid "delete reply"
+msgstr ""
+
+#: templates/module/community/community-forum-view.html:112 templates/module/community/community-forum-view.html:117
+msgid "edit reply"
+msgstr ""
+
+#: templates/module/community/community-forum-view.html:131
+msgid "Deleted reply by"
+msgstr ""
+
+#: templates/module/community/community-forum-view.html:148
+msgid "Leave your reply"
+msgstr ""
+
+#: templates/module/community/community-forum-view.html:169 templates/module/community/community-forum-view.html:228
+msgid "Subscribe by mail"
+msgstr ""
+
+#: templates/module/community/community-forum-view.html:174 templates/module/community/community-thread-edit.html:70
+msgid "Publish reply"
+msgstr ""
+
+#: templates/module/community/community-forum-view.html:237
+msgid "There was an error :( "
+msgstr ""
+
+#: templates/module/user/user-view.html:24 templates/module/user/user-view.html.py:199
+msgid "Delete contact"
+msgstr ""
+
+#: templates/module/user/user-view.html:27 templates/module/user/user-view.html.py:196
+msgid "Add to contacts"
+msgstr ""
+
+#: templates/module/user/user-view.html:31
+#, python-format
+msgid "Send message to %s"
+msgstr ""
+
+#: templates/module/user/user-view.html:34
+msgid "mail"
+msgstr ""
+
+#: templates/module/user/user-view.html:52
+msgid "Full name"
+msgstr ""
+
+#: templates/module/user/user-view.html:53 templates/inc-user-list.html:2
+#: templates/module/user/user-edit.html:17
+msgid "Country"
+msgstr ""
+
+#: templates/module/user/user-view.html:54 templates/inc-user-list.html:3
+#: templates/module/user/user-edit.html:22
+msgid "City"
+msgstr ""
+
+#: templates/module/user/user-view.html:55
+#, python-format
+msgid "Registered %s ago"
+msgstr ""
+
+#: templates/module/user/user-view.html:62 templates/module/article/article-view.html:203
+msgid "About"
+msgstr ""
+
+#: templates/module/user/user-view.html:66
+msgid "No description in profile."
+msgstr ""
+
+#: templates/module/user/user-view.html:66
+msgid "Edit your profile"
+msgstr ""
+
+#: templates/module/user/user-view.html:70
+msgid "Links"
+msgstr ""
+
+#: templates/module/user/user-view.html:78 templates/module/user/user-edit.html:51
+msgid "Linkedin profile"
+msgstr ""
+
+#: templates/module/user/user-view.html:81 templates/module/user/user-edit.html:56
+msgid "Ohloh profile"
+msgstr ""
+
+#: templates/module/user/user-view.html:90
+msgid "Contact addresses"
+msgstr ""
+
+#: templates/module/user/user-view.html:105 templates/module/community/community-view.html:97
+#: templates/index.html:4 templates/index.html.py:34
+#: templates/module/article/article-list.html:6 templates/index-articles.html:1
+msgid "Latest articles"
+msgstr ""
+
+#: templates/module/user/user-view.html:110 templates/module/article/article-view.html:227
+msgid "Comments"
+msgstr ""
+
+#: templates/module/user/user-view.html:111
+msgid "Ratings average"
+msgstr ""
+
+#: templates/module/user/user-view.html:130
+msgid "Check all articles"
+msgstr ""
+
+#: templates/module/user/user-view.html:134
+msgid "Contacts"
+msgstr ""
+
+#: templates/module/user/user-view.html:151
+msgid "Check all contacts"
+msgstr ""
+
+#: templates/module/user/user-view.html:173
+msgid "Check all groups"
+msgstr ""
+
+#: templates/module/user/user-view.html:204
+msgid "There was an error"
+msgstr ""
+
+#: templates/index-communities.html:13
+msgid "members"
+msgstr ""
+
+#: templates/module/message/message-read.html:9
+msgid "Received message"
+msgstr ""
+
+#: templates/module/message/message-read.html:27
+msgid "Reply"
+msgstr ""
+
+#: templates/module/message/message-read.html:36
+msgid "Sent message"
+msgstr ""
+
+#: templates/module/message/message-read.html:43
+msgid "sent to"
+msgstr ""
+
+#: templates/module/message/message-read.html:54
+msgid "Sent message to"
+msgstr ""
+
+#: templates/module/user/user-forums.html:2 templates/module/user/user-forums.html.py:8
+msgid "started threads"
+msgstr ""
+
+#: templates/module/user/user-forums.html:14 templates/inc-forum-list.html:3
+msgid "Group"
+msgstr ""
+
+#: templates/module/user/user-forums.html:16 templates/module/community/community-view.html:57
+msgid "Visits"
+msgstr ""
+
+#: templates/error403.html:3 templates/error403.html.py:7
+msgid "Permission denied"
+msgstr ""
+
+#: templates/error403.html:12
+msgid ""
+"You are not allowed to execute this action, maybe your session has timed out"
+msgstr ""
+
+#: templates/inc-user-list.html:4
+msgid "Registered"
+msgstr ""
+
+#: templates/inc-user-list.html:5
+msgid "Articles and average rating"
+msgstr ""
+
+#: templates/module/admin/admin-category-edit.html:7 templates/module/admin/admin-category-edit.html:16
+#: templates/module/admin/admin-categories.html:23
+msgid "New category"
+msgstr ""
+
+#: templates/module/admin/admin-category-edit.html:14
+msgid "Edit category"
+msgstr ""
+
+#: templates/module/admin/admin-category-edit.html:31 templates/module/user/user-edit.html:12
+msgid "Name"
+msgstr ""
+
+#: templates/module/admin/admin-category-edit.html:36
+msgid "Parent category"
+msgstr ""
+
+#: templates/module/admin/admin-category-edit.html:38
+msgid "None"
+msgstr ""
+
+#: templates/module/admin/admin-category-edit.html:55
+msgid "Create category"
+msgstr ""
+
+#: templates/module/admin/admin-category-edit.html:57
+#: templates/module/community/community-forum-subscribe.html:20
+#: templates/module/article/article-comment-subscribe.html:21
+msgid "Cancel"
+msgstr ""
+
+#: templates/module/message/message-deleted.html:3 templates/module/message/message-deleted.html.py:7
+msgid "Deleted message"
+msgstr ""
+
+#: templates/module/message/message-deleted.html:10
+#, python-format
+msgid "<strong>%s</strong> message has been deleted."
+msgstr ""
+
+#: templates/module/message/message-deleted.html:12
+msgid "Back to inbox"
+msgstr ""
+
+#: templates/module/message/message-deleted.html:14
+msgid "Back to sent messages"
+msgstr ""
+
+#: templates/tag.html:3 templates/tag.html.py:6 templates/tag.html.py:12
+#: templates/tag.html:24
+msgid "Articles tagged as"
+msgstr ""
+
+#: templates/tag.html:17 templates/search.html:16
+msgid "Tags cloud"
+msgstr ""
+
+#: templates/module/message/message-inbox.html:3 templates/module/message/message-inbox.html.py:7
+#: templates/inc-quick-links.html:28
+msgid "Inbox"
+msgstr ""
+
+#: templates/module/message/message-inbox.html:12
+msgid "From"
+msgstr ""
+
+#: templates/module/user/user-list.html:9
+msgid "Sort by"
+msgstr ""
+
+#: templates/module/user/user-list.html:10
+msgid "Registration date"
+msgstr ""
+
+#: templates/search.html:10
+msgid "tagged as"
+msgstr ""
+
+#: templates/search.html:26
+msgid "Articles containing"
+msgstr ""
+
+#: templates/search.html:29
+msgid "Groups containing"
+msgstr ""
+
+#: templates/search.html:33
+msgid "Forums containing"
+msgstr ""
+
+#: templates/module/community/community-move-result.html:12
+msgid "Group moved. Click here to go to home page"
+msgstr ""
+
+#: templates/module/community/community-move-result.html:16
+msgid "Oops, something unexpected... click here to go to return to group page"
+msgstr ""
+
+#: templates/static-aviso-legal.html:3
+msgid "Terms and conditions"
+msgstr ""
+
+#: templates/static-aviso-legal.html:7
+msgid "Terms of Use"
+msgstr ""
+
+#: templates/module/community/community-thread-edit.html:4
+msgid "Edit thread"
+msgstr ""
+
+#: templates/module/community/community-thread-edit.html:68
+msgid "Publish thread"
+msgstr ""
+
+#: templates/inc-community-header.html:27
+msgid "Start a new topic"
+msgstr ""
+
+#: templates/inc-community-header.html:56
+msgid "Delete group"
+msgstr ""
+
+#: templates/module/community/community-forum-subscribe.html:15
+#, python-format
+msgid "Unsubscribe to the <strong>%s</strong> thread?"
+msgstr ""
+
+#: templates/module/community/community-forum-subscribe.html:19
+#: templates/module/article/article-comment-subscribe.html:20
+msgid "Yes, unsubscribe"
+msgstr ""
+
+#: templates/module/user/user-resetpassword.html:3 templates/module/user/user-resetpassword.html:7
+#: templates/module/user/user-resetpassword-error.html:3
+msgid "Reset password"
+msgstr ""
+
+#: templates/module/user/user-resetpassword.html:19 templates/module/user/user-changepassword.html:23
+msgid "New password"
+msgstr ""
+
+#: templates/module/user/user-resetpassword.html:23
+msgid "Repeat new password"
+msgstr ""
+
+#: templates/module/user/user-resetpassword.html:26 templates/inc-quick-links.html:10
+#: templates/module/user/user-changepassword.html:3 templates/module/user/user-changepassword.html:7
+#: templates/module/user/user-changepassword.html:30
+msgid "Change password"
+msgstr ""
+
+#: templates/module/admin/admin-application.html:3 templates/module/admin/admin-application.html.py:7
+msgid "Application configuration"
+msgstr ""
+
+#: templates/module/admin/admin-application.html:8
+msgid "Topics"
+msgstr ""
+
+#: templates/module/admin/admin-application.html:19
+msgid "URL"
+msgstr ""
+
+#: templates/module/admin/admin-application.html:24
+msgid "Mail subject prefix"
+msgstr ""
+
+#: templates/module/admin/admin-application.html:29
+msgid "Mail sender address"
+msgstr ""
+
+#: templates/module/admin/admin-application.html:34
+msgid "Mail footer"
+msgstr ""
+
+#: templates/module/admin/admin-application.html:39
+msgid "Recaptcha public key"
+msgstr ""
+
+#: templates/module/admin/admin-application.html:44
+msgid "Recaptcha private key"
+msgstr ""
+
+#: templates/module/admin/admin-application.html:49 templates/module/user/user-edit.html:32
+msgid "Google Adsense"
+msgstr ""
+
+#: templates/module/admin/admin-application.html:54
+msgid "Google Adsense Channel"
+msgstr ""
+
+#: templates/module/admin/admin-application.html:58
+msgid "Results per page (user.list, forum.list, group.list, item.list)"
+msgstr ""
+
+#: templates/module/admin/admin-application.html:62
+msgid "Results per page (comments and answers)"
+msgstr ""
+
+#: templates/inc-quick-links.html:3
+msgid "Menu"
+msgstr ""
+
+#: templates/inc-quick-links.html:5
+msgid "Actions"
+msgstr ""
+
+#: templates/inc-quick-links.html:7 templates/module/article/article-edit.html:6
+#: templates/module/article/article-edit.html.py:14
+msgid "New article"
+msgstr ""
+
+#: templates/inc-quick-links.html:8 templates/module/article/article-edit.html:107
+msgid "Drafts"
+msgstr ""
+
+#: templates/inc-quick-links.html:16
+msgid "Your lifestreaming"
+msgstr ""
+
+#: templates/inc-quick-links.html:17
+msgid "Your public profile"
+msgstr ""
+
+#: templates/inc-quick-links.html:18
+msgid "Your articles"
+msgstr ""
+
+#: templates/inc-quick-links.html:19
+msgid "Your threads"
+msgstr ""
+
+#: templates/inc-quick-links.html:20
+msgid "Your favorites"
+msgstr ""
+
+#: templates/inc-quick-links.html:21
+msgid "Your groups"
+msgstr ""
+
+#: templates/inc-quick-links.html:22
+msgid "Your contacts"
+msgstr ""
+
+#: templates/inc-quick-links.html:23
+msgid "Invite your friends"
+msgstr ""
+
+#: templates/inc-quick-links.html:49
+msgid "Start session"
+msgstr ""
+
+#: templates/inc-quick-links.html:59 templates/module/user/user-register.html:3
+#: templates/module/user/user-register.html.py:8
+msgid "Register new user"
+msgstr ""
+
+#: templates/module/article/article-comment-subscribe.html:16
+#, python-format
+msgid "Unsubscribe from receive comments of <br/><strong>%s</strong> article"
+msgstr ""
+
+#: templates/module/user/user-changepassword.html:19
+msgid "Current password"
+msgstr ""
+
+#: templates/module/user/user-changepassword.html:27
+msgid "New password (validation)"
+msgstr ""
+
+#: templates/module/community/community-view.html:14
+msgid "Bound groups"
+msgstr ""
+
+#: templates/module/community/community-view.html:47
+msgid "Currently, no messages in forums"
+msgstr ""
+
+#: templates/module/community/community-view.html:48
+msgid "Come on, why don't you encourage?"
+msgstr ""
+
+#: templates/module/community/community-view.html:49
+msgid "Open a new thread"
+msgstr ""
+
+#: templates/module/community/community-view.html:90
+msgid "Read all threads or open a new one"
+msgstr ""
+
+#: templates/module/community/community-view.html:121 templates/index.html:57
+msgid "Read all articles"
+msgstr ""
+
+#: templates/module/community/community-view.html:129
+msgid "Check all group members"
+msgstr ""
+
+#: templates/module/article/article-view.html:4 templates/module/user/user-contacts.html:4
+#, python-format
+msgid "%s articles"
+msgstr ""
+
+#: templates/module/article/article-view.html:18
+msgid "This article is linked in "
+msgstr ""
+
+#: templates/module/article/article-view.html:26
+msgid "delete"
+msgstr ""
+
+#: templates/module/article/article-view.html:45
+msgid "Add to group"
+msgstr ""
+
+#: templates/module/article/article-view.html:60
+#, python-format
+msgid "Other articles by %s"
+msgstr ""
+
+#: templates/module/article/article-view.html:79 templates/inc-article-list.html:6
+msgid "Deleted"
+msgstr ""
+
+#: templates/module/article/article-view.html:79 templates/inc-article-list.html:6
+msgid "Draft"
+msgstr ""
+
+#: templates/module/article/article-view.html:81 templates/inc-article-list.html:8
+msgid "Written by"
+msgstr ""
+
+#: templates/module/article/article-view.html:81
+#, python-format
+msgid "</strong>%s <strong>ago"
+msgstr ""
+
+#: templates/module/article/article-view.html:84
+msgid "Delete"
+msgstr ""
+
+#: templates/module/article/article-view.html:88
+msgid "Edit"
+msgstr ""
+
+#: templates/module/article/article-view.html:95
+msgid "deletes this article because"
+msgstr ""
+
+#: templates/module/article/article-view.html:97
+msgid "Only an administrator or owner can read it"
+msgstr ""
+
+#: templates/module/article/article-view.html:145
+msgid "&copy; All rights reserved"
+msgstr ""
+
+#: templates/module/article/article-view.html:147
+msgid ""
+"<a href=\"http://creativecommons.org/licenses/publicdomain/\">Public domain</"
+"a>"
+msgstr ""
+
+#: templates/module/article/article-view.html:154 templates/inc-article-list.html:15
+msgid "Tags"
+msgstr ""
+
+#: templates/module/article/article-view.html:158 templates/inc-article-list.html:19
+msgid "comments"
+msgstr ""
+
+#: templates/module/article/article-view.html:159 templates/inc-article-list.html:20
+msgid "visits"
+msgstr ""
+
+#: templates/module/article/article-view.html:160 templates/inc-article-list.html:21
+msgid "votes"
+msgstr ""
+
+#: templates/module/article/article-view.html:163 templates/module/article/article-view.html.py:164
+#: templates/module/article/article-view.html:383
+msgid "Add to favorites"
+msgstr ""
+
+#: templates/module/article/article-view.html:167 templates/module/article/article-view.html.py:168
+#: templates/module/article/article-view.html:386
+msgid "Delete favorite"
+msgstr ""
+
+#: templates/module/article/article-view.html:177 templates/module/article/article-view.html.py:310
+#: templates/module/article/article-view.html:412
+msgid "Subscribe from receive comments of this article"
+msgstr ""
+
+#: templates/module/article/article-view.html:184 templates/module/article/article-view.html.py:414
+msgid "Unsubscribe from receive comments of this article"
+msgstr ""
+
+#: templates/module/article/article-view.html:207
+msgid "No description in profile"
+msgstr ""
+
+#: templates/module/article/article-view.html:207
+msgid "Edit profile"
+msgstr ""
+
+#: templates/module/article/article-view.html:214
+msgid "Bound articles"
+msgstr ""
+
+#: templates/module/article/article-view.html:253
+msgid "delete comment"
+msgstr ""
+
+#: templates/module/article/article-view.html:256 templates/module/article/article-view.html.py:259
+msgid "edit comment"
+msgstr ""
+
+#: templates/module/article/article-view.html:272
+msgid "Deleted comment. Because"
+msgstr ""
+
+#: templates/module/article/article-view.html:292
+msgid "Leave your comment"
+msgstr ""
+
+#: templates/module/article/article-view.html:330
+msgid "Please, enter a message to explain why this must be deleted"
+msgstr ""
+
+#: templates/module/article/article-view.html:391 templates/module/article/article-view.html.py:419
+#: templates/module/article/article-view.html:442 templates/module/article/article-edit.html:122
+msgid "There was an error :("
+msgstr ""
+
+#: templates/module/user/user-contacts.html:7 templates/module/user/user-contacts.html.py:18
+msgid "contacts"
+msgstr ""
+
+#: templates/inc-article-list.html:2
+msgid "No articles"
+msgstr ""
+
+#: templates/inc-article-list.html:8
+#, python-format
+msgid "</strong>%s<strong> ago"
+msgstr ""
+
+#: templates/inc-article-list.html:23
+msgid "edit"
+msgstr ""
+
+#: templates/module/article/article-deleted.html:3 templates/module/article/article-deleted.html.py:7
+msgid "Deleted article"
+msgstr ""
+
+#: templates/module/article/article-deleted.html:10
+#, python-format
+msgid "Article titled <strong>%s</strong> was deleted"
+msgstr ""
+
+#: templates/module/user/user-register.html:19
+msgid "Username"
+msgstr ""
+
+#: templates/module/user/user-register.html:21
+msgid "Validate"
+msgstr ""
+
+#: templates/module/user/user-register.html:24
+msgid "Mail"
+msgstr ""
+
+#: templates/module/user/user-register.html:28
+msgid "Repeat mail"
+msgstr ""
+
+#: templates/module/user/user-register.html:36
+msgid "Repeat password"
+msgstr ""
+
+#: templates/module/user/user-register.html:40
+msgid ""
+"I have read, understand, and accept the <br/><strong><a href=\"/html/aviso-"
+"legal.html\" target=\"_blank\">terms and conditions</a></strong>"
+msgstr ""
+
+#: templates/module/user/user-register.html:70
+msgid "Mail address incorrect"
+msgstr ""
+
+#: templates/module/user/user-register.html:75
+msgid "chars is minimum length"
+msgstr ""
+
+#: templates/module/user/user-register.html:75
+msgid "chars is maximum length"
+msgstr ""
+
+#: templates/inc-tag-cloud.html:1
+msgid "Cloud tags"
+msgstr ""
+
+#: templates/inc-tag-cloud.html:4
+msgid "articles tagged as"
+msgstr ""
+
+#: templates/module/article/article-edit.html:12
+msgid "Edit article"
+msgstr ""
+
+#: templates/module/article/article-edit.html:33
+msgid "License"
+msgstr ""
+
+#: templates/module/article/article-edit.html:42
+msgid "Tags comma separated"
+msgstr ""
+
+#: templates/module/article/article-edit.html:43
+msgid "ex.: first, second, another one"
+msgstr ""
+
+#: templates/module/article/article-edit.html:47
+msgid "Summary"
+msgstr ""
+
+#: templates/module/article/article-edit.html:58
+msgid "Publish article"
+msgstr ""
+
+#: templates/module/article/article-edit.html:58
+msgid "Save draft"
+msgstr ""
+
+#: templates/module/article/article-edit.html:116
+msgid "Saved at"
+msgstr ""
+
+#: templates/module/message/message-edit.html:3
+msgid "New message"
+msgstr ""
+
+#: templates/module/message/message-edit.html:7
+msgid "New message to"
+msgstr ""
+
+#: templates/module/article/article-delete.html:3 templates/module/article/article-delete.html.py:7
+#: templates/module/article/article-delete.html:20
+msgid "Delete article"
+msgstr ""
+
+#: templates/module/article/article-delete.html:13
+#, python-format
+msgid ""
+"Please, enter a message to explain why <strong>%s</strong><br/> article must "
+"be deleted"
+msgstr ""
+
+#: templates/module/article/article-delete.html:17
+msgid "Message"
+msgstr ""
+
+#: templates/index.html:5
+msgid "Social network with content, groups, forums..."
+msgstr ""
+
+#: templates/index.html:6
+msgid "social network, vikuit"
+msgstr ""
+
+#: templates/index.html:9
+msgid "Vikuit welcome you to your social network"
+msgstr ""
+
+#: templates/index.html:13 templates/module/article/article-list.html:12
+msgid "Latest published articles"
+msgstr ""
+
+#: templates/index.html:28
+msgid "Latest messages from the forums..."
+msgstr ""
+
+#: templates/index.html:31
+msgid "Read all messages from the forums"
+msgstr ""
+
+#: templates/module/user/user-resetpassword-error.html:7
+msgid "URL Incorrect"
+msgstr ""
+
+#: templates/module/user/user-resetpassword-error.html:9
+msgid "Unable to reset password, maybe link address is incorrect."
+msgstr ""
+
+#: templates/module/user/user-resetpassword-error.html:11
+msgid "Please, try to copy and paste it in the navigation bar of your browser"
+msgstr ""
+
+#: templates/module/article/article-add-groups.html:3
+msgid "Add article to groups"
+msgstr ""
+
+#: templates/module/article/article-add-groups.html:7
+#, python-format
+msgid "Add <em>%s</em> to some of your groups"
+msgstr ""
+
+#: templates/module/article/article-add-groups.html:15
+#, python-format
+msgid "<em>%s</em> is published. Now you can link it to some of your groups"
+msgstr ""
+
+#: templates/module/user/user-groups.html:7 templates/module/user/user-groups.html.py:18
+#: templates/module/admin/admin-categories.html:15
+msgid "groups"
+msgstr ""
+
+#: templates/module/community/community-add-related.html:3 templates/module/community/community-add-related.html.py:6
+msgid "Add binding groups"
+msgstr ""
+
+#: templates/module/community/community-add-related.html:16
+msgid "Source group id"
+msgstr ""
+
+#: templates/module/community/community-add-related.html:21
+msgid "Target group id"
+msgstr ""
+
+#: templates/module/community/community-add-related.html:26
+msgid "Bind"
+msgstr ""
+
+#: templates/module/user/user-edit.html:46
+msgid "Personal blog"
+msgstr ""
+
+#: templates/module/user/user-edit.html:61
+msgid "MSN messenger address"
+msgstr ""
+
+#: templates/module/user/user-edit.html:66
+msgid "Jabber address"
+msgstr ""
+
+#: templates/module/user/user-edit.html:71
+msgid "Gtalk address"
+msgstr ""
+
+#: templates/module/user/user-edit.html:76
+msgid "Personal message"
+msgstr ""
+
+#: templates/module/user/user-edit.html:81
+msgid "About me (only plain text)"
+msgstr ""
+
+#: templates/forum-list.html:2 templates/forum-list.html.py:8
+msgid "Discussion forums"
+msgstr ""
+
+#: templates/module/user/user-events.html:2 templates/module/user/user-events.html.py:5
+msgid "lifestreaming"
+msgstr ""
+
+#: templates/module/user/user-events.html:19
+msgid "started a thread titled"
+msgstr ""
+
+#: templates/module/user/user-events.html:21 templates/module/user/user-events.html.py:25
+#: templates/module/user/user-events.html:43
+msgid "in group"
+msgstr ""
+
+#: templates/module/user/user-events.html:23
+msgid "replied a thread titled"
+msgstr ""
+
+#: templates/module/user/user-events.html:32
+msgid "wrote a new article titled"
+msgstr ""
+
+#: templates/module/user/user-events.html:34
+msgid "wrote a comment in article"
+msgstr ""
+
+#: templates/module/user/user-events.html:42
+msgid "wrote an article titled"
+msgstr ""
+
+#: templates/module/user/user-events.html:45
+msgid "created a group"
+msgstr ""
+
+#: templates/module/user/user-events.html:47
+msgid "added"
+msgstr ""
+
+#: templates/module/user/user-events.html:47
+msgid "to contacts"
+msgstr ""
+
+#: templates/module/user/user-events.html:49
+msgid "edited"
+msgstr ""
+
+#: templates/module/user/user-events.html:49
+msgid "own profile"
+msgstr ""
+
+#: templates/module/user/user-events.html:51
+msgid "added an article titled"
+msgstr ""
+
+#: templates/module/user/user-events.html:52
+msgid "to favorites"
+msgstr ""
+
+#: templates/module/user/user-events.html:54
+msgid "unknown event"
+msgstr ""
+
+#: templates/module/admin.html:10
+msgid "Configure application"
+msgstr ""
+
+#: templates/module/admin.html:11
+msgid "Bind group"
+msgstr ""
+
+#: templates/module/admin.html:12
+msgid "Administrate categories"
+msgstr ""
+
+#: templates/module/admin.html:13
+msgid "Administrate users"
+msgstr ""
+
+#: templates/module/article/article-list.html:25
+msgid ""
+"We encourage you to write! Below you can check a list of most recent article"
+msgstr ""
+
+#: templates/module/article/article-list.html:29
+msgid "Publish date"
+msgstr ""
+
+#: templates/module/article/article-list.html:29
+msgid "Rating"
+msgstr ""
+
+#: templates/module/article/article-list.html:29
+msgid "Number of comments"
+msgstr ""
+
+#: templates/module/user/user-items.html:7 templates/module/user/user-items.html.py:18
+msgid "published articles"
+msgstr ""
+
+#: templates/module/admin/admin-categories.html:3 templates/module/admin/admin-categories.html.py:7
+msgid "Categories administration"
+msgstr ""
+
+#: templates/static-faq.html:7
+msgid "Under construction"
+msgstr ""
+
+#: templates/module/user/user-drafts.html:2 templates/module/user/user-drafts.html.py:4
+msgid "drafts"
+msgstr ""
+
+#: templates/module/user/user-forgotpassword.html:3 templates/module/user/user-forgotpassword.html:7
+msgid "Recover password"
+msgstr ""
+
+#: templates/module/user/user-forgotpassword.html:17
+msgid "We send you a mail with a link to change your password"
+msgstr ""
+
+#: templates/module/user/user-forgotpassword.html:19
+msgid "Your mail address"
+msgstr ""
+
+#: templates/module/user/user-forgotpassword-sent.html:3
+#: templates/module/user/user-forgotpassword-sent.html:7
+msgid "Sent mail"
+msgstr ""
+
+#: templates/module/user/user-forgotpassword-sent.html:9
+#, python-format
+msgid ""
+"We sent you a mail to <strong>%s</strong>. Click in the attached link to "
+"change your password."
+msgstr ""
+
+#: templates/module/user/user-forgotpassword-sent.html:10
+msgid "Continue"
+msgstr ""
+
+msgid "Password must contain 4 chars at least"
+msgstr ""
+
+msgid "New password and validation password are not equal"
+msgstr ""
+
+msgid "Incorrect password"
+msgstr ""
+
+msgid "You must accept terms and conditions"
+msgstr ""
+
+msgid "Enter a valid mail"
+msgstr ""
+
+msgid "Username can contain letters, numbers, dots, hyphens and underscores"
+msgstr ""
+
+msgid "Password must contain between 4 and 30 chars"
+msgstr ""
+
+msgid "This mail already exists"
+msgstr ""
+
+msgid "Mail and validation mail are not equals"
+msgstr ""

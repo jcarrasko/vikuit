@@ -1,0 +1,87 @@
+{#
+(C) Copyright 2011 Jose Blanco <jose.blanco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+{% extends "layouts/module-layout.html" %}
+{% block title %} {{ _('Promote your profile!!') }} {% endblock %}
+
+{% block content %}
+	<div class="grid_9 alpha omega">
+		<h1>{{ _('Promote your profile!!') }}</h1>
+		<p>{{ _('You can show to the rest of the world what topics interest you, what do you know, which articles you write, etc. You can add this snippet on your blog, your e-mail, your web or wherever you want.') }}</p>
+		<hr/>
+		<div style="margin-top:10px">
+			<div class="grid_3 alpha center">
+				<img src="/static/images/webpromo/btn_negro.gif" alt="{% if app.name %}{{ app.name }}{% endif %}" />
+			</div>
+			<div class="grid_5 omega">
+				<textarea cols="50" rows="4" readonly><a href="{{ user_url }}"><img src="{{ app.url }}/static/images/webpromo/btn_negro.gif" width="160" height="33" border="0" alt="{{ _('Check my profile in') }} {% if app.name %}{{ app.name }}{% endif %}"></a></textarea>
+			</div>
+			<div class="clear">&nbsp;</div>
+		</div>
+		<hr/>
+		<div style="margin-top:10px">
+			<div class="grid_3 alpha center">
+				<img src="/static/images/webpromo/btn_rojo.gif" alt="{% if app.name %}{{ app.name }}{% endif %}"/>
+			</div>
+			<div class="grid_5 omega">
+				<textarea cols="50" rows="4" readonly><a href="{{ user_url }}"><img src="{{ app.url }}/static/images/webpromo/btn_rojo.gif" width="160" height="33" border="0" alt="{{ _('Check my profile in') }} {% if app.name %}{{ app.name }}{% endif %}"></a></textarea>
+			</div>
+			<div class="clear">&nbsp;</div>
+		</div>
+		<hr/>
+		<div style="margin-top:10px">
+			<div class="grid_3 alpha center">
+				<img src="/static/images/webpromo/btn_azul.gif" alt="{% if app.name %}{{ app.name }}{% endif %}" />
+			</div>
+			<div class="grid_5 omega">
+				<textarea cols="50" rows="4" readonly><a href="{{ user_url }}"><img src="{{ app.url }}/static/images/webpromo/btn_azul.gif" width="160" height="33" border="0" alt="{{ _('Check my profile in') }} {% if app.name %}{{ app.name }}{% endif %}"></a></textarea>
+			</div>
+			<div class="clear">&nbsp;</div>
+		</div>
+		<hr/>
+		<div style="margin-top:10px">
+			<div class="grid_3 alpha center">
+				<img src="/static/images/webpromo/btn_blanco.gif" alt="{% if app.name %}{{ app.name }}{% endif %}" />
+			</div>
+			<div class="grid_5 omega">
+				<textarea cols="50" rows="4" readonly><a href="{{ user_url }}"><img src="{{ app.url }}/static/images/webpromo/btn_blanco.gif" width="160" height="33" border="0" alt="{{ _('Check my profile in') }} {% if app.name %}{{ app.name }}{% endif %}"></a></textarea>
+			</div>
+			<div class="clear">&nbsp;</div>
+		</div>
+		<hr/>
+	</div>
+	<div class="clear">&nbsp;</div>
+{% endblock %}
+{% block javascript %}
+<script type="text/javascript" charset="utf-8">
+		
+		function modify_textareas(){
+			if(!document.getElementsByTagName)
+				return;
+			var textareas = document.getElementsByTagName('textarea');
+			for(var i=0;i<textareas.length;i++){
+				textareas[i].onclick=function(){
+					this.focus();
+					this.select();
+				};
+			}
+		}
+		modify_textareas();
+</script>
+{% endblock %}

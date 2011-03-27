@@ -1,0 +1,81 @@
+{#
+(C) Copyright 2011 Jose Carrasco <jose.carrasco at vikuit dot com>
+(C) Copyright 2011 Jose Blanco <jose.blanco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"> 
+<head> 
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<meta http-equiv="pragma" content="no-cache" />
+	<meta http-equiv="cache-control" content="no-cache" />
+	
+	<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+	<!-- Vikuit base Scripts -->
+	<script type="text/javascript" charset="utf-8">
+		var auth = "{{ auth }}";
+		if (top.location != location) {
+			top.location.href = document.location.href;
+		}
+	</script>
+ 
+	<link rel="stylesheet" href="/static/css/style.css" type="text/css" />
+	<link rel="icon" href="/static/images/favicon.ico" type="image/x-icon" />
+ 	
+	<title>{% block title %}{% endblock %}</title>
+	<!--  Extra head -->
+	{% block head %}{% endblock %}
+	<!--  Theme CSS -->
+	{% include 'themes/blackbook/css.html' %}
+ 	<!--  Google Analytics-->
+ 	{% include 'includes/base/google-analytics.html' %}	
+ 
+</head> 
+ 
+<body> 
+	
+	{% include 'themes/blackbook/top.html' %}
+	<!-- end of top --> 
+	<div class="main" style="border:0px; width:998px;"> 
+    <!-- first column -->
+    	<div class="left_column">
+    		{% block leftSidebar %}{% endblock %}
+			{% include 'vikuitlets/most-active-communities/most-active-communities.html' %}
+			{% include 'vikuitlets/basic-stats/basic-stats.html' %}
+		</div> 
+    <!-- second column -->
+		<div class="center_column">
+			{% block content %}{% endblock %}
+		</div>
+	<!-- third column -->
+		<div class="right_column">
+			{% block rightSidebar %}{% endblock %}
+		</div> 
+			
+        <div class="clear_both"></div>		
+		<div class="banner_bottom"></div> 
+		<!-- end of body --> 
+	</div> 
+	
+<!-- Foot -->
+
+      {% include 'themes/blackbook/bottom.html' %}
+      
+	  {% block javascript %}{% endblock %} 
+    </body> 
+</html>

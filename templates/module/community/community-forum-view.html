@@ -1,0 +1,257 @@
+{#
+(C) Copyright 2011 Jose Blanco <jose.blanco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+{% extends "layouts/module-layout.html" %}
+
+{% block title %} {{ thread.title|escape }} | {{ community.title|escape }} {% endblock %}
+{% block head %}
+	<link rel="alternate" type="application/rss+xml" title="{{ _('%s community articles')|format(community.title|escape) }}" href="/feed/module/community/{{ community.url_path }}" />
+	<link rel="alternate" type="application/rss+xml" title="{{ _('%s community forums')|format(community.title|escape) }}" href="/feed/module/community.forum/{{ community.url_path }}" />
+	<meta name="description" content="{{ community.description|escape }}" />
+{% endblock %}
+
+{% block rightSidebar %}
+	<div class="box">
+		<div class="vk_title">{{ _('RSS') }}</div>
+		<ul><li><a href="/feed/module/community/{{ community.url_path }}"><img src="/static/images/feed.png" alt="feed" class="icon" /> {{ _('%s community articles')|format(community.title|escape) }}</a></li>
+		<li><a href="/feed/module/community.forum/{{ community.url_path }}"><img src="/static/images/feed.png" alt="feed" class="icon" /> {{ _('%s community forums')|format(community.title|escape) }}</a></li></ul>
+	</div>
+{% endblock %}
+
+{% block content %}
+	{% include 'inc-community-header.html' %}
+	
+	<div class="grid_9 alpha omega">
+		<h2>{{ thread.title|escape }}</h2>
+	</div>
+	
+	<div class="left-img">
+		<a href="/module/user/{{ thread.author_nickname|escape }}"><img src="/images/user/thumbnail/{{ thread.author_nickname|escape }}" alt="{{ thread.author_nickname|escape }}" /></a>
+	</div>
+
+	<div class="comment">
+		<blockquote>
+			<cite>
+				<strong><a href="/module/user/{{ thread.author_nickname|escape }}">{{ thread.author_nickname|escape }}</a></strong>
+				{{ _('wrote') }} {{ _('<strong>%s</strong> ago')|format(thread.creation_date|relativize) }}
+			</cite>
+		{{ thread.content|markdown|smiley|media }}
+		</blockquote>
+	</div>
+	<p class="options">
+	{% if thread.editions %}
+		<span class="info">{{ _('Edited %(s) times. Last time %(s2) ago.')|format(s=thread.editions, s2=thread.last_edition|relativize) }}</span>
+	{% endif %}
+	{% if user.rol == 'admin' %}
+		<a href="/module/community.forum.delete?key={{ thread.key() }}&amp;auth={{ auth }}">
+			<img src="/static/images/cross.png" class="icon" alt="" /> {{ _('delete thread') }}
+		</a>
+		<a href="/module/community.thread.edit?key={{ thread.key() }}">
+			<img src="/static/images/page_white_edit.png" class="icon" alt="" /> {{ _('edit thread') }}
+		</a>
+		<a href="/module/community.forum.move?thread_key={{ thread.key() }}">
+			<img src="/static/images/arrow_switch.png" class="icon" alt="" /> {{ _('move thread') }}
+		</a>
+		
+	{% else %}
+		{% if user.nickname == thread.author_nickname %}
+		<a href="/module/community.thread.edit?key={{ thread.key() }}"><img src="/static/images/page_white_edit.png" class="icon" alt="" /> {{ _('edit thread') }}</a>
+		{% endif %}
+	{% endif %}
+	{% if user %}
+		{% if cansubscribe %}
+		<a id="community.forum.subscribe" href="/module/community.forum.subscribe?key={{ thread.key() }}&amp;auth={{ auth }}"
+			title="{{ _('Subscribe') }}"><img src="/static/images/email_add.png" class="icon" />
+			{{ _('Subscribe by email to the replies of this thread') }}
+		</a>
+		{% else %}
+		<a id="community.forum.subscribe" href="/module/community.forum.subscribe?key={{ thread.key() }}&amp;auth={{ auth }}"
+			title="{{ _('Unsubscribe') }}"><img src="/static/images/email_delete.png" class="icon" />
+			{{ _('Unsubscribe this thread') }}
+		</a>
+		{% endif %}
+	</p>
+	{% endif %}
+
+
+{% if len != 0 %}
+	<div class="grid_9 alpha omega">
+		<h3><a name="comments">{{ _('Replies') }}</a></h3>
+	</div>
+	<div class="clear">&nbsp;</div>
+	
+{% for comment in responses %}
+	<div class="left-img">
+		<a href="/module/user/{{ thread.author_nickname|escape }}"><img src="/images/user/thumbnail/{{ thread.author_nickname|escape }}" alt="{{ thread.author_nickname|escape }}" /></a>
+	</div>
+	{% if not comment.deletion_date %}
+	<div class="comment">
+		<blockquote>
+			<cite>
+				<strong><a href="#comment-{{ comment.response_number }}" name="comment-{{ comment.response_number }}">#{{ comment.response_number }}</a>: <a href="/module/user/{{ comment.author_nickname|escape }}">{{ comment.author_nickname|escape }}</a></strong>
+				{{ _('wrote') }} {{ _('<strong>%s</strong> ago')|format(comment.creation_date|relativize) }}
+				{% if comment.editions %}
+					| <span style="color:#777">{{ _('Edited %(s) times. Last time %(s2) ago.')|format(s=comment.editions, s2=comment.last_edition|relativize) }}</span>
+				{% endif %}
+				{% if user.rol == 'admin' %}
+					<a href="javascript:setComment('/module/community.forum.delete?key={{ comment.key() }}&amp;auth={{ auth }}')">
+					<img src="/static/images/cross.png" class="icon" alt="{{ _('delete comment') }}" />{{ _('delete reply') }}</a>
+				
+					<a href="/module/community.thread.edit?key={{ comment.key() }}">
+					<img src="/static/images/page_white_edit.png" class="icon" alt="{{ _('edit comment') }}" /> {{ _('edit reply') }}</a>
+				{% else %}
+					{% if user.nickname == comment.author_nickname %}
+					<a href="/module/community.thread.edit?key={{ comment.key() }}"><img src="/static/images/page_white_edit.png" class="icon" alt="" /> {{ _('edit reply') }}</a>
+					{% endif %}
+				{% endif %}
+
+			</cite>
+				{{ comment.content|markdown|smiley|media }}
+		</blockquote>
+	</div>
+	{% else %}
+	<div class="comment">
+		<blockquote>
+			<cite>
+				<!-- img src="/images/user/thumbnail/{{ comment.author_nickname }}" alt"{{ comment.author_nickname }}" /> <br/ -->
+				<strong><a href="#comment-{{ comment.response_number }}" name="comment-{{ comment.response_number }}">#{{ comment.response_number }}</a>: <a href="/module/user/{{ comment.author_nickname|escape }}">{{ comment.author_nickname|escape }}</a></strong>
+				{{ _('wrote') }} {{ _('<strong>%s</strong> ago')|format(comment.creation_date|relativize) }}
+			</cite>
+			<p>
+				{{ _('Deleted comment. Because') }}: {{ comment.deletion_message }}
+			</p>
+		</blockquote>
+	</div>
+	{% endif %}
+{% endfor %}
+{% endif %}
+	<div class="grid_2 alpha">
+		&nbsp;
+	</div>
+	<div class="grid_7 omega">
+		{% include 'inc-pagination.html' %}
+	</div>
+	<div class="clear">&nbsp;</div>
+
+{% if user and can_write %}
+	<div class="grid_9 alpha omega">
+		<h3>{{ _('Leave your reply') }}</h3>
+	</div>
+	<div class="clear">&nbsp;</div>
+	<div class="grid_2 alpha">
+		<p class="info comment-info">
+			<img src="/images/user/thumbnail/{{ user.nickname|escape }}" alt="{{ user.nickname|escape }}" /> <br/>
+			<strong><a href="/module/user/{{ user.nickname|escape }}">{{ user.nickname|escape }}</a></strong>
+		</p>
+	</div>
+	<div class="grid_7 omega">
+
+	<form action="/module/community.forum.reply" method="post" accept-charset="utf-8">
+		<input type="hidden" name="auth" value="{{ auth }}" />
+		<input type="hidden" name="key" value="{{ thread.key() }}" />
+
+		<div class="form">
+
+		<textarea name="content" rows="8" cols="54" id="markdown_example"></textarea>
+		<span id="subscribe_box">
+		{% if cansubscribe %}
+		<p>
+			<input type="checkbox" name="subscribe" value="True" id="subscribe" checked="checked" />{{ _('Subscribe by mail') }}
+		</p>
+		{% endif %}
+		</span>
+
+		<p><input type="submit" value="{{ _('Publish reply') }}" />&nbsp;<input type="submit" name="preview" value="{{ _('Preview') }}" /></p>
+		{#
+		<p>
+			<label for="preview">{{ _('Preview') }}</label>
+			<div class="comment"><div id="markdown_formatted"></div></div>
+		</p>
+		#}
+		</div>
+	</form>
+	</div>
+	<div class="clear">&nbsp;</div>
+{% else %}
+	{% if user and not can_write %}
+		<p class="options right">{{ _('Only community members can write') }}. <a href="/module/community.user.join?community={{ community.key()|escape }}&amp;redirect={{ redirect }}"><img src="/static/images/add.png" alt="" class="icon" /> {{ _('Join this community') }}</a></p>
+	{% endif %}
+{% endif %}
+{% endblock %}
+{% block javascript %}
+{% if user.rol == 'admin' %}
+	<script type="text/javascript" charset="utf-8">
+		function setComment(href){
+			var message = prompt('{{ _("Please, enter a message to explain why this must be deleted") }}', '');
+			if (message != null)
+				document.location = href + "&message=" + message;
+		}
+	</script>
+{% endif %}
+
+{% if user and can_write %}
+{# Javascript imports removed, new comments/threads. Add if ckeditor is used in this page. #}
+{% endif %}
+<script type="text/javascript" charset="utf-8">
+	function ajaxSubs() {
+		var subs = $('#community.forum.subscribe');
+		if(subs == null) return;
+		var parent = $('#community.forum.subscribe').parent();
+		$('#community.forum.subscribe').click( function(e) {
+			href = subs.href + '&x=1';
+			parent.innerHTML = '<img class="icon" src="/static/images/spinner.gif" />';
+			$.ajax({
+				type: 'get',
+				url: href,
+			    	dataType: 'json',
+				success: function(json) {
+					var action = json.action;
+					if(action == 'unsubscribed') {
+						parent.innerHTML = '<a id="community.forum.subscribe" href="/module/community.forum.subscribe?key={{ thread.key() }}&amp;auth={{ auth }}" title="{{ _('Subscribe by mail') }}"><img src="/static/images/email_add.png" class="icon" /> {{ _('Subscribe by email to the replies of this thread') }}</a>';
+						$('subscribe_box').innerHTML = '<p><input type="checkbox" name="subscribe" value="True" id="subscribe" />Suscribirme por email</p>';
+					} else {
+						parent.innerHTML = '<a id="community.forum.subscribe" href="/module/community.forum.subscribe?key={{ thread.key() }}&amp;auth={{ auth }}" title="{{ _('Unsubscribe') }}"><img src="/static/images/email_delete.png" class="icon" /> {{ _('Unsubscribe this thread') }}</a>';
+						$('subscribe_box').innerHTML = '';
+					}
+					ajaxSubs();
+				},
+				error: function() {
+					parent.innerHTML = "{{ _('There was an error :( ') }}";
+				}
+			});
+		});
+	}
+	function visitThread() {
+		var href = "/module/community.forum.visit";
+		var params = "id={{ thread.key().id() }}";
+		$.ajax({
+			type: 'get',
+			url: href,
+			data: params,
+			async: true,
+			error: function(){
+			},
+			success: function(data){
+			}
+		});
+	}
+	ajaxSubs();
+	visitThread();
+</script>
+{% endblock %}

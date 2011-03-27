@@ -1,0 +1,49 @@
+{#
+(C) Copyright 2011 Jose Blanco <jose.blanco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+<table class="grid">
+	<thead>
+		<tr>
+			<th></th>
+			<th class="left">{{ _('User') }}</th>
+			<th class="left">{{ _('Country') }}</th>
+			<th class="right">{{ _('City') }}</th>
+			<th class="right">{{ _('Registered') }}</th>
+			<th class="right">{{ _('Articles and average rating') }}</th>
+		</tr>
+	</thead>
+	<tbody>
+{% for user in users %}
+		<tr {% if loop.index % 2 == 0 %}class="even"{% endif %}>
+			<td class="center"><div class="avatar"><a href="/module/user/{{ user.nickname|escape }}">
+				{% if user.image_version %}
+					<img src="/images/user/thumbnail/{{ user.nickname }}/{{ user.image_version }}" alt"{{ user.nickname }}" />
+				{% else %}
+					<img src="/images/user/thumbnail/{{ user.nickname }}" alt"{{ user.nickname }}" />
+				{% endif %}
+			</a></div></td>
+			<td class="left"><strong><a href="/module/user/{{ user.nickname|escape }}">{{ user.nickname|escape }}</a></strong></td>
+			<td class="left">{% if user.country %}{{ user.country|escape }}{% endif %}</td>
+			<td class="right">{% if user.city %}{{ user.city|escape }}{% endif %}</td>
+			<td class="right">{{ user.creation_date|relativize }}</td>
+			<td class="right">{% if user.articles != 0 %}<p class="rating star{{ user.rating_average }}" style="float:right">&nbsp;</p>{{ user.articles }}&nbsp;&nbsp;&nbsp;{% endif %}</td>
+		</tr>
+{% endfor %}
+	</tbody>
+</table>

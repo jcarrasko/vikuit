@@ -1,0 +1,11 @@
+#Sat Jan 15 16:04:21 CET 2011
+eclipse.preferences.version=1
+encoding//handlers/Apocalipto.py=utf-8
+encoding//handlers/ItemList.py=utf-8
+encoding//handlers/MainPage.py=utf-8
+encoding//handlers/MediaContentFilters.py=utf-8
+encoding//handlers/UserList.py=utf-8
+encoding//handlers/UserLogin.py=utf-8
+encoding//jinja2/__init__.py=utf-8
+encoding/controller.py=utf-8
+encoding/model.py=utf-8

@@ -1,0 +1,46 @@
+{#
+(C) Copyright 2011 Jose Blanco <jose.blanco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+{% if len == 0 %}
+	<p>{{ _('No articles') }}</p>
+{% endif %}
+{% for article in articles %}
+	<div class="info">
+		<h2>{% if article.draft %}{{ _('Draft') }}: {% endif %}{% if article.deletion_date %}{{ _('Deleted') }}: {% endif %} <a href="/module/article/{{ article.url_path }}">{{ article.title|escape }}</a></h2>
+		<p class="options">
+			{{ _('Written by') }} <strong><a href="/module/user/{{ article.author_nickname|escape}}">{{ article.author_nickname|escape }}</a></strong> {{ _('<strong>%s</strong> ago')|format(article.creation_date|relativize) }}
+		</p>
+	</div>
+
+	<p>{{ article.description|escape }}</p>
+ 	<p class="rating star{{article.rating_average}}" style="float:right">&nbsp;</p>
+	<p class="info options">
+		{{ _('Tags') }}:
+		{% for tag in article.tags %}
+			<a href="/tag/{{ tag|escape}}">{{ tag|escape}}</a>,
+		{% endfor %}
+		| <a href="/module/article/{{ article.url_path }}#comments"><img src="/static/images/comments.png" class="icon" alt="" /> {{ article.responses }} {{ _('comments') }}</a>
+		| {{ article.views }} {{ _('visits') }}
+		| {{article.rating_count}} {{ _('votes') }}
+		{% if user.nickname == article.author_nickname %}
+		| <a href="/module/article.edit?key={{ article.key() }}">{{ _('edit') }}</a>
+		{% endif %}
+	</p>
+{% endfor %}
+
+{% include 'inc-pagination.html' %}

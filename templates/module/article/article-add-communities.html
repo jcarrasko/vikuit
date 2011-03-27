@@ -1,0 +1,48 @@
+{#
+(C) Copyright 2011 Jose Blanco <jose.blanco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+{% extends "layouts/module-layout.html" %}
+{% block title %}
+	{{ _('Add article to communities') }}
+{% endblock %}
+
+{% block content %}
+	<h1>{{ _('Add <em>%s</em> to some of your communities')|format(article.title|escape) }}</h1>
+
+<form id="form" action="/module/article.add.communities" method="post" accept-charset="utf-8">
+	<input id="key" type="hidden" name="auth" value="{{ auth }}" />
+	<input id="key" type="hidden" name="key" value="{{ key|escape }}" />
+
+	<div class="form">
+	
+	<p>{{ _('<em>%s</em> is published. Now you can link it to some of your communities')|format(article.title|escape) }}.</p>
+
+{% for community in communities %}
+	<p>
+	    <input type="checkbox" name="community-{{ community.community.key().id() }}" value="add" />
+		<img src="/images/community/thumbnail/{{ community.community.key().id() }}" class="icon" alt="" />
+		{{ community.community_title|escape }}
+	</p>
+{% endfor %}
+
+	<p><input type="submit" value="Continuar" /></p>
+	
+	</div>
+</form>
+{% endblock %}

@@ -1,0 +1,27 @@
+{#
+(C) Copyright 2011 Jose Carrasco <jose.carrasco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+<form action="/search" class="search_form" method="get" accept-charset="utf-8" id="search">
+<div align="left"><input type="text" class="text_search_box" name="q" value="{{ q|escape }}" class="search" size="29" /> |
+<select name="t" class="type_search_box">
+	<option value="articles" {% if t== 'articles' %}selected="selected"{% endif %}>{{ _('Articles') }}</option>
+	<option value="communities" {% if t== 'communities' %}selected="selected"{% endif %}>{{ _('Communities') }}</option>
+	<option value="forums" {% if t== 'forums' %}selected="selected"{% endif %}>{{ _('Forums') }}</option>
+</select> <input type="submit" class="submit_search_box" value="" /></div>
+</form>
