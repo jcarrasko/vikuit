@@ -201,6 +201,12 @@ indexes:
   - name: deletion_date
     direction: desc
 
+- kind: CommunityArticle
+  properties:
+  - name: community
+  - name: creation_date
+    direction: desc
+
 - kind: CommunityUser
   properties:
   - name: community
