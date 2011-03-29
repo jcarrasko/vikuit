@@ -37,7 +37,7 @@ class ImageBrowser(BaseHandler):
             if user.rol == 'admin':
                 images = model.Image.all()
             else:
-                images = model.Image.gql('WHERE author_nickname=:1', self.request.user)
+                images = model.Image.gql('WHERE author_nickname=:1', user.nickname)
         
         self.values['images'] = images
         self.render('templates/editor/browse.html')         
