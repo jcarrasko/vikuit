@@ -1,0 +1,48 @@
+{#
+(C) Copyright 2011 Jose Carrasco <jose.carrasco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+{% extends "includes/vikuitlet/base.html" %}
+ 
+{% block vikuitlet_title %} 
+	{{ _('Web stats') }} 
+{% endblock %} 
+
+{% block vikuitlet_content %}
+ 
+ 
+Los siguientes datos son unas estad&iacute;sticas simples de {% if app.name %}{{ app.name }}{% endif %}.<br/> 
+Las iremos ampliando segun {% if app.name %}{{ app.name }}{% endif %} vaya creciendo.<br/><br/>
+ 
+		<ul>
+			<li><strong>{{ app.users }}</strong> {{ _('users') }}</li>
+			<li><strong>{{ app.articles }}</strong> {{ _('articles') }}</li>
+			<li><strong>{{ app.communities }}</strong> {{ _('communities') }}</li>
+			<li><strong>{{ app.threads }}</strong> {{ _('started threads') }}</li>
+		</ul>
+ 				
+
+	  
+	</div>  
+ 
+{% endblock %}  
+
+		
+{% block javascript %}
+ 
+{% endblock %}

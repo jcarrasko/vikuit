@@ -1,0 +1,102 @@
+{#
+(C) Copyright 2011 Jose Blanco <jose.blanco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+{% extends "layouts/module-layout.html" %}
+
+{% block title %}
+	{{ _('Edit thread') }}
+{% endblock %}
+
+
+{% block content %}
+	{% if preview %}
+	<div>&nbsp;</div>
+		{% if is_parent_thread %}
+		<div class="grid_9 alpha omega">
+			<h2>{{ thread.title|escape }}</h2>
+		</div>
+		{% endif %}
+		<div class="grid_2 alpha">
+			<p class="info comment-info">
+				<a href="/module/user/{{ thread.author_nickname|escape }}">
+					<img src="/images/user/thumbnail/{{ thread.author_nickname|escape }}"
+					alt="{{ thread.author_nickname|escape }}" />
+				</a> <br/>
+				<strong><a href="/module/user/{{ thread.author_nickname|escape }}">{{ thread.author_nickname|escape }}</a></strong>
+			</p>
+		</div>
+		<div class="grid_7 omega">
+			<div class="comment">
+				{{ thread.content|markdown|smiley|media }}
+			</div>
+		</div>
+	{% endif %}
+	<div class="clear">&nbsp;</div>
+	<div>&nbsp;</div>
+	<div class="grid_2 alpha">
+		<p class="info comment-info">
+			<img src="/images/user/thumbnail/{{ user.nickname|escape }}" alt="{{ user.nickname|escape }}" /> <br/>
+			<strong><a href="/module/user/{{ user.nickname|escape }}">{{ user.nickname|escape }}</a></strong>
+		</p>
+	</div>
+	<div class="grid_7 omega">
+		<div class="form">
+		{% if preview %}
+			{% if is_parent_thread %}
+			<form action="/module/community.forum.edit" method="post" accept-charset="utf-8">
+				<input type="hidden" name="key" value="{{ thread.community.key() }}" />
+			{% else %}
+			<form action="/module/community.forum.reply" method="post" accept-charset="utf-8">
+				<input type="hidden" name="key" value="{{ thread.parent_thread.key() }}" />
+			{% endif %}
+		{% else %}
+			<form action="/module/community.thread.edit" method="post" accept-charset="utf-8">
+				<input type="hidden" name="key" value="{{ thread.key() }}" />
+		{% endif %}
+				{% if is_parent_thread %}
+				<p>
+					<label for="title">Título</label>
+					<input type="text" name="title" style="font-size: 200%; width:98%" value="{{ thread.title|escape }}"
+						{% if thread.responses > 5 %}disabled="disabled"{% endif %}/>
+				</p>
+				{% endif %}
+				<textarea name="content" rows="8" cols="54" id="markdown_example">{{ thread.content|escape }}</textarea>
+				{% if preview %}
+				<p>
+				{% if is_parent_thread %}
+				<input type="submit" value="{{ _('Publish thread') }}" />
+				{% else %}
+				<input type="submit" value="{{ _('Publish reply') }}" />
+				{% endif %}
+				&nbsp;<input type="submit" name="preview" value="{{ _('Preview') }}"></p>
+				{% else %}
+				<p><input type="submit" value="{{ _('Save changes') }}" /></p>
+				{% endif %}
+				<input type="hidden" name="auth" value="{{ auth }}" />
+			</form>
+		</div>
+		{#
+		<p>
+			<label for="preview">{{ _('Preview') }}</label>
+			<div class="comment"><div id="markdown_formatted"></div></div>
+		</p>
+		#}
+	</div>
+	<div class="clear">&nbsp;</div>
+{% endblock %}

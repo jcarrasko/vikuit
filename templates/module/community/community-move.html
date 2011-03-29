@@ -1,0 +1,62 @@
+{#
+(C) Copyright 2011 Jose Blanco <jose.blanco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+{% extends "layouts/module-layout.html" %}
+
+{% block title %} {{ _('Move communities') }}  {% endblock %}
+
+{% block content %}
+	<div class="info">
+		<h1>{{ _('Move communities') }}</h1>
+	</div>
+	
+	{% if m %}
+		<p class="message">{{ m|escape }}</p>
+	{% endif %}
+	{% if message %}
+		<p class="message">{{ message }}</p>
+	{% endif %}
+	<form action="/module/community.move" method="post" accept-charset="utf-8">
+		<input type="hidden" name="auth" value="{{ auth }}" />
+		<div class="form">
+			<p> 
+				<label for="key_orig">{{ _('Source community id (to remove)') }}</label>
+				<input id="key_orig" type="text" name="key_orig" {% if key_orig %}value="{{ key_orig() }}"{% endif %} style="width: 250px" /> 
+			</p>
+			<p> 
+				<label for="key_dest">{{ _('Target community id (to remain)') }}</label>
+				<input id="key_dest" type="text" name="key_dest" {% if key_dest %}value="{{ key_dest() }}"{% endif %} style="width: 250px" /> 
+			</p>
+			<p>
+				<input type="radio" name="action" value="mu">{{ _('Move users') }}.
+			</p>
+			<p>
+				<input type="radio" name="action" value="mt">{{ _('Move threads') }}.
+			</p>
+			<p>
+				<input type="radio" name="action" value="mi">{{ _('Move articles') }}.
+			</p>
+			<p>
+				<input type="radio" name="action" value="delete">{{ _('Delete source community') }}.
+			</p>
+		<p><input type="submit" value="{{ _('Move community') }}" /></p>
+		</div>
+	</form>
+		
+{% endblock %}

@@ -1,0 +1,38 @@
+{#
+(C) Copyright 2011 Jose Blanco <jose.blanco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+{% extends "layouts/module-layout.html" %}
+{% block title %}
+	{{ _('Deleted message') }}
+{% endblock %}
+
+{% block content %}
+	<h1>{{ _('Deleted message') }}</h1>
+
+	<div class="error">
+		{{ _('<strong>%s</strong> message has been deleted.')|format(message.title|escape) }}<br/>
+		{% if r == 'inbox' %}
+			<strong><a href="/message.inbox">{{ _('Back to inbox') }}</a></strong>
+		{% else %}
+			<strong><a href="/message.sent">{{ _('Back to sent messages') }}</a></strong>
+		{% endif %}
+	</div>
+
+
+{% endblock %}

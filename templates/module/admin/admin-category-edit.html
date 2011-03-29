@@ -1,0 +1,82 @@
+{#
+ (C) Copyright 2011 Jose Blanco <jose.blanco[a]vikuit.com>
+ 
+ This file is part of "vikuit".
+ 
+ "vikuit" is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Affero General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ 
+ "vikuit" is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Affero General Public License for more details.
+ 
+ You should have received a copy of the GNU Affero General Public License
+ along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+{% extends "layouts/module-layout.html" %}
+
+{% block title %}
+	{% if key %}
+		{{ _('Editing') }}: {{ title|escape }}
+	{% else %}
+		{{ _('New category') }}
+	{% endif %}
+{% endblock %}
+
+{% block content %}
+
+{% if key %}
+	<h1>{{ _('Edit category') }}</h1>
+{% else %}
+	<h1>{{ _('New category') }}</h1>
+{% endif %}
+
+{% if m %}
+	<p class="message">{{ _(m|escape) }}</p>
+{% endif %}
+
+<form action="/module/admin.category.edit" method="post" accept-charset="utf-8">
+	<input type="hidden" name="auth" value="{{ auth }}" />
+	{% if key %}
+		<input type="hidden" name="key" value="{{ key|escape }}" />
+	{% endif %}
+
+	<div class="form">
+		<p>
+			<label for="title">{{ _('Name') }}</label>
+			<input id="title" type="text" name="title" value="{{ _(title|escape) }}" style="font-size:200%" size="40" />
+		</p>
+
+		<p>
+			<label for="parent_category">{{ _('Parent category') }}</label>
+			<select id="parent_category" name="parent_category">
+				<option value="">{{ _('None') }}</option>
+				{% if parent_categories %}
+				{% for category in parent_categories %}
+					<option value="{{ category.key() }}"{% if parent_category and category.key().__str__() == parent_category %} selected="selected"{% endif %}>{{ category.title|escape }}</option>
+				{% endfor %}
+				{% endif %}
+			</select>
+		</p>
+
+		<p>
+			<label for="description">{{ _('Description') }}</label>
+			<textarea id="description" name="description" rows="4" cols="50">{{ _(description|escape) }}</textarea>
+		</p>
+	<p>
+	{% if key %}
+		<input type="submit" value="{{ _('Save changes') }}" />
+	{% else %}
+		<input type="submit" value="{{ _('Create category') }}" />
+	{% endif %}
+		o <strong><a href="/module/admin.categories">{{ _('Cancel') }}</a></strong>
+	</p>
+	</div>
+</form>
+
+
+{% endblock %}

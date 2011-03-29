@@ -1,0 +1,117 @@
+{#
+(C) Copyright 2011 Jose Blanco <jose.blanco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+{% if tab != '/module/mblog/mblog.list' %}
+<div id="vk-box"> 
+    <div class="vk_title">{{ _('Nanoblogging') }}<a href="javascript:loadLitleRss();"><img src="/static/images/reload.gif" alt="{{ _('Reload') }}"/></a></div> 
+    <div id="litleRss"></div>
+    <div style="text-align:center;">
+    {% if user %}
+
+    <div class="post">
+    
+        <div id="post-form" title="{{ _('Send post') }}">
+            <p class="validateTips">{{ _('Send your message to %s')|format(app.name|escape) }}</p>
+        
+            <form>
+                <textarea name="message" id="message" maxlength="140" cols="40" rows="4" onkeyup="if(this.value.length>140){this.value=this.value.substring(0,maxlong);return false;}return true;"></textarea>
+            </form>
+        </div>
+        <input id="sendpost" type="button" value="{{ _('Write a post') }}" class="active"></input>
+    
+    </div>
+    {% endif %}
+    {% block javascript %}
+        <link rel="stylesheet" href="/static/css/jqueryui/jquery.ui.all.css"> 
+        <script src="/static/js/jquery-ui.min.js"></script> 
+        <script src="/static/js/microblogging.js" type="text/javascript"></script>
+        <script>
+            function loadLitleRss() {
+                document.getElementById('litleRss').innerHTML = "";
+                $('#litleRss').microblogging({
+                                targeturl: "/feed/mblog",
+                                maxItems:5,
+                                standard:false,
+                                style: "nblog",
+                                labelBy: "{{ _('Written by') }}"
+                });
+            }
+            loadLitleRss();
+        </script>
+        {% if user %}
+            <script>
+                $(function() {
+                    try {
+                        $( "#post-form" ).dialog({
+                            autoOpen: false,
+                            height: 300,
+                            width: 350,
+                            modal: true,
+                            buttons: {
+                                "{{ _('Send post') }}": function() {
+                                    var bValid = true;
+                                    try{
+                                         var message = $( "#message" )[0];
+                                         if (message.value){
+                                            message = message.value;
+                                        }
+            
+                                        if ( bValid ) {
+                                            sendBloggingPost('{{ user.nickname }}',message);
+                                            $( this ).dialog( "close" );
+                                        }
+                                    }catch(e){alert(e);}
+                                },
+                                Cancel: function() {
+                                    $( this ).dialog( "close" );
+                                }
+                            },
+                            close: function() {
+                            }
+                        });
+                
+                        $( "#sendpost" )
+                            .button()
+                            .click(function() {
+                                $( "#post-form" ).dialog( "open" );
+                            });
+                    } catch(e) {alert(e);}
+                });
+        
+            </script>
+        {% endif %}
+    {% endblock %}
+    
+    </div>
+</div>
+{% endif %}
+
+<div id="mssger" style="text-align:center;"></div>
+<script>
+$(function() {
+    try {
+        $( "#mssger" ).dialog({
+            autoOpen: false,
+            height: 100,
+            width: 150,
+            modal: true
+        });
+    } catch(e){}
+});
+</script>

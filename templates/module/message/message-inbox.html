@@ -1,0 +1,63 @@
+{#
+(C) Copyright 2011 Jose Blanco <jose.blanco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+{% extends "layouts/module-layout.html" %}
+{% block title %}
+	{{ _('Inbox') }}
+{% endblock %}
+
+{% block content %}
+	<h1>{{ _('Inbox') }}</h1>
+
+	<table class="grid">
+		<thead>
+			<tr>
+				<th class="left">{{ _('From') }}</th>
+				<th class="left">{{ _('Subject') }}</th>
+				<th class="right">{{ _('Date') }}</th>
+				<th>&nbsp;</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for message in messages %}
+			<tr {% if loop.index % 2 == 0 %}class="even"{% endif %}>
+				<td class="center">
+					<a href="/module/user/{{ message.user_from_nickname }}">
+						<img src="/images/user/thumbnail/{{ message.user_from_nickname }}"
+						alt="{{ message.user_from_nickname }}" title="{{ message.user_from_nickname }}" /></a>
+				</td>
+				<td class="left"><p><a href="/message.read/{{ message.url_path }}">
+					{% if message.read %}
+						{{ message.title|escape }}
+					{% else %}
+						<strong>{{ message.title|escape }}</strong>
+					{% endif %}
+				</a></p></td>
+				<td class="right"><p>{{ _('<strong>%s</strong> ago')|format(message.creation_date|relativize) }}</p></td>
+				<td class="right"><p class="options">
+					<a href="/message.delete?key={{ message.key() }}&amp;auth={{ auth }}"
+					onclick="return confirm('{{ _('Are you sure to delete this message?') }}')">
+					<img src="/static/images/cross.png" alt="" class="icon" /> {{ _('Delete message') }}</a></p></td>
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+	
+	{% include 'inc-pagination.html' %}
+{% endblock %}

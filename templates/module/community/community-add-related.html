@@ -1,0 +1,47 @@
+{#
+(C) Copyright 2011 Jose Blanco <jose.blanco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+{% extends "layouts/module-layout.html" %}
+
+{% block title %} {{ _('Add binding communities') }} {% endblock %}
+
+{% block content %}
+	<h1>{{ _('Add binding communities') }}</h1>
+
+	{% if m %}
+		<p class="message">{{ _(m|escape) }}</p>
+	{% endif %}
+
+	<form action="/module/community.add.related" method="post" accept-charset="utf-8">
+		<input type="hidden" name="auth" value="{{ auth }}" />
+		<div class="form">
+			<p>
+				<label for="community_from">{{ _('Source community id') }}</label>
+				<input id="community_from" type="text" name="community_from" style="width: 250px" />
+			</p>
+			
+			<p>
+				<label for="community_to">{{ _('Target community id') }}</label>
+				<input id="community_to" type="text" name="community_to" style="width: 250px" />
+			</p>
+		</div>
+
+		<p><input type="submit" value="{{ _('Bind') }}" /></p>
+	</form>
+{% endblock %}

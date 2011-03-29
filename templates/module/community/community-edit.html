@@ -1,0 +1,95 @@
+{#
+(C) Copyright 2011 Jose Blanco <jose.blanco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+{% extends "layouts/module-layout.html" %}
+{% block title %}
+	{% if key %}
+		{{ _('Editing') }}: {{ title|escape }}
+	{% else %}
+		{{ _('New community') }}
+	{% endif %}
+{% endblock %}
+
+{% block content %}
+{% if key %}
+	<h1>{{ _('Edit community') }}</h1>
+{% else %}
+	<h1>{{ _('New community') }}</h1>
+{% endif %}
+
+<form action="/module/community.edit" method="post" accept-charset="utf-8" enctype="multipart/form-data" id="com_edit">
+	<input type="hidden" name="auth" value="{{ auth }}" />
+	{% if key %}
+		<input type="hidden" name="key" value="{{ key|escape }}" />
+	{% endif %}
+
+	<div class="form">
+		<p>
+			<label for="title">{{ _('Title') }}</label>
+			<input id="title" type="text" name="title" value="{{ _(title|escape) }}"  size="40"{% if key %} disabled="disabled"{% endif %} />
+		</p>
+		
+		{% include "inc-categories-chooser.html" %}
+
+		<p>
+			<label for="description">{{ _('Description') }}</label>
+			<textarea id="description" name="description" rows="4" cols="50">{{ description|escape }}</textarea>
+		</p>
+		<p>
+			<label for"user_image">{{ _('Image') }}</label>
+			<input type="file" name="img" />&nbsp;{{ _('Square image is cool') }} :)
+		</p>
+		<p>
+			<input type="checkbox" name="all_users" value="true" id="all_users" {% if all_users %}checked="checked"{% endif %} /> {{ _('Allow all users to participate in the forum. Users outside the community as well.') }}
+		</p>
+	{% if key %}
+		<p><input type="submit" value="{{ _('Save changes') }}" /></p>
+	{% else %}
+		<p><input type="submit" value="{{ _('Create community') }}" /></p>
+	{% endif %}
+	</div>
+</form>
+{% endblock %}
+
+{% block javascript %}
+
+<script type="text/javascript" src="/static/js/jquery.validate.min.js"></script>
+<script type="text/javascript" charset="utf-8">
+	$(document).ready(function(){
+		$('#com_edit').validate({
+			rules: {
+				title: {
+					required: true
+				},
+				description: {
+					required: true
+				}
+			},
+			messages: {
+					title: {
+						required: "{{ _('Mandatory field') }}"
+					},
+					description: {
+						required: "{{ _('Mandatory field') }}"
+					}	
+				}
+			});
+	});
+</script>
+{% endblock %}

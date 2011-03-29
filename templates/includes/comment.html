@@ -1,0 +1,70 @@
+{#
+(C) Copyright 2011 Jose Carrasco <jose.carrasco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+<div>
+	<div class="clear">&nbsp;</div>
+		<h3>{{ _('Leave your comment') }}</h3>
+	</div>
+	<div>&nbsp;</div>
+	<div>
+	<form action="/module/article.comment" method="post" accept-charset="utf-8" id="comment-form">
+			<input type="hidden" name="auth" value="{{ auth }}" />
+			<input type="hidden" name="key" value="{{ article.key() }}" />
+			<textarea name="content" rows="8" cols="54" id="comment"></textarea> 
+ 			{% if cansubscribe %}
+			<p>
+				<input type="checkbox" name="subscribe" value="True" id="subscribe" />
+				{{ _('Subscribe from receive comments of this article') }}
+			</p>
+			{% endif %}
+						                
+			<p><input type="submit" value="{{ _('Publish comment') }}" /></p>
+		</form>
+		{#
+		<p>
+			<label for="preview">{{ _('Preview') }}</label>
+			<div class="comment"><div id="preview"></div></div>
+		</p>
+		#}
+	</div>
+	<div class="clear">&nbsp;</div>
+ 
+{% block javascript %}
+	<script type="text/javascript" src="/static/js/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="/static/js/editor/ckeditor/ckeditor.js"></script>
+	<script type="text/javascript" charset="utf-8">
+		CKEDITOR.replace( 'comment',{toolbar : 'Basic'});
+
+		$(document).ready(function(){
+			$('#comment-form').validate({
+			rules: {
+				content: {
+					required: false,
+					maxlength: 140
+				}
+			},
+			messages: {
+					content: {
+						required: "{{ _('Mandatory field') }}",
+						maxlength: "140 {{ _('chars is maximum length') }}"
+					}	
+				}
+			});
+		});
+	</script>
+{% endblock %}

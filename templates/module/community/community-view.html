@@ -1,0 +1,154 @@
+{#
+(C) Copyright 2011 Jose Blanco <jose.blanco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+{% extends "layouts/module-layout.html" %}
+
+{% block title %} {{ community.title|escape }} {% endblock %}
+{% block head %}
+	<link rel="alternate" type="application/rss+xml" title="{{ _('%s community articles')|format(community.title|escape) }}" href="/feed/module/community/{{ community.url_path }}" />
+	<link rel="alternate" type="application/rss+xml" title="{{ _('%s community forums')|format(community.title|escape) }}" href="/feed/module/community.forum/{{ community.url_path }}" />
+	<meta name="description" content="{{ community.description|escape }}" />
+{% endblock %}
+
+{% block rightSidebar %}
+	
+	{% if related %}
+		<div class="box">
+			<h1>{{ _('Bound communities') }}</h1>
+			<ul>
+				{% for community in related %}
+				<li style="clear:both">
+					<div class="avatar" style="float:left; padding-right: 3px"><a href="/module/community/{{ community.community_to_url_path }}"><img src="/images/community/thumbnail/{{ community.community_to.key().id() }}" alt="{{ community.community_to_title|escape }}" /></a></div>
+					<strong><a href="/module/community/{{ community.community_to_url_path }}">{{ community.community_to_title|escape }}</a></strong>
+				</li>
+				{% endfor %}
+			</ul>
+			<p style="clear:both">&nbsp;</p>
+			<p class="end-box">&nbsp;</p>
+		</div>
+	{% endif %}
+
+	<div class="box">
+		<div class="vk_title">{{ _('RSS') }}</dic>
+		<ul><li><a href="/feed/module/community/{{ community.url_path }}"><img src="/static/images/feed.png" alt="feed" class="icon" /> {{ _('%s community articles')|format(community.title|escape) }}</a></li>
+		<li><a href="/feed/module/community.forum/{{ community.url_path }}"><img src="/static/images/feed.png" alt="feed" class="icon" /> {{ _('%s community forums')|format(community.title|escape) }}</a></li></ul>
+	</div>
+{% endblock %}
+
+{% block content %}
+	{% include 'inc-community-header.html' %}
+	<hr class="separator"/>
+	
+	
+	<div class="grid_9 alpha omega">
+		<h4>{{ _('Latest messages in forums') }}</h4>
+
+
+		{% if not threads %}
+		<p class="message">
+			{{ _('Currently, no messages in forums') }}. <br/>
+			{{ _('Come on, why don\'t you encourage?') }}.
+			<strong><a href="/module/community.forum.list/{{ community.url_path }}">{{ _('Open a new thread') }}</a></strong>
+		</p>
+		{% else %}
+		<table class="grid">
+			<thead>
+				<tr>
+					<th class="center">{{ _('Autor') }}</th>
+					<th class="left">{{ _('Topic') }}</th>
+					<th class="right">{{ _('Visits') }}</th>
+					<th class="right">{{ _('Replies') }}</th>
+					<th class="right">{{ _('Updated') }}</th>
+				</tr>
+			</thead>
+			<tbody>
+			{% for thread in threads %}
+				<tr {% if loop.index % 2 == 0 %}class="even"{% endif %}>
+					<td class="center">
+						<a href="/module/user/{{ thread.author_nickname }}" title="{{ thread.author_nickname }}">
+							<img src="/images/user/thumbnail/{{ thread.author_nickname }}" alt="{{ thread.author_nickname }}" />
+						</a>
+					</td>
+					<td class="left">
+						<strong>
+							<a href="/module/community.forum/{{ thread.url_path }}">{{ thread.title|escape }}</a>
+							{% if app.max_results_sublist and thread.responses > app.max_results_sublist %}
+								<br/> {{ _('Pages') }}:
+								{% for page in range(1, ((thread.responses / app.max_results_sublist)|round(0, 'ceil') +1)) %}
+									&nbsp;<a href="/module/community.forum/{{ thread.url_path }}?p={{ page }}">[{{ page }}]</a>
+								{% endfor %}
+							{% endif %}
+						</strong>
+					</td>
+					<td class="right">{{ thread.views }}</td>
+					<td class="right">{{ thread.responses }}</td>
+					<td class="right">{{ _('%s ago')|format(thread.last_response_date|relativize) }}</td>
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+
+		<p class="right">
+			<strong><a href="/module/community.forum.list/{{ community.url_path }}">{{ _('Read all threads or open a new one') }} »</a></strong>
+		</p>
+		{% endif %}
+		
+		{% if articles %}
+		<hr class="separator"/>
+		
+		<h4>{{ _('Latest articles') }}</h4>
+		<table class="grid">
+			<thead>
+				<tr>
+					<th class="center">{{ _('Autor') }}</th>
+					<th class="left">{{ _('Title') }}</th>
+				</tr>
+			</thead>
+			<tbody>
+		{% for article in articles %}
+			<tr {% if loop.index % 2 == 0 %}class="even"{% endif %}>
+				<td class="center">
+					<a href="/module/user/{{ article.article_author_nickname }}">
+						<img class="icon" src="/images/user/thumbnail/{{ article.article_author_nickname }}"
+							alt="{{ article.article_author_nickname }}" title="{{ article.article_author_nickname }}" />
+					</a>
+				</td>
+				<td class="left">
+				    <strong><a href="/module/article/{{ article.article_url_path }}">{{ article.article_title|escape }}</a></strong>
+				</td>
+			</tr>
+		{% endfor %}
+			</tbody>
+		</table>
+		<p class="more"><a href="/module/community.article.list/{{ community.url_path }}">{{ _('Read all articles') }} »</a></p>
+		{% endif %}
+		
+		
+		<h4>{{ _('Users') }}</h4>
+		{% include 'inc-user-grid.html' %}
+		
+		<p class="more">
+			<a href="/module/community.user.list/{{ community.url_path }}">{{ _('Check all community members') }} »</a>
+		</p>
+		<div class="clear">&nbsp;</div>
+		
+	</div>
+	<div class="clear">&nbsp;</div>
+	
+{% endblock %}

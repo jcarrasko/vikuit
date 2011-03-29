@@ -1,0 +1,32 @@
+/* Layout */
+
+ 
+.left_column {
+float: left;
+width: 190px;
+padding-rigth:10px; 
+
+ 
+}
+.center_column {
+	float: left;
+    margin-left: 0px;
+	margin-right: 0px;
+	width: 578px;
+	
+	border-right-width:1px;
+	padding-right:10px;
+	border-right-style:solid;
+	border-right-color:#d2d2d2;
+	
+	border-left-width:1px;
+	padding-left:10px;
+	border-left-style:solid;
+	border-left-color:#d2d2d2;
+ }
+.right_column{
+	float: left;
+	padding-left:10px;
+	width: 190px;
+
+}

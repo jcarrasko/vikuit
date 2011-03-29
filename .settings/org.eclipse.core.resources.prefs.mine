@@ -1,0 +1,18 @@
+#Thu Mar 24 13:45:48 CET 2011
+eclipse.preferences.version=1
+encoding//handlers/BaseHandler.py=utf-8
+encoding//handlers/Feed.py=utf-8
+encoding//handlers/ImageDisplayer.py=utf-8
+encoding//handlers/Initialization.py=utf-8
+encoding//handlers/Invite.py=utf-8
+encoding//handlers/MainPage.py=utf-8
+encoding//handlers/MediaContentFilters.py=utf-8
+encoding//handlers/Static.py=utf-8
+encoding//handlers/__init__.py=utf-8
+encoding//jinja2/__init__.py=utf-8
+encoding//jinja2/loaders.py=utf-8
+encoding//static/themes/blackbook/css/general.css=UTF-8
+encoding//utilities/AppProperties.py=utf-8
+encoding/controller.py=utf-8
+encoding/model.py=utf-8
+encoding/templatefilters.py=utf-8

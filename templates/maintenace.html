@@ -1,0 +1,43 @@
+{#
+(C) Copyright 2011 Jose Carrasco <jose.carrasco at vikuit dot com>
+(C) Copyright 2011 Jose Blanco <jose.blanco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+{% extends "base.html" %}
+{% block title %}
+	Your social network is down for maintenance / Servidores en labores de mantenimiento
+{% endblock %}
+
+{% block content %}
+	<h1>Your social network is down for maintenance / Servidores en labores de mantenimiento</h1>
+	<div>
+	<p>Google App Engine service, in which your network is hosted, is down for maintenance.
+	You can get more info in official community	<a href="http://communities.google.com/module/community/google-appengine-downtime-notify?hl=en">Google App Engine</a>.<br/>
+	Generally these operations last for half an hour to an hour.<br/>
+	Sorry. We hope to be back soon.<br/><br/>
+	Thank you,<br/>
+	{% if app.name %}{{ app.name }}{% endif %} team</p>
+	<br/>
+	<p>El servicio Google App Engine en el que se encuentra alojado esta instalaci&oacute;n se encuentra realizando operaciones de 
+	mantenimiento. Podéis obtener más información sobre cuándo se producirán y cuánto durarán en el grupo oficial de 
+	<a href="http://communities.google.com/module/community/google-appengine-downtime-notify?hl=en">Google App Engine</a>.<br/>
+	Por norma general estas operaciones duran entre media hora y una hora.<br/>
+	Lo sentimos. Esperamos estar de vuelta en breve.<br/><br/>
+	Gracias,<br/>
+	El equipo de {% if app.name %}{{ app.name }}{% endif %}</p>
+	</div>
+{% endblock %}

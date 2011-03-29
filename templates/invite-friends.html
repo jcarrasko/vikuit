@@ -1,0 +1,105 @@
+{#
+(C) Copyright 2011 Jose Blanco <jose.blanco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+{% extends "base.html" %}
+
+{% block title %} {{ _('Invite your contacts') }}  {% endblock %}
+
+{% block content %}
+{% if not sent %}
+	<div class="info">
+		<h1>{{ _('Invite your contacts') }}</h1>
+	</div>
+	
+	<form action="/invite" method="post" accept-charset="utf-8" id="invite_friends">
+		<input type="hidden" name="auth" value="{{ auth }}" />
+		<div class="form" class="center">
+			<p>
+				<label for="personalmessage">
+					{{ _('If you want you can write here a personal message to your contacts. Otherwise a default message will be sent.') }}
+				</label>
+				<textarea name="personalmessage" rows="5" cols="50" id="personalmessage">{{ personalmessage }}</textarea>
+			</p>
+			{% if failed %}
+				<p class="error">{{ _('No mail address found') }}. {{ failed }}</p>
+			{% endif %}
+			<p>
+				<label for="contacts">{{ _('You can insert to 20 contacts (use comma as separator)') }}</label>
+				<textarea id="contacts" name="contacts" rows="5" cols="50">{{ contacts|escape }}</textarea>
+			</p>
+			
+		<p><input type="submit" value="{{ _('invite') }}" /></p>
+		</div>
+	</form>
+
+{% else %}
+	<div class="info"><h1>{{ _('Your invitations have been sent') }}.</h1></div>
+	<h4>{{ _('Emails which have received an invitation') }}:</h4>
+	<p> {% for i in invitations %}{{ i }}, {% endfor %}</p>
+	{% if _users %}
+	<h4>{{ _('Some of your contacts are already registered') }}</h4>
+	<table class="grid">
+		<thead>
+			<tr>
+				<th></th>
+				<th class="left">{{ _('User') }}</th>
+				<th class="left">{{ _('Email') }}</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for u in _users %}
+			<tr {% if loop.index % 2 == 0 %}class="even"{% endif %}>
+				<td class="center"><div class="avatar"><a href="/module/user/{{ u.nickname|escape }}">
+					<img src="/images/user/thumbnail/{{ u.nickname }}" alt"{{ u.nickname }}" /></a></div>
+				</td>
+				<td class="left"><strong><a href="/module/user/{{ u.nickname|escape }}">{{ u.nickname|escape }}</a></strong></td>
+				<td class="left"> {{ u.email|escape }}</td>
+			</tr>
+			{% endfor %} 
+		</tbody>
+	</table>
+	{% endif %}
+
+{% endif %}
+
+{% endblock %}
+
+{% block javascript %}
+
+<script type="text/javascript" src="/static/js/jquery.validate.min.js"></script>
+
+<script type="text/javascript" charset="utf-8">
+	$(document).ready(function(){
+		$('#invite_friends').validate({
+			rules: {
+				contacts: {
+					required: true
+				}
+			},
+			messages: {
+					title: {
+						required: "{{ _('Mandatory field') }}"
+					}	
+				}
+			});
+	});
+</script>
+
+		
+{% endblock %}

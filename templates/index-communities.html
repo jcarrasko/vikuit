@@ -1,0 +1,39 @@
+{#
+(C) Copyright 2011 Jose Blanco <jose.blanco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+<div class="box">
+	<h1>{{ _('Communities') }}</h1>
+	<ul>
+	{% for community in communities %}
+		<li style="clear:both">
+			<div class="avatar" style="float:left; padding-right: 3px"><a href="/module/community/{{ community.url_path }}">
+			{% if community.image_version %}
+				<img src="/images/community/thumbnail/{{ community.key().id() }}/{{ community.image_version }}" alt="{{ community.title|escape }}" title="{{ community.title|escape }}" />
+			{% else %}
+				<img src="/images/community/thumbnail/{{ community.key().id() }}" alt="{{ community.title|escape }}" title="{{ community.title|escape }}" />
+			{% endif %}
+			</a></div>
+			<strong><a href="/module/community/{{ community.url_path }}">{{ community.title|escape }}</a></strong>
+			<br/><span class="info">{{ community.members }} {{ _('members') }}</span>
+		</li>
+	{% endfor %}
+	</ul>
+	<p style="text-align:right"><strong><a href="/module/community.list">{{ _('Check all') }} »</a></strong></p>
+	<p class="end-box">&nbsp;</p>
+</div>
