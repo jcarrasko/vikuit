@@ -27,7 +27,7 @@ along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
 
 {% endblock %}
 {% block title %} 
-	{{ _('Vikuit welcome you to your social network') }} 
+	{% if app.name %}{{ app.name }} - {% endif %}{% if app.subject %}{{ app.subject }}{% endif %}
 {% endblock %}
 {% block rightSidebar %}
 	{% include 'vikuitlets/action/action.html' %}
