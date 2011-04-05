@@ -3,7 +3,8 @@
 
 ##
 # (C) Copyright 2011 Jose Blanco <jose.blanco[a]vikuit.com>
-# 
+# (C) Copyright 2011 Jose Carrasco <jose.carrasco[a]vikuit.com>
+#
 # This file is part of "vikuit".
 # 
 # "vikuit" is free software: you can redistribute it and/or modify
@@ -252,6 +253,8 @@ class Contact(db.Model):
 class Application(db.Model):
 	
 	name = db.StringProperty()
+	logo = db.BlobProperty()
+	theme = db.StringProperty()
 	subject = db.StringProperty()
 	locale = db.StringProperty()
 	
@@ -262,6 +265,7 @@ class Application(db.Model):
 	
 	url = db.StringProperty()
 	
+	mail_contact = db.StringProperty()
 	mail_subject_prefix = db.StringProperty()
 	mail_sender = db.StringProperty()
 	mail_footer = db.StringProperty()
@@ -271,11 +275,14 @@ class Application(db.Model):
 	
 	google_adsense = db.StringProperty()
 	google_adsense_channel = db.StringProperty()
+	google_analytics = db.StringProperty()
 	
 	max_results = db.IntegerProperty()
 	max_results_sublist = db.IntegerProperty()
 	
 	session_seed = db.StringProperty()
+	
+	version = db.StringProperty()
 	
 class Message(db.Model):
 	user_from = db.ReferenceProperty(UserData,required=True,collection_name='mf')
