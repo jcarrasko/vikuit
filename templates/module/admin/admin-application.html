@@ -1,5 +1,6 @@
 {#
 (C) Copyright 2011 Jose Blanco <jose.blanco[a]vikuit.com>
+(C) Copyright 2011 Jose Carrasco <jose.carrasco[a]vikuit.com>
 
 This file is part of "vikuit".
 
@@ -31,7 +32,7 @@ along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
 		<p class="message">{{ m|escape }}</p>
 	{% endif %}
 
-	<form action="/module/admin.application" method="post" accept-charset="utf-8">
+	<form action="/module/admin.application" method="post" accept-charset="utf-8" enctype="multipart/form-data">
 		<input type="hidden" name="auth" value="{{ auth }}" />
 		<div class="form">
 			<p>
@@ -48,10 +49,24 @@ along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
 					<option value="en"{% if locale == 'en' %} selected="selected"{% endif %}>English</option>
 					<option value="es"{% if locale == 'es' %} selected="selected"{% endif %}>Espa&ntilde;ol</option>
 				</select> <i>*{{ _('Language per instance') }}</i>
+			</p>
+			
+			<p>
+				<label for="logo">{{ _('Logo') }}</label>
+				<input type="file" name="logo" />&nbsp;
+			</p>
+			<p>
+				<label for="theme">{{ _('Theme') }}</label>
+				<input id="theme" type="text" name="theme" value="{{ theme|escape }}" style="width: 250px" /> 
 			</p>			
 			<p>
 				<label for="url">{{ _('URL') }}</label>
 				<input id="url" type="text" name="url" value="{{ url|escape }}" style="width: 250px" /> Ej: http://example.com
+			</p>
+			
+			<p>
+				<label for="mail_contact">{{ _('Mail contact address') }}</label>
+				<input id="mail_contact" type="text" name="mail_contact" value="{{ mail_contact|escape }}" style="width: 250px" /> Ej: [contact@example.com]
 			</p>
 			
 			<p>
@@ -61,7 +76,7 @@ along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
 
 			<p>
 				<label for="mail_sender">{{ _('Mail sender address') }}</label>
-				<input id="mail_sender" type="text" name="mail_sender" value="{{ mail_sender|escape }}" style="width: 250px" /> Ej: [contact@example.com]
+				<input id="mail_sender" type="text" name="mail_sender" value="{{ mail_sender|escape }}" style="width: 250px" /> Ej: [notifications@example.com]
 			</p>
 
 			<p>
@@ -87,6 +102,11 @@ along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
 			<p>
 				<label for="google_adsense_channel">{{ _('Google Adsense Channel') }}</label>
 				<input id="google_adsense_channel" type="text" name="google_adsense_channel" value="{{ google_adsense_channel|escape }}" style="width: 250px" />
+			</p>
+			
+			<p>
+				<label for="google_analytics">{{ _('Google Analytics') }}</label>
+				<input id="google_analytics" type="text" name="google_analytics" value="{{ google_analytics|escape }}" style="width: 250px" />
 			</p>
 			
 			<p>
