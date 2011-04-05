@@ -34,10 +34,12 @@ from utilities.AppProperties import AppProperties
 
 class BaseHandler(webapp.RequestHandler):
 	
+
 	#########################
 	### Handler functions ###
 	#########################
 	def get(self):
+				
 		if self.request.url.split('/')[2] == AppProperties().getAppDic().get(Constant.domain):#'vikuit.com':
 			self.redirect(self.get_application().url + self.request.url.split('/', 3)[3], permanent=True)# 'http://www.vikuit.com/'
 			return
@@ -623,11 +625,10 @@ class BaseHandler(webapp.RequestHandler):
 	
 	
 	def fetch_application(self):
-		app = model.Application.all().get()
-		if app is None:
-			import Initialization
-			Initialization.populateDB()
-		return app
+		
+		
+		return model.Application.all().get()
+
 
 	def value(self, key):
 		try:
