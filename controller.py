@@ -24,7 +24,7 @@
 import wsgiref.handlers
 
 from handlers import *
-
+from handlers import Updater
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp import template
 
@@ -32,6 +32,10 @@ from google.appengine.ext.webapp import template
 webapp.template.register_template_library('templatefilters')
 
 def main():
+	
+	
+	Updater.update()
+
 	application = webapp.WSGIApplication(
 									   [('/', MainPage),
 									   # Module articles
