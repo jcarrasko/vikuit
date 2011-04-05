@@ -21,7 +21,7 @@ along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
         
 		<div class="bottomLinks"> 		
 		   <span><a href="/about">{{ _('About vikuit') }}</a> |
-			<a href="mailto:contact@vikuit.org">Contacto</a> |
+			<a href="mailto:{% if app.mail_contact%}{{ app.mail_contact }}{% endif %}">Contacto</a> |
 			<a href="/html/aviso-legal.html">Aviso Legal</a> |  
 			<a href="/html/faq.html" class="header">{{ _('FAQ') }}</a></span>
 		</div> 
