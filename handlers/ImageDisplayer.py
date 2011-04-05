@@ -3,7 +3,8 @@
 
 ##
 # (C) Copyright 2011 Jose Blanco <jose.blanco[a]vikuit.com>
-# 
+# (C) Copyright 2011 Jose Carrasco <jose.carrasco[a]vikuit.com>
+
 # This file is part of "vikuit".
 # 
 # "vikuit" is free software: you can redistribute it and/or modify
@@ -42,6 +43,11 @@ class ImageDisplayer(webapp.RequestHandler):
 			query = model.Image.gql('WHERE url_path=:1', '%s/%s' % (params[4], params[5]) )
 			image = query.get()
 			self.display_image(image, params, cached, 'unknown128.png', 'unknown48.png', False)
+		elif params[2] == 'application':
+			app = model.Application.all().get()
+			image = app.logo
+			self.display_image(image, params, cached, 'logo.gif', 'logo.gif', False)
+		
 		else:
 			self.error(404)
 			return
@@ -67,6 +73,12 @@ class ImageDisplayer(webapp.RequestHandler):
 				if not image:
 					self.redirect('/static/images/%s' % default_thumbnail)
 					return
+			elif params[3] == 'logo':
+				image = obj
+				if not image:
+					self.redirect('/static/images/%s' % default_thumbnail)
+					return
+		
 		if not_gallery and (len(params) == 5 or not obj.image_version or int(params[5]) != obj.image_version):
 			if not obj.image_version:
 				obj.image_version = 1
