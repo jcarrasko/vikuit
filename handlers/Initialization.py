@@ -322,6 +322,7 @@ def populateDB():
 			app.subject = 'Social portal: lightweight and easy to install'
 			app.recaptcha_public_key = '6LdORAMAAAAAAL42zaVvAyYeoOowf4V85ETg0_h-'
 			app.recaptcha_private_key = '6LdORAMAAAAAAGS9WvIBg5d7kwOBNaNpqwKXllMQ'
+			app.theme = 'blackbook'
 			app.users = 0
 			app.communities = 0
 			app.articles = 0
