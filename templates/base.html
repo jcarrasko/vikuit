@@ -37,11 +37,13 @@ along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
 	<link rel="stylesheet" href="/static/css/style.css" type="text/css" />
 	<link rel="icon" href="/static/images/favicon.ico" type="image/x-icon" />
  	
+ 
+ 	
 	<title>{% block title %}{% endblock %}</title>
 	<!--  Extra head -->
 	{% block head %}{% endblock %}
 	<!--  Theme CSS -->
-	{% include 'themes/blackbook/css.html' %}
+	{% include 'themes/'+app.theme+'/css.html' %}
  	<!--  Google Analytics-->
  	{% include 'includes/base/google-analytics.html' %}	
  
@@ -49,7 +51,7 @@ along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
  
 <body> 
 	
-	{% include 'themes/blackbook/top.html' %}
+	{% include 'themes/'+app.theme+'/top.html' %}
 	<!-- end of top --> 
 	<div class="main" style="border:0px; width:998px;"> 
     <!-- first column -->
@@ -74,7 +76,7 @@ along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
 	
 <!-- Foot -->
 
-      {% include 'themes/blackbook/bottom.html' %}
+      {% include 'themes/'+app.theme+'/bottom.html' %}
       
 	  {% block javascript %}{% endblock %} 
     </body> 
