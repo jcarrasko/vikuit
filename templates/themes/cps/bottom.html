@@ -1,0 +1,81 @@
+{#
+(C) Copyright 2011 Jose Carrasco <jose.carrasco[a]vikuit.com>
+(C) Copyright 2011 Jose Blanco <jose.blanco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+<div class="Cps_bottom_container">
+	<div class="Cps_bottom"> 
+		{% if sess.user %}
+			<div class="Cps_primary"><ul>
+				<li><a href="/module/user.edit">{{ _('Preferences') }}</a></li>
+				<li>
+					<a href="/module/user.contacts/{{ user.nickname }}">{{ _('Your contacts') }}</a>
+				</li>
+				<li>
+					<a href="/message.inbox">{{ _('Inbox') }}</a>
+				</li>
+				<li>
+					<a href="/module/user.events">{{ _('Your lifestreaming') }}</a>
+				</li>
+	
+			</ul></div>
+		{% else %}
+			<div class="Cps_primary"><ul>
+	
+				<li>
+				<a href="/module/user.login?redirect_to={{ redirect }}" class="top_link">{{ _('Log in') }}</a>
+				</li>
+				<li>
+				<a href="/module/user.register?redirect_to={{ redirect }}" class="top_link">{{ _('Register') }}</a>
+				</li>
+				<li>
+				<a href="/module/user.forgotpassword?redirect_to={{ redirect }}" class="top_link">{{ _('Forgot password?') }}</a>
+				</li>
+	
+			</ul></div>
+        {% endif %}
+
+        
+		<div class="Cps_secondary"><ul>		
+				<li>
+					<a href="/about">{{ _('About vikuit') }}</a>
+				</li>
+				<li>
+					<a href="mailto:{% if app.mail_contact%}{{ app.mail_contact }}{% endif %}">{{ _('Contact') }}</a>
+				</li>
+				<li>
+					<a href="/html/aviso-legal.html">{{ _('Legal advice') }}</a>
+				</li>
+				<li>
+					<a href="/html/faq.html" class="header">{{ _('FAQ') }}</a>
+				</li>
+		</ul></div>
+		<div class="Cps_tertiary"><ul>
+				<li>
+				&copy; Copyright 2011 {% if app.name %}{{ app.name }}{% endif %}
+				</li>
+				<li>
+					Iconos gracias a <strong><a href="http://www.famfamfam.com/lab/icons/silk/">Silk icons</a></strong>. Creative Commons, <a href="http://creativecommons.org/licenses/by/2.5/" title="Creative Commons Attribution 2.5 License">algunos derechos reservados</a>.
+				</li>
+		</ul></div> 	 
+	 
+	</div>
+</div>
+{% block javascript %}
+	
+{% endblock %}
