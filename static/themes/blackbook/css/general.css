@@ -24,7 +24,7 @@ body {
 	color: #333;
 	background-color: #fff;
 	margin: 0;
-	padding: 0 0 50px;
+	min-width: 1024px;
 }
 
 .clear_both {
@@ -467,7 +467,7 @@ div.rate_text {
 .bottomCopyright {
 	background-color: #FFF;
 	border-top: 1px solid #b3b3b3;
-	margin: 6px auto 0px;
+	margin: 50px auto 20px auto;
 }
 
 .bottomCopyright .bottomLinks {
