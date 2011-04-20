@@ -63,7 +63,7 @@ class MBlogEdit(AuthenticatedHandler):
 					if len(content) > 150:
 						self.render_json({ 'saved': False, 'msg': self.getLocale('Content is too large') })
 						return
-					if not re.match(u"^[A-Za-z0-9_-áéíóúÁÉÍÓÚ: ,=\./&¿\?!¡#\(\)]*$", content):
+					if not re.match(u"^[A-Za-z0-9_-àáèéíòóúÀÁÈÉÍÒÓÚïü: ,=\./&¿\?!¡#\(\)]*$", content):
 						self.render_json({ 'saved': False, 'msg': self.getLocale('Content is invalid') })
 						return
 					
