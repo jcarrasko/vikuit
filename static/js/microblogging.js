@@ -114,7 +114,7 @@
 })(jQuery);
 
 function sendBloggingPost(user, content) {
-	var params = "auth="+auth+"&content="+escape(content);
+	var params = "auth="+auth+"&content="+content;
 	var href = "/module/mblog.edit?"
 	ajaxPost(href, params);
 }
