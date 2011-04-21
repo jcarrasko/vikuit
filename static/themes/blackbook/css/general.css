@@ -255,8 +255,9 @@ div#switch_skin {
 }
 
 p {
-	margin: 0px;
+	/*margin: 0px;*/
 	padding: 0px;
+	text-align: justify;
 }
 /*---------------------*/
 td {
