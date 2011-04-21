@@ -55,10 +55,14 @@ along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
 				<label for="logo">{{ _('Logo') }}</label>
 				<input type="file" name="logo" />&nbsp;
 			</p>
-			<p>
+		 
+				<p>
 				<label for="theme">{{ _('Theme') }}</label>
-				<input id="theme" type="text" name="theme" value="{{ theme|escape }}" style="width: 250px" /> 
-			</p>			
+				<select id="theme" name="theme">
+					<option value="blackbook"{% if theme == 'blackbook' %} selected="selected"{% endif %}>Blackbook</option>
+					<option value="cps"{% if theme == 'cps' %} selected="selected"{% endif %}>Cold Plain Style</option>
+				</select>
+			</p>		
 			<p>
 				<label for="url">{{ _('URL') }}</label>
 				<input id="url" type="text" name="url" value="{{ url|escape }}" style="width: 250px" /> Ej: http://example.com
