@@ -65,7 +65,7 @@ class AppProperties (object):
             locale = ''
             try :
                 locale = self.get_application().locale
-                if locale is None:
+                if locale is None or locale == "" :
                     locale = Constant.DEFAULT_LOCALE
             except:
                 locale = Constant.DEFAULT_LOCALE
