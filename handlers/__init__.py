@@ -31,6 +31,10 @@ from handlers.module.admin.AdminCategoryEdit import *
 from handlers.module.admin.AdminApplication import *
 from handlers.module.admin.CommunityAddRelated import *
 from handlers.module.admin.AdminUsers import *
+from handlers.module.admin.AdminModules import *
+from handlers.module.admin.AdminLookAndFeel import *
+from handlers.module.admin.AdminGoogle import *
+from handlers.module.admin.AdminMail import *
 
 # Articles
 from handlers.module.article.ArticleList import *
