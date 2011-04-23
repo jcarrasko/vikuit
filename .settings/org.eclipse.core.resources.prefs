@@ -1,4 +1,4 @@
-#Sun Mar 27 01:31:56 CET 2011
+#Sat Apr 23 15:48:53 CEST 2011
 =\=\=\=\=\=\=
 <<<<<<<=.mine
 >>>>>>>=.r107
@@ -93,7 +93,7 @@ encoding//handlers/UserPromote.py=utf-8
 encoding//handlers/UserRegister.py=utf-8
 encoding//handlers/UserResetPassword.py=utf-8
 encoding//handlers/UserView.py=utf-8
-encoding//handlers/__init__.py=UTF-8
+encoding//handlers/__init__.py=utf-8
 encoding//handlers/module/mblog/MBlogEdit.py=utf-8
 encoding//jinja2/__init__.py=utf-8
 encoding//jinja2/compiler.py=utf-8

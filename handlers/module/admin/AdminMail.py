@@ -28,12 +28,12 @@ from handlers.AuthenticatedHandler import *
 
 from utilities.AppProperties import AppProperties
 
-class AdminApplication(AuthenticatedHandler):
+class AdminMail(AuthenticatedHandler):
 
 	def execute(self):
 		method = self.request.method
 		user = self.values['user']
-		self.values['tab'] = '/module/admin.application'
+		self.values['tab'] = '/module/admin.mail'
 		
 		if user.rol != 'admin':
 			self.forbidden()
@@ -45,24 +45,20 @@ class AdminApplication(AuthenticatedHandler):
 			if not app:
 				app = model.Application()
 			self.values['app'] = app
-			self.values['appName'] 				= self.not_none(app.name)
-			self.values['appSubject'] 			= self.not_none(app.subject)
-			self.values['locale'] 				= self.not_none(app.locale)
-			self.values['url'] 					= self.not_none(app.url)
-			self.render('templates/module/admin/admin-application.html')
+			self.values['mail_contact'] 		= self.not_none(app.mail_contact)
+			self.values['mail_subject_prefix'] 	= self.not_none(app.mail_subject_prefix)
+			self.values['mail_sender'] 			= self.not_none(app.mail_sender)
+			self.values['mail_footer'] 			= self.not_none(app.mail_footer)
+			self.render('templates/module/admin/admin-mail.html')
 		elif self.auth():
 			app = self.get_application()
 			if not app:
 				app = model.Application()
-				app.users	= model.UserData.all().count()
-				app.communities	= model.Community.all().count()
-				app.threads = model.Thread.all().filter('parent_thread', None).count()
-				app.articles	= model.Article.all().filter('draft =', False).filter('deletion_date', None).count()
-			app.name 					= self.get_param('appName')
-			app.subject					= self.get_param("appSubject")
-			app.locale					= self.get_param("locale")
-			app.url						= self.get_param('url')
+			app.mail_subject_prefix		= self.get_param('mail_subject_prefix')
+			app.mail_contact				= self.get_param('mail_contact')
+			app.mail_sender				= self.get_param('mail_sender')
+			app.mail_footer				= self.get_param('mail_footer')
 			app.put()
 			memcache.delete('app')
 			AppProperties().updateJinjaEnv()
-			self.redirect('/module/admin.application?m='+self.getLocale('Updated'))
+			self.redirect('/module/admin.mail?m='+self.getLocale('Updated'))

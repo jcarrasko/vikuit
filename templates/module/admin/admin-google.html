@@ -1,0 +1,68 @@
+{#
+(C) Copyright 2011 Jose Blanco <jose.blanco[a]vikuit.com>
+(C) Copyright 2011 Jose Carrasco <jose.carrasco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+{% extends "module/admin/layout/admin-layout.html" %}
+
+{% block title %} {{ _('Configure google stuff') }} {% endblock %}
+
+{% block content %}
+	<div class="info">
+		<h1>{{ _('Configure google stuff') }}</h1>
+	</div>
+	
+	{% if m %}
+		<p class="message">{{ m|escape }}</p>
+	{% endif %}
+
+	<form action="/module/admin.google" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+		<input type="hidden" name="auth" value="{{ auth }}" />
+		<div class="form">
+			
+			<p>
+				<label for="recaptcha_public_key">{{ _('Recaptcha public key') }}</label>
+				<input id="recaptcha_public_key" type="text" name="recaptcha_public_key" value="{{ recaptcha_public_key|escape }}" style="width: 250px" />
+			</p>
+			
+			<p>
+				<label for="recaptcha_private_key">{{ _('Recaptcha private key') }}</label>
+				<input id="recaptcha_private_key" type="text" name="recaptcha_private_key" value="{{ recaptcha_private_key|escape }}" style="width: 250px" />
+			</p>
+			
+			<p>
+				<label for="google_adsense">{{ _('Google Adsense') }}</label>
+				<input id="google_adsense" type="text" name="google_adsense" value="{{ google_adsense|escape }}" style="width: 250px" />
+			</p>
+			
+			<p>
+				<label for="google_adsense_channel">{{ _('Google Adsense Channel') }}</label>
+				<input id="google_adsense_channel" type="text" name="google_adsense_channel" value="{{ google_adsense_channel|escape }}" style="width: 250px" />
+			</p>
+			
+			<p>
+				<label for="google_analytics">{{ _('Google Analytics') }}</label>
+				<input id="google_analytics" type="text" name="google_analytics" value="{{ google_analytics|escape }}" style="width: 250px" />
+			</p>
+			
+		</div>
+	
+		<p><input type="submit" value="{{ _('Save changes') }}" /></p>
+	</form>
+
+{% endblock %}

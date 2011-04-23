@@ -1,0 +1,54 @@
+{#
+(C) Copyright 2011 John Cube <johncube78[a]gmail.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+{% extends "includes/vikuitlet/base.html" %}
+  
+{% block vikuitlet_title %} 
+{{ _('Menu') }}
+{% endblock %}
+
+{% block vikuitlet_content %}
+
+{% set menu_bar = [
+    ('/module/admin.application', 'admin.application', _('Configure application')),
+    ('/module/admin.lookandfeel', 'admin.lookandfeel', _('Configure look and feel')),
+    ('/module/admin.mail', 'admin.mail', _('Configure mail stuff')),
+    ('/module/admin.modules', 'admin.modules', ('Configure modules')),
+    ('/module/admin.google', 'admin.google', _('Configure google stuff')),
+    ('/module/community.add.related', 'community.add.related', _('Bind community')),
+    ('/module/admin.categories', 'admin.categories', _('Administrate categories')),
+    ('/module/admin.users', 'admin.users', _('Administrate users')),
+    ('/module/admin.flush.cache', 'admin.flush.cache', _('Flush Cache'))
+] %}
+ 
+	<ul>
+		{% for href, id, caption in menu_bar %}
+		  {% if  href == tab %}
+		 	<li><strong><a href="{{ href|e }}">{{ caption }}</a></strong></li>
+		  {% else %}
+			<li><a href="{{ href|e }}">{{ caption }}</a></li>
+		  {% endif %}
+		{% endfor %}
+	</ul>
+ 
+{% endblock %}
+
+{% block javascript %}
+ 
+{% endblock %}

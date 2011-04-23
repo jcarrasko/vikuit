@@ -117,13 +117,18 @@ def main():
 									   ('/images/upload', 		ImageUploader),
 									   ('/images/browse', 		ImageBrowser),
 									   ('/images/.*', 			ImageDisplayer),
-									   # admin
+									   # module admin
 									   ('/admin', 						Admin),
 									   ('/module/admin.application',	AdminApplication),
 									   ('/module/admin.categories',		AdminCategories),
 									   ('/module/admin.category.edit',	AdminCategoryEdit),
 									   ('/module/admin.users',			AdminUsers),
-									   ('/module/admin.cache',			AdminCache),
+									   ('/module/admin.lookandfeel',	AdminLookAndFeel),
+									   ('/module/admin.modules',		AdminModules),
+									   ('/module/admin.mail',			AdminMail),
+									   ('/module/admin.google',			AdminGoogle),
+                                       ('/module/admin.cache',          AdminCache),
+									   # Ohters									   									   
 									   ('/mail.queue',			MailQueue),
 									   ('/task.queue',			TaskQueue),
 									   #General

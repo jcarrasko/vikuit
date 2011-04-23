@@ -1,0 +1,64 @@
+{#
+(C) Copyright 2011 Jose Blanco <jose.blanco[a]vikuit.com>
+(C) Copyright 2011 Jose Carrasco <jose.carrasco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+{% extends "module/admin/layout/admin-layout.html" %}
+
+{% block title %} {{ _('Configure mail stuff') }} {% endblock %}
+
+{% block content %}
+	<div class="info">
+		<h1>{{ _('Configure mail stuff') }}</h1>
+	</div>
+	
+	{% if m %}
+		<p class="message">{{ m|escape }}</p>
+	{% endif %}
+
+	<form action="/module/admin.mail" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+		<input type="hidden" name="auth" value="{{ auth }}" />
+		<div class="form">
+			
+			
+			<p>
+				<label for="mail_contact">{{ _('Mail contact address') }}</label>
+				<input id="mail_contact" type="text" name="mail_contact" value="{{ mail_contact|escape }}" style="width: 250px" /> Ej: [contact@example.com]
+			</p>
+			
+			<p>
+				<label for="mail_subject_prefix">{{ _('Mail subject prefix') }}</label>
+				<input id="mail_subject_prefix" type="text" name="mail_subject_prefix" value="{{ mail_subject_prefix|escape }}" style="width: 250px" /> Ej. [example.com]
+			</p>
+
+			<p>
+				<label for="mail_sender">{{ _('Mail sender address') }}</label>
+				<input id="mail_sender" type="text" name="mail_sender" value="{{ mail_sender|escape }}" style="width: 250px" /> Ej: [notifications@example.com]
+			</p>
+
+			<p>
+				<label for="mail_footer">{{ _('Mail footer') }}</label>
+				<textarea id="mail_footer" name="mail_footer" value="{{ mail_footer|escape }}" style="width: 250px" ></textarea>
+			</p>
+			
+				</div>
+	
+		<p><input type="submit" value="{{ _('Save changes') }}" /></p>
+	</form>
+
+{% endblock %}
