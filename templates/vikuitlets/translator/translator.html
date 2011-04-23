@@ -22,10 +22,20 @@ along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
 {% block vikuitlet_title %} 
 	{{ _('Translator') }} 
 {% endblock %} 
-
+{% block css %} 
+	 <style> 
+  	  .goog-logo-link { 
+        display:none 
+      } 
+      .goog-te-gadget  { 
+        font-size:0px
+      } 
+    </style>
+{% endblock %} 
 {% block vikuitlet_content %}
-<div id="google_translate_element"></div>
-	
+
+	<div id="google_translate_element"></div>
+ 
 {% endblock %}  
 
 		
@@ -34,7 +44,7 @@ along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
  <script>
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({
-    pageLanguage: 'en'
+    pageLanguage: '{% if app.locale %}{{ app.locale }}{% endif %}'
   }, 'google_translate_element');
 }
 </script><script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
