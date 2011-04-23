@@ -1,0 +1,64 @@
+{#
+(C) Copyright 2011 Jose Carrasco <jose.carrasco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+{% extends "module/admin/layout/admin-layout.html" %}
+
+{% block title %} {{ _('Configure look and feel') }} {% endblock %}
+
+{% block content %}
+	<div class="info">
+		<h1>{{ _('Configure look and feel') }}</h1>
+	</div>
+	
+	{% if m %}
+		<p class="message">{{ m|escape }}</p>
+	{% endif %}
+
+	<form action="/module/admin.lookandfeel" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+		<input type="hidden" name="auth" value="{{ auth }}" />
+		<div class="form">
+			
+			<p>
+				<label for="logo">{{ _('Logo') }}</label>
+				<input type="file" name="logo" />&nbsp;
+			</p>
+		 
+				<p>
+				<label for="theme">{{ _('Theme') }}</label>
+				<select id="theme" name="theme">
+					<option value="blackbook"{% if theme == 'blackbook' %} selected="selected"{% endif %}>Blackbook</option>
+					<option value="cps"{% if theme == 'cps' %} selected="selected"{% endif %}>Cold Plain Style</option>
+				</select>
+			</p>		
+			
+			<p>
+				<label for="max_results">{{ _('Results per page (user.list, forum.list, community.list, article.list)') }}</label>
+				<input id="max_results" type="text" name="max_results" value="{{ max_results }}" style="width: 250px" />
+			</p>
+			
+			<p>
+				<label for="max_results_sublist">{{ _('Results per page (comments and answers)') }}</label>
+				<input id="max_results_sublist" type="text" name="max_results_sublist" value="{{ max_results_sublist }}" style="width: 250px" />
+			</p>
+		</div>
+	
+		<p><input type="submit" value="{{ _('Save changes') }}" /></p>
+	</form>
+
+{% endblock %}

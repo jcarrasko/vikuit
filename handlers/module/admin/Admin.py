@@ -32,4 +32,5 @@ class Admin(AuthenticatedHandler):
 		if user.rol != 'admin':
 			self.forbidden()
 			return
-		self.render('templates/module/admin/admin.html')
+		self.redirect('/module/admin.application')
+		 

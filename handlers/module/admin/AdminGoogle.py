@@ -28,12 +28,12 @@ from handlers.AuthenticatedHandler import *
 
 from utilities.AppProperties import AppProperties
 
-class AdminApplication(AuthenticatedHandler):
+class AdminGoogle(AuthenticatedHandler):
 
 	def execute(self):
 		method = self.request.method
 		user = self.values['user']
-		self.values['tab'] = '/module/admin.application'
+		self.values['tab'] = '/module/admin.google'
 		
 		if user.rol != 'admin':
 			self.forbidden()
@@ -45,24 +45,24 @@ class AdminApplication(AuthenticatedHandler):
 			if not app:
 				app = model.Application()
 			self.values['app'] = app
-			self.values['appName'] 				= self.not_none(app.name)
-			self.values['appSubject'] 			= self.not_none(app.subject)
-			self.values['locale'] 				= self.not_none(app.locale)
-			self.values['url'] 					= self.not_none(app.url)
-			self.render('templates/module/admin/admin-application.html')
+			self.values['recaptcha_public_key'] = self.not_none(app.recaptcha_public_key)
+			self.values['recaptcha_private_key']= self.not_none(app.recaptcha_private_key)
+			self.values['google_adsense'] 		= self.not_none(app.google_adsense)
+			self.values['google_adsense_channel']= self.not_none(app.google_adsense_channel)
+			self.values['google_analytics'] 		= self.not_none(app.google_analytics)	
+			self.render('templates/module/admin/admin-google.html')
 		elif self.auth():
 			app = self.get_application()
 			if not app:
 				app = model.Application()
-				app.users	= model.UserData.all().count()
-				app.communities	= model.Community.all().count()
-				app.threads = model.Thread.all().filter('parent_thread', None).count()
-				app.articles	= model.Article.all().filter('draft =', False).filter('deletion_date', None).count()
-			app.name 					= self.get_param('appName')
-			app.subject					= self.get_param("appSubject")
-			app.locale					= self.get_param("locale")
-			app.url						= self.get_param('url')
+						
+			app.recaptcha_public_key	= self.get_param('recaptcha_public_key')
+			app.recaptcha_private_key	= self.get_param('recaptcha_private_key')
+			app.google_adsense			= self.get_param('google_adsense')
+			app.google_adsense_channel	= self.get_param('google_adsense_channel')
+			app.google_analytics		= self.get_param('google_analytics')
+			
 			app.put()
 			memcache.delete('app')
 			AppProperties().updateJinjaEnv()
-			self.redirect('/module/admin.application?m='+self.getLocale('Updated'))
+			self.redirect('/module/admin.google?m='+self.getLocale('Updated'))
