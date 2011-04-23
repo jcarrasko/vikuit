@@ -1,0 +1,406 @@
+{#
+(C) Copyright 2011 Jose Carrasco <jose.carrasco at vikuit dot com>
+(C) Copyright 2011 Jose Blanco <jose.blanco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+{% extends "layouts/module-layout.html" %}
+{% block title %} {{ article.title|escape }} {% endblock %}
+{% block head %}
+	<link rel="alternate" type="application/rss+xml" title="{{ _('%s articles')|format(article.author_nickname) }}" href="/feed/module/user/{{ article.author_nickname }}" />
+	<meta name="description" content="{{ article.description|escape }}" />
+	<meta name="keywords" content="{{ keywords }}" />
+{% endblock %}
+
+{% block rightSidebar %}
+
+	{% if not article.draft %}
+		{% if communities or all_communities %}
+		<div class="box">
+		
+			<h1>{{ _('Communities') }}</h1>
+			{% if communities %}
+				<p>{{ _('This article is linked in ') }}</p>
+				<ul>
+				{% for community in communities %}
+						<li style="clear:both">
+							<div class="avatar" style="float:left; padding-right: 3px"><a href="/module/community/{{ community.community_url_path }}"><img src="/images/community/thumbnail/{{ community.community.key().id() }}" alt="{{ community.community_title|escape }}" /></a></div>
+							<strong><a href="/module/community/{{ community.community_url_path }}">{{ community.community_title|escape }}</a></strong>
+							{% if user.nickname == article.author_nickname %} <br/>
+							[<a href="/module/community.article.delete?article={{ article.key() }}&amp;community={{ community.community.key() }}&amp;auth={{ auth }}">
+								<img src="/static/images/delete.png" class="icon" alt="" /> {{ _('delete') }}</a>] {% endif %}
+						</li>
+				{% endfor %}
+				</ul>
+				<p style="clear:both;height:0">&nbsp;</p>
+			{% endif %}
+		
+		
+			{% if all_communities %}
+				<form action="/module/community.article.add" method="post" accept-charset="utf-8">
+					<input type="hidden" name="auth" value="{{ auth }}" />
+					<input type="hidden" name="article" value="{{ article.key() }}" />
+					<p><select name="community" style="width:100%">
+					{% for community in all_communities %}
+						<option value="{{ community.community.key() }}">{{ community.community_title|escape }}</option>
+					{% endfor %}
+					</select>
+					</p>
+				
+					<p><input type="submit" value="{{ _('Add to community') }}" /></p>
+				</form>
+			{% endif %}
+			
+		<p class="end-box">&nbsp;</p>
+		</div>
+		{% endif %}
+	{% endif %}
+	
+	<div class="box">
+		<div class="vk_title">{{ _('RSS') }}</div>
+		<ul><li><a href="/feed/module/user/{{ article.author_nickname }}"><img src="/static/images/feed.png" alt="feed" class="icon" /> {{ _('Latest articles by %s')|format(article.author_nickname)}}</a></li></ul>
+	</div>
+	
+	{# if related %}
+	<div class="box">
+		<h1>{{ _('Other articles by %s')|format(article.author_nickname) }}</h1>
+		<ul>
+		{% for article in related %}
+			<li>
+				<strong><a href="/module/article/{{ article.url_path }}">{{ article.title|escape }}</a></strong> <br/>
+				<p class="rating star{{ article.rating_average }}">&nbsp;</p>
+			</li>
+		{% endfor %}
+		</ul>
+		<p class="more"><a href="/module/user/{{ article.author_nickname }}">{{ _('Check all') }} &#62;&#62;</a></p>
+		<p class="end-box">&nbsp;</p>
+	</div>
+	{% endif #}
+
+{% endblock %}
+
+{% block content %}
+	<div class="grid_9 alpha omega">
+		<div class="info">
+			<h1>{% if article.deletion_date %}{{ _('Deleted') }}: {% else %}{% if article.draft %}{{ _('Draft') }}: {% endif %}{% endif %}{{ article.title|escape }}</h1>
+			<p class="options">
+				{{ _('Written by') }} <strong><a href="/module/user/{{ article.author_nickname|escape}}">{{ article.author_nickname|escape }}</a></strong>&nbsp;{{ _('<strong>%s </strong>ago')|format(article.creation_date|relativize) }}
+				{% if user.rol == 'admin' or  user.nickname == article.author_nickname %}
+					| <strong><a href="/module/article.delete?key={{ article.key() }}">
+						<img src="/static/images/cross.png" alt="" class="icon" /> {{ _('Delete') }}</a>
+					</strong>
+				{% endif %}
+				{% if user.nickname == article.author_nickname or  user.rol == 'admin' %}
+					| <strong><a href="/module/article.edit?key={{ article.key() }}"><img src="/static/images/page_white_edit.png" alt="" class="icon" /> {{ _('Edit') }}</a></strong>
+				{% endif %}
+			</p>
+		</div>
+		
+		{% if article.deletion_date %}
+		<div class="error">
+			<a href="/module/user/{{ article.deletion_user.nickname }}"><strong>{{ article.deletion_user.nickname }}</strong></a> {{ _('deletes this article because') }}: <em>{{ article.deletion_message|escape }}</em>.
+			{{ _('%s ago')|format(article.deletion_date|relativize) }}. <br/>
+			{{ _('Only an administrator or owner can read it') }}.
+		</div>
+		{% else %}
+		
+			{% if article.author.google_adsense %}
+				{% include 'includes/googlead.html' %}		
+			{% endif %}
+
+		{% endif %}
+   
+		<div id="article">
+		{{ content_html }} 
+		</div>
+   
+		<div style="float:right">
+		{% if canvote %}
+			<ul class="rating star{{article.rating_average}}" id="star-rating">
+				<li class="one"><a title="{{_('Very bad')}}" href="/module/article.vote?key={{ article.key() }}&amp;rating=1&amp;auth={{ auth }}">1</a></li>
+				<li class="two"><a title="{{_('Bad')}}" href="/module/article.vote?key={{ article.key() }}&amp;rating=2&amp;auth={{ auth }}">2</a></li>
+				<li class="three"><a title="{{_('Enough')}}" href="/module/article.vote?key={{ article.key() }}&amp;rating=3&amp;auth={{ auth }}">3</a></li>
+				<li class="four"><a title="{{_('Good')}}" href="/module/article.vote?key={{ article.key() }}&amp;rating=4&amp;auth={{ auth }}">4</a></li>
+				<li class="five"><a title="{{_('Very good')}}" href="/module/article.vote?key={{ article.key() }}&amp;rating=5&amp;auth={{ auth }}">5</a></li>
+			</ul>
+		{% else %}
+			<p class="rating star{{ article.rating_average }}"></p>
+		{% endif %}
+		</div>
+
+		
+		<p class="info options">
+			{% if article.lic == 'copyright' %}
+			{{ _('&copy; All rights reserved') }}
+			{% elif article.lic == 'pd' %}
+				{{ _('<a href="http://creativecommons.org/licenses/publicdomain/">Public domain</a>') }}
+			{% else %}
+				<a rel="license" href="http://creativecommons.org/licenses/{{ article.lic }}/3.0/">{{ _('Creative Commons License') }}</a>
+				<a rel="license" href="http://creativecommons.org/licenses/{{ article.lic }}/3.0/">
+					<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/{{ article.lic }}/3.0/80x15.png" class="icon" />
+				</a>
+			{% endif %} <br/>
+			{{ _('Tags') }}:
+			{% for tag in article.tags %}
+				<a href="/tag/{{ tag|escape}}">{{ tag|escape}}</a>,
+			{% endfor %}
+			| <a href="#comments"><img src="/static/images/comments.png" class="icon" alt="" /> {{ article.responses }} {{ _('comments') }}</a>
+			| <span id="article_views">{{ article.views }}</span> {{ _('visits') }}
+			| <span id="votes">{{article.rating_count}}</span> {{ _('votes') }}
+			<br/><br/>
+			{% if canadd %}
+				<span><a id="article.favourite" href="/module/article.favourite?key={{ article.key() }}&amp;auth={{ auth }}" title="{{ _('Add to favorites') }}">
+					<img src="/static/images/add.png" class="icon" /> {{ _('Add to favorites') }}</a>
+				</span>
+			{% elif user %}
+				<span><a id="article.favourite" href="/module/article.favourite?key={{ article.key() }}&amp;auth={{ auth }}" title="{{ _('Delete favorite') }}">
+					<img src="/static/images/delete.png" class="icon" /> {{ _('Delete favorite') }}</a>
+				</span>
+			{% endif %}
+			
+		{% if user.nickname != article.author_nickname %}
+			{% if cansubscribe %}
+				| <span><a id="article.comment.subscribe" href="/module/article.comment.subscribe?key={{ article.key() }}&amp;auth={{ auth }}"
+					title="{{ _('Subscribe') }}">
+					<img src="/static/images/email_add.png" class="icon" />
+					{{ _('Subscribe from receive comments of this article') }}</a>
+				</span>
+			{% else %}
+				{% if user %}
+				| <span><a id="article.comment.subscribe" href="/module/article.comment.subscribe?key={{ article.key() }}&amp;auth={{ auth }}"
+					title="{{ _('Unsubscribe') }}">
+					<img src="/static/images/email_delete.png" class="icon" />
+					{{ _('Unsubscribe from receive comments of this article') }}</a>
+				</span>
+				{% endif %}
+			{% endif %}
+		{% endif %}
+			&nbsp;<script type="text/javascript" src="http://w.sharethis.com/widget/?tabs=web%2Cemail&amp;charset=utf-8&amp;services=reddit%2Cdigg%2Cfacebook%2Cdelicious%2Cstumbleupon%2Ctechnorati%2Cgoogle_bmarks%2Cyahoo_bmarks%2Cyahoo_myweb%2Cwindows_live%2Cpropeller%2Cfriendfeed%2Cnewsvine%2Cxanga%2Cmixx%2Cblinklist%2Cfurl%2Cmagnolia%2Cmister_wong%2Cmeneame&amp;style=default&amp;publisher=de0ce7ee-6562-4732-8f55-b98b0509d9ec"></script>
+		</p>
+	</div>
+	<div class="clear">&nbsp;</div>
+		
+	<div class="grid_2 alpha">
+		<a href="/module/user/{{ article.author_nickname }}">
+		{% if article.author.image_version %}
+			<img src="/images/user/avatar/{{ article.author.nickname }}/{{ article.author.image_version }}" alt="{{ article.author.nickname }}" /></a>
+		{% else %}
+			<img src="/images/user/avatar/{{ article.author.nickname }}" alt="{{ article.author.nickname }}" /></a>
+		{% endif %}
+	</div>
+	<div class="grid_7 omega">
+		<strong>{{ _('About') }} <a href="/module/user/{{ article.author.nickname }}">{{ article.author.nickname }}</a>:</strong><br/>
+		{% if article.author.about_user %}
+			{{ article.author.about_user|escape }}
+		{% else %}
+			{{ _('No description in profile') }}. {% if user.nickname == article.author_nickname %} <a href="/module/user.edit">{{ _('Edit profile') }}.</a>{% endif%}
+		{% endif %} 
+	</div>
+	<div class="clear">&nbsp;</div>
+
+{% if related %}
+	<div class="grid_9 alpha omega">
+		<h3><a name="related">{{ _('Bound articles') }}</a></h3>
+		<ul>
+		{% for rel in related %}
+			<li><strong><a href="/module/article/{{ rel.article_to_url_path }}">{{ rel.article_to_title|escape }}</a></strong></li>
+		{% endfor %}
+		</ul>
+	</div>
+	<div class="clear">&nbsp;</div>	
+{% endif %}
+
+{% if not article.draft %}
+{% if len != 0 %}
+	<div class="grid_9 alpha omega">
+		<h3><a name="comments">{{ _('Comments') }}</a></h3>
+	</div>
+	<div class="clear">&nbsp;</div>
+{% for comment in comments %}
+	<div class="left-img">
+		<a href="/module/user/{{ comment.author_nickname|escape }}"><img src="/images/user/thumbnail/{{ comment.author_nickname|escape }}" alt="{{ comment.author_nickname|escape }}" /></a>
+	</div>
+	{% if not comment.deletion_date %}
+	<div class="comment">
+		<blockquote>
+			<cite>
+				<strong><a href="#comment-{{ comment.response_number }}" name="comment-{{ comment.response_number }}">#{{ comment.response_number }}</a>: <a href="/module/user/{{ comment.author_nickname|escape }}">{{ comment.author_nickname|escape }}</a></strong>
+				{{ _('wrote') }} {{ _('<strong>%s</strong> ago')|format(comment.creation_date|relativize) }}
+				{% if comment.editions %}
+					| <span style="color:#777">{{ _('Edited %(s) times. Last time %(s2) ago.')|format(s=comment.editions, s2=comment.last_edition|relativize) }}</span>
+				{% endif %}
+				{% if user.rol == 'admin' %}
+					<a href="javascript:setComment('/module/article.comment.delete?key={{ comment.key() }}&amp;auth={{ auth }}')">
+					<img src="/static/images/cross.png" class="icon" alt="{{ _('delete comment') }}" />{{ _('delete comment') }}</a>
+				
+					<a href="/module/article.comment.edit?key={{ comment.key() }}">
+					<img src="/static/images/page_white_edit.png" class="icon" alt="{{ _('edit comment') }}" /> {{ _('edit comment') }}</a>
+				{% else %}
+					{% if user.nickname == comment.author_nickname %}
+					<a href="/module/article.comment.edit?key={{ comment.key() }}"><img src="/static/images/page_white_edit.png" class="icon" alt="" /> {{ _('edit comment') }}</a>
+					{% endif %}
+				{% endif %}
+
+			</cite>
+				{{ comment.content|smiley|media }}
+		</blockquote>
+	</div>
+	{% else %}
+	<div class="comment">
+		<blockquote>
+			<cite>
+				<!-- img src="/images/user/thumbnail/{{ comment.author_nickname }}" alt"{{ comment.author_nickname }}" /> <br/ -->
+				<strong><a href="#comment-{{ comment.response_number }}" name="comment-{{ comment.response_number }}">#{{ comment.response_number }}</a>: <a href="/module/user/{{ comment.author_nickname|escape }}">{{ comment.author_nickname|escape }}</a></strong>
+				{{ _('wrote') }} {{ _('<strong>%s</strong> ago')|format(comment.creation_date|relativize) }}
+			</cite>
+			<p>
+				{{ _('Deleted comment. Because') }}: {{ comment.deletion_message }}
+			</p>
+		</blockquote>
+	</div>
+	{% endif %}
+{% endfor %}
+{% endif %}
+{% endif %}
+{% if prev or next %}
+	<div class="grid_2 alpha">
+		<p>&nbsp;</p>
+	</div>
+	<div class="grid_7 omega">
+		{% include 'inc-pagination.html' %}
+	</div>
+	<div class="clear">&nbsp;</div>
+{% endif %}
+
+{% if user and not article.draft %}
+	{% include 'includes/comment.html' %}		
+{% endif %}
+{% endblock %}
+{% block javascript %}
+{% if user.rol == 'admin' %}
+	<script type="text/javascript" charset="utf-8">
+		function setComment(href){
+			var message = prompt("{{ _('Please, enter a message to explain why this must be deleted') }}", '');
+			if (message != null && message != '')
+				document.location = href + "&message=" + message;
+		}
+	</script>
+{% endif %}
+{% if user and not article.draft%}
+{% endif %}
+<script type="text/javascript" charset="utf-8">
+	
+	function visitArticle() {
+		var parameters = "id={{ article.key().id() }}";
+		{% if user %}
+			parameters = parameters + "&user={{ user.nickname }}"
+		{% endif %}
+		$.ajax({
+			url: '/module/article.visit',
+			data: parameters,
+		    	dataType: 'json',
+			type: 'get',
+			success: function(json) {
+				var views = json.views;
+				$('#article_views').innerHTML = views;
+		  	}
+		});
+	}
+	function ajaxFav() {
+		var fav = $('#article.favourite');
+		if(fav == null) return;
+		var parent = $('#article.favourite').parent();
+		$('#article.favourite').click( function(e) {
+			href = fav.href + '&x=1';
+			parent.innerHTML = '<img class="icon" src="/static/images/spinner.gif" />';
+			$.ajax({
+				url: href,
+				type: 'get',
+				success: function(json) {
+					var action = json.action;
+					if(action == 'deleted') {
+						parent.innerHTML = '<a id="article.favourite" href="/module/article.favourite?key={{ article.key() }}&amp;auth={{ auth }}" '+
+						'title="{{ _('Add to favorites') }}"><img src="/static/images/add.png" class="icon" /> {{ _('Add to favorites') }}</a>';
+					} else {
+						parent.innerHTML = '<a id="article.favourite" href="/module/article.favourite?key={{ article.key() }}&amp;auth={{ auth }}" '+
+						'title="{{ _('Delete favorite') }}"><img src="/static/images/delete.png" class="icon" /> {{ _('Delete favorite') }}</a>';
+					}
+					ajaxFav();
+				},
+				error: function() {
+					parent.innerHTML = "{{ _('There was an error :(') }}";
+				}
+			});
+		});
+	}
+	
+	ajaxFav();
+    	visitArticle();
+
+	function ajaxSubs() {
+		var subs = $('#article.comment.subscribe');
+		if(subs == null) return;
+		var parent = $('#article.comment.subscribe').parent();
+			$('#article.comment.subscribe').click( function(e) {
+				href = subs.href + '&x=1';
+				parent.innerHTML = '<img class="icon" src="/static/images/spinner.gif" />';
+				$.ajax({
+					type: 'get',
+					url: href,
+			    		dataType: 'json',
+					success: function(json) {
+						var action = json.action;
+						if(action == 'unsubscribed') {
+							parent.innerHTML = '<a id="article.comment.subscribe" href="/module/article.comment.subscribe?key={{ article.key() }}&amp;auth={{ auth }}" title="{{ _('Subscribe') }}"><img src="/static/images/email_add.png" class="icon" /> {{ _('Subscribe from receive comments of this article') }}</a>';
+						} else {
+							parent.innerHTML = '<a id="article.comment.subscribe" href="/module/article.comment.subscribe?key={{ article.key() }}&amp;auth={{ auth }}" title="{{ _('Unsubscribe') }}"><img src="/static/images/email_delete.png" class="icon" /> {{ _('Unsubscribe from receive comments of this article') }}</a>';
+						}
+						ajaxSubs();
+					},
+					error: function() {
+						parent.innerHTML = "{{ _('There was an error :(') }}";
+					}
+				});
+			});
+		}
+		ajaxSubs();	
+		
+	{% if canvote %}
+		var sr = $('star-rating');
+		var parent = $('star-rating').parent();
+		$('#star-rating a').each(function(node) {
+			node.click( function(e) {
+				href = node.href + '&x=1';
+				parent.innerHTML = '<img class="icon" src="/static/images/spinner.gif" />';
+				$.ajax({
+					type: 'get',
+					url: href,
+					dataType: 'json',
+					success: function(json) {
+						var avg = json.average;
+						parent.innerHTML = '<p class="rating star'+avg+'"></p>';
+						$('votes').innerHTML = json.votes;
+					},
+					error: function() {
+						parent.innerHTML = "{{ _('There was an error :(') }}";
+					}
+				});
+			});
+		});
+	{% endif %}
+</script>
+{% endblock %}

@@ -1,0 +1,64 @@
+{#
+(C) Copyright 2011 Jose Carrasco <jose.carrasco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+{% extends "includes/vikuitlet/base.html" %}
+ 
+{% block vikuitlet_title %} 
+	{{ _('Cloud tags') }} 
+{% endblock %} 
+
+{% block vikuitlet_content %}
+ 
+		<canvas width="200" height="200" id="myCanvas">
+		  {% for tag in tag_cloud %}
+			 <a href='/tag/{{tag.0}}' title="{{tag.2}} {{ _('articles') }}" style="font-size:{{tag.1}}">{{tag.0}}</a> 
+		  {% endfor %}  
+		</canvas>
+ 
+ {% endblock %} 
+ 
+{% block javascript %}
+<!--[if lt IE 9]><script type="text/javascript" src="/static/js/excanvas.js"></script><![endif]-->
+<script src="/static/js/jquery.tagcanvas.min.js" type="text/javascript"></script>
+<script type="text/javascript" charset="utf-8">
+$(document).ready(function() {
+  if( ! $('#myCanvas').tagcanvas({
+	  
+	  textFont : 'Impact,Arial Black,sans-serif',
+	    textColour : '#3B5998',
+	 	textHeight : 20,
+	 	outlineColour : '#ccc',
+	 	outlineThickness : 1,
+	 	pulsateTo :0.2,
+		pulsateTime : 0.5,
+	 	outlineThickness : 3,
+	 	maxSpeed : 0.05,
+	 	minBrightness : 0.1,
+	 	depth : 0.32,
+	 	initial : [0.0,-0.0]
+	 	  
+	  
+  })) {
+    // TagCanvas failed to load
+    $('#myCanvasContainer').hide();
+  }
+});
+</script>
+
+{% endblock %}

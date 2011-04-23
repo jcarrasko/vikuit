@@ -1,0 +1,97 @@
+{#
+(C) Copyright 2011 Jose Blanco <jose.blanco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+{% extends "layouts/module-layout.html" %}
+{% block title %} {{ user.nickname }}: {{ _('lifestreaming') }} {% endblock %}
+{% block content %}
+
+	<h1><img src="/images/user/thumbnail/{{ user.nickname }}" alt="{{ user.nickname}}" style="vertical-align: middle" /> <a href="/module/user/{{ user.nickname }}">{{ user.nickname }}</a>: {{ _('lifestreaming') }}</h1>
+	
+	<table class="grid">
+		<tbody>
+	{% for event in events %}
+		<tr {% if loop.index % 2 == 0 %}class="even"{% endif %}>
+			<td class="center">
+				<a href="/module/user/{{ event.user_nickname}}">
+					<img src="/images/user/thumbnail/{{ event.user_nickname }}"
+						alt="{{ event.user_nickname }}" title="{{ event.user_nickname }}" />
+				</a>
+			</td>
+			<td class="left">
+			{% if event.event_type == 'thread.new' %}
+				{{ _('started a thread titled') }}
+				<strong><a href="/module/community.forum/{{ event.thread_url_path }}">{{ event.thread_title }}</a></strong>
+				{{ _('in community') }} <strong><a href="/module/community/{{ event.community_url_path }}">{{ event.community_title }}</a></strong>
+			{% elif event.event_type == 'thread.reply' %}
+				{{ _('replied a thread titled') }}
+				<strong><a href="/module/community.forum/{{ event.thread_url_path }}">{{ event.thread_title }}</a></strong>
+				{{ _('in community') }} <strong><a href="/module/community/{{ event.community_url_path }}">{{ event.community_title }}</a></strong>
+				<!--
+				{% if event.response_number %}
+					{{ event.response_number }}
+				{% endif %}
+				-->
+			{% elif event.event_type == 'article.new' %}
+				{{ _('wrote a new article titled') }} <strong><a href="/module/article/{{ event.article_url_path }}">{{ event.article_title }}</a></strong>
+			{% elif event.event_type == 'article.comment' %}
+				{{ _('wrote a comment in article') }} 
+				<strong><a href="/module/article/{{ event.article_url_path }}">{{ event.article_title }}</a></strong>
+				<!--
+				{% if event.response_number %}
+					{{ event.response_number }}
+				{% endif %}
+				-->
+			{% elif event.event_type == 'community.addarticle' %}
+				{{ _('wrote an article titled') }} <strong><a href="/module/article/{{ event.article_url_path }}">{{ event.article_title }}</a></strong>
+				{{ _('in community') }} <strong><a href="/module/community/{{ event.community_url_path }}">{{ event.community_title }}</a></strong>
+			{% elif event.event_type == 'community.new' %}
+				{{ _('created a community') }}  <strong><a href="/module/community/{{ event.community_url_path }}">{{ event.community_title }}</a></strong>
+			{% elif event.event_type == 'contact.add' %}
+				{{ _('added') }} <strong><a href="/module/user/{{ event.user_to_nickname}}">{{ event.user_to_nickname }}</a></strong>{{ _('to contacts') }}
+			{% elif event.event_type == 'user.edit' %}
+				{{ _('edited') }} <strong><a href="/module/user/{{ event.user_nickname}}">{{ _('own profile') }}</a></strong>
+			{% elif event.event_type == 'article.favourite' %}
+				{{ _('added an article titled') }}
+				<strong><a href="/module/article/{{ event.article_url_path }}">{{ event.article_title }}</a></strong>{{ _('to favorites') }}
+			{% else %}
+				{{ _('unknown event') }}: {{ event.event_type }}
+			{% endif %}
+			</td>
+			<td class="center">
+				{% if event.community %}
+				<a href="/module/community/{{ event.community_url_path }}">
+					<img src="/images/community/thumbnail/{{ event.community.key().id() }}"
+						alt="{{ event.community_title|escape }}" title="{{ event.community_title|escape }}" />
+				</a>
+				{% elif event.user_to %}
+				<a href="/module/user/{{ event.user_to_nickname }}">
+					<img src="/images/user/thumbnail/{{ event.user_to_nickname }}"
+						alt="{{ event.user_to_nickname }}" title="{{ event.user_to_nickname }}" />
+				</a>
+				{% endif %}
+			</td>
+			<td class="right">{{ _('<strong>%s</strong> ago')|format(event.creation_date|relativize) }}</td>
+		</tr>
+	{% endfor %}
+		</tbody>
+	</table>
+	
+	{% include 'inc-pagination.html' %}
+
+{% endblock %}

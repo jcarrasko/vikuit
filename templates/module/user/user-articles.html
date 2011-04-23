@@ -1,0 +1,39 @@
+{#
+(C) Copyright 2011 Jose Blanco <jose.blanco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+{% extends "layouts/module-layout.html" %}
+
+{% block head %}
+	<link rel="alternate" type="application/rss+xml" title="{{ _('Latest articles by %s')|format(this_user.author_nickname) }}" href="/feed/module/user/{{ this_user.nickname }}" />
+{% endblock %}
+
+{% block title %} {{ this_user.nickname }}: {{ _('published articles') }} {% endblock %}
+
+{% block rightSidebar %}
+	<div class="box">
+		<div class="vk_title">{{ _('RSS') }}</div>
+		<ul><li><a href="/feed/module/user/{{ this_user.nickname }}"><img src="/static/images/feed.png" alt="feed" class="icon" /> {{ _('Latest articles by %s')|format(this_user.author_nickname) }}</a></li></ul>
+	</div>
+{% endblock %}
+
+{% block content %}
+	<h1><img src="/images/user/thumbnail/{{ this_user.nickname }}" alt="{{ this_user.nickname}}" style="vertical-align: middle" /> <a href="/module/user/{{ this_user.nickname }}">{{ this_user.nickname }}</a>: {{ _('published articles') }}</h1>
+	
+	{% include 'inc-article-list.html' %}
+{% endblock %}

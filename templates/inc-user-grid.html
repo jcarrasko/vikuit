@@ -1,0 +1,36 @@
+{#
+ (C) Copyright 2011 Jose Blanco <jose.blanco[a]vikuit.com>
+ 
+ This file is part of "vikuit".
+ 
+ "vikuit" is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Affero General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ 
+ "vikuit" is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Affero General Public License for more details.
+ 
+ You should have received a copy of the GNU Affero General Public License
+ along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+{% for u in users %}
+	<div class="grid_1 {% if loop.index % 9 == 0 %}omega{% elif loop.index % 9 == 1 %}alpha{% endif %}">
+	<p class="center">
+		<a href="/module/user/{{ u.user_nickname }}">
+			<img src="/images/user/thumbnail/{{ u.user_nickname }}"
+				alt="{{ u.user_nickname }}"
+				title="{{ u.user_nickname }}" />
+		</a>
+	</p>
+	</div>
+	
+	{% if loop.index % 9 == 0 %}
+	<div class="clear">&nbsp;</div>
+	{% endif %}
+	
+{% endfor %}
+<div class="clear">&nbsp;</div>

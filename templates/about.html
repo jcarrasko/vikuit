@@ -1,0 +1,53 @@
+{#
+(C) Copyright 2011 Jose Blanco <jose.blanco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+{% extends "base.html" %}
+{% block title %}
+    {{ _('About vikuit') }}
+{% endblock %}
+
+{% block content %}
+    <h1>{{ _('About vikuit') }}</h1>
+    <h3>{{ _('Open Source developers and integrators') }}:</h3>
+    <span class="osspan">
+        <ul class="osul">
+            <li class="osli"><a href="http://www.python.org"><img src="static/images/os/python.gif" alt="Python"/></a></li>
+            <li class="osli"><a href="http://www.djangoproject.com"><img src="static/images/os/django.png" alt="django"/></a></li>
+            <li class="osli"><a href="http://jinja.pocoo.org"><img src="static/images/os/jinja.png" alt="jinja2"/></a></li>
+            <li class="osli"><a href="http://www.jquery.com"><img src="static/images/os/jquery.jpg" alt="jquery"/></a></li>
+            <li class="osli"><a href="http://www.ckeditor.com"><img src="static/images/os/ckeditor.png" alt="ckeditor"/></a></li>
+            <li class="osli"><a href="http://code.google.com/appengine"><img src="static/images/os/gae.gif" alt="Google App Engine"/></a></li>
+        </ul>
+    </span>
+    
+    <p>
+ <strong>"vikuit"</strong> is free software: you can redistribute it and/or modify 
+ it under the terms of the GNU Affero General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+    </p>
+    <p>
+ <strong>"vikuit"</strong> is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Affero General Public License for more details.
+    </p>
+    <p> 
+ The GNU Affero General Public License <a href="http://www.gnu.org/licenses/" target="_blank">Here</a>.
+    </p>
+{% endblock %}

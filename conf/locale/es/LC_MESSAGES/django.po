@@ -1,0 +1,1948 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-02-03 21:16+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-02-03 21:16+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: templates/module/message/message-sent.html:3 templates/module/message/message-sent.html.py:7
+#: templates/inc-quick-links.html:29
+msgid "Sent messages"
+msgstr "Mensajes enviados"
+
+#: templates/module/message/message-sent.html:12
+msgid "Sent"
+msgstr "Enviado"
+
+#: templates/module/message/message-sent.html:13 templates/module/message/message-inbox.html:13
+msgid "Subject"
+msgstr "Asunto"
+
+#: templates/module/message/message-sent.html:14 templates/module/message/message-inbox.html:14
+msgid "Date"
+msgstr "Fecha"
+
+#: templates/module/message/message-sent.html:27 templates/module/community/community-forum-list.html:58
+#: templates/module/community/community-forum-view.html:31 templates/module/community/community-forum-view.html.py:91
+#: templates/module/message/message-read.html:17 templates/module/message/message-read.html.py:44
+#: templates/module/user/user-forums.html:40 templates/module/message/message-inbox.html:33
+#: templates/module/article/article-view.html:236 templates/module/user/user-events.html:70
+#, python-format
+msgid "<strong>%s</strong> ago"
+msgstr "hace <strong>%s</strong>"
+
+#: templates/module/message/message-sent.html:30 templates/module/message/message-read.html:29
+#: templates/module/message/message-read.html.py:57 templates/module/message/message-inbox.html:36
+msgid "Are you sure to delete this message?"
+msgstr "Seguro que quieres eliminar este mensaje?"
+
+#: templates/module/message/message-sent.html:31 templates/module/message/message-read.html:30
+#: templates/module/message/message-read.html.py:58 templates/module/message/message-inbox.html:37
+msgid "Delete message"
+msgstr "Eliminar mensaje"
+
+#: templates/module/community/community-list.html:2 templates/module/community/community-list.html.py:6
+#: templates/error500.html:25 templates/error404.html:17
+#: templates/base.html:263 templates/base.html.py:287
+#: templates/module/user/user-view.html:156 templates/index-communities.html:1
+#: templates/error.html:25 templates/search.html:6
+#: templates/module/admin/admin-application.html:8 templates/module/article/article-view.html:16
+msgid "Communities"
+msgstr "Comunidades"
+
+#: templates/module/community/community-list.html:8
+msgid "Create a community!! Below you can check list of all communities"
+msgstr ""
+"Crea una comunidad!! A continuaci&oacute;n puedes consultar la lista de todas las comunidades"
+
+#: templates/module/community/community-list.html:14 templates/inc-categories-chooser.html:1
+msgid "Category"
+msgstr "Categor&iacute;a"
+
+#: templates/module/community/community-list.html:16
+msgid "All"
+msgstr "Todo"
+
+#: templates/module/community/community-list.html:27
+msgid "Filter"
+msgstr "Filtro"
+
+#: templates/module/community/community-list.html:28 templates/module/article/article-list.html:29
+msgid "Sorted by"
+msgstr "Ordenar por"
+
+#: templates/module/community/community-list.html:28
+msgid "Creation date"
+msgstr "Fecha de creaci&oacute;n"
+
+#: templates/module/community/community-list.html:28
+msgid "Number of users"
+msgstr "N&uacute;mero de usuarios"
+
+#: templates/module/community/community-list.html:28 templates/module/user/user-list.html:11
+msgid "Number of articles"
+msgstr "N&uacute;mero de art&iacute;culos"
+
+#: templates/module/community/community-list.html:34
+msgid "No communities"
+msgstr "No hay comunidades"
+
+#: templates/error500.html:3 templates/error500.html.py:7
+#: templates/error.html:3 templates/error.html.py:7
+msgid "Error"
+msgstr "Error"
+
+#: templates/error500.html:12 templates/error.html:12
+msgid "Well, this is embarrassing"
+msgstr "Bueno, esto es embarazoso"
+
+#: templates/error500.html:17 templates/error.html:17
+msgid "Sorry, but there was an error processing the page"
+msgstr "Lo sentimos pero ha habido un error procesando la p&aacute;gina"
+
+#: templates/error500.html:21 templates/error.html:21
+msgid "Continue with one of this options"
+msgstr "Puedes continuar con una de estas opciones"
+
+#: templates/error500.html:23 templates/error404.html:15
+#: templates/base.html:285 templates/error.html:23
+msgid "Init"
+msgstr "Inicio"
+
+#: templates/error500.html:24 templates/error404.html:16
+#: templates/base.html:262 templates/base.html.py:286 templates/base.html:322
+#: templates/error.html:24 templates/search.html:4
+#: templates/module/admin/admin-application.html:8 templates/module/article/article-list.html:3
+#: templates/module/article/article-list.html.py:23
+msgid "Articles"
+msgstr "Art&iacute;culos"
+
+#: templates/error500.html:26 templates/error404.html:18
+#: templates/base.html:264 templates/base.html.py:288 templates/error.html:26
+#: templates/search.html:8
+msgid "Forums"
+msgstr "Foros"
+
+#: templates/error500.html:27 templates/error404.html:19
+#: templates/base.html:289 templates/error.html:27 templates/module/user/user-list.html:2
+#: templates/module/user/user-list.html.py:8 templates/module/admin/admin-application.html:8
+msgid "Users"
+msgstr "Usuarios"
+
+#: templates/error404.html:3 templates/error404.html.py:7
+msgid "Not found"
+msgstr "No encontrado"
+
+#: templates/error404.html:12
+msgid "Sorry, resource not found"
+msgstr "Lo sentimos, recurso no encontrado"
+
+#: templates/error404.html:13
+msgid "Try searching in the search box or browse one of these options"
+msgstr ""
+"Prueba buscando en recuadro de b&uacute;squeda o continua con una de estas opciones"
+
+#: templates/module/user/user-resetpassword-login.html:3
+#: templates/module/user/user-resetpassword-login.html:7
+msgid "Password changed"
+msgstr "Contrase&ntilde;a cambiada"
+
+#: templates/module/user/user-resetpassword-login.html:9
+msgid "Password has been changed"
+msgstr "La contrase&ntilde;a ha sido cambiada"
+
+#: templates/module/user/user-resetpassword-login.html:11
+msgid "Try to login with your new password"
+msgstr "Ahora puedes autenticarte con tu nueva contrase&ntilde;a"
+
+#: templates/module/user/user-resetpassword-login.html:13
+msgid "Go to Login page"
+msgstr "Ir a la p&aacute;gina de acceso"
+
+#: templates/module/user/user-login.html:3 templates/module/user/user-login.html.py:7
+#: templates/base.html:241 templates/inc-quick-links.html:38
+msgid "Log in"
+msgstr "Accede"
+
+#: templates/module/user/user-login.html:18 templates/invite-friends.html:42
+#: templates/module/user/user-view.html:6 templates/module/user/user-view.html.py:19
+#: templates/inc-user-list.html:1 templates/inc-quick-links.html:44
+msgid "User"
+msgstr "Usuario"
+
+#: templates/module/user/user-login.html:22 templates/inc-quick-links.html:47
+#: templates/module/user/user-register.html:32
+msgid "Password"
+msgstr "Contrase&ntilde;a"
+
+#: templates/module/user/user-login.html:26 templates/inc-quick-links.html:54
+msgid "Stay signed in"
+msgstr "Mantener autenticado"
+
+#: templates/module/user/user-login.html:28
+msgid "Login"
+msgstr "Acceder"
+
+#: templates/module/user/user-favourites.html:4 templates/module/user/user-favourites.html.py:12
+#: templates/module/user/user-view.html:3 templates/module/user/user-view.html.py:11
+#: templates/module/article/article-view.html:54 templates/module/user/user-contacts.html:12
+#: templates/module/user/user-communities.html:4 templates/module/user/user-communities.html.py:12
+#: templates/module/user/user-articles.html:4 templates/module/user/user-articles.html.py:12
+#, python-format
+msgid "Latest articles by %s"
+msgstr "&Uacute;ltimos art&iacute;culos de %s "
+
+#: templates/module/user/user-favourites.html:18
+msgid "favorites"
+msgstr "favoritos"
+
+#: templates/module/user/user-favourites.html:23 templates/module/community/community-article-list.html:25
+#: templates/module/community/community-forum-list.html:30 templates/module/community/community-view.html:55
+#: templates/module/community/community-view.html.py:101 templates/inc-forum-list.html:1
+#: templates/index.html:39
+msgid "Autor"
+msgstr "Autor"
+
+#: templates/module/user/user-favourites.html:24 templates/module/community/community-article-list.html:26
+#: templates/module/community/community-edit.html:25 templates/module/community/community-forum-list.html:78
+#: templates/module/user/user-view.html:109 templates/module/community/community-view.html:102
+#: templates/module/article/article-edit.html:28 templates/module/message/message-edit.html:15
+#: templates/index.html:40
+msgid "Title"
+msgstr "T&iacute;tulo"
+
+#: templates/index-threads.html:1 templates/module/community/community-view.html:42
+msgid "Latest messages in forums"
+msgstr "&Uacute;ltimos mensajes en los foros..."
+
+#: templates/index-threads.html:6 templates/module/community/community-view.html:83
+#: templates/module/article/article-view.html:96 templates/module/article/article-deleted.html:13
+#: templates/inc-forum-list.html:33
+#, python-format
+msgid "%s ago"
+msgstr "hace %s"
+
+#: templates/index-threads.html:10 templates/index-communities.html:17
+#: templates/module/article/article-view.html:69 templates/index-articles.html:10
+msgid "Check all"
+msgstr "Ver todos"
+
+#: templates/module/community/community-forum-move.html:3 templates/module/community/community-forum-move.html.py:7
+#: templates/module/community/community-forum-move.html:22
+msgid "Move thread"
+msgstr "Mover hilo"
+
+#: templates/module/community/community-forum-move.html:19
+msgid "Community id"
+msgstr "Id de la comunidad"
+
+#: templates/module/community/community-article-list.html:2
+msgid "Published articles"
+msgstr "Art&iacute;culos publicados"
+
+#: templates/module/community/community-article-list.html:4 templates/module/community/community-article-list.html.py:13
+#: templates/module/community/community-forum-list.html:4 templates/module/community/community-forum-list.html.py:12
+#: templates/module/community/community-forum-view.html:5 templates/module/community/community-forum-view.html.py:14
+#: templates/module/community/community-user-list.html:5 templates/module/community/community-user-list.html.py:13
+#: templates/module/community/community-view.html:5 templates/module/community/community-view.html.py:30
+#, python-format
+msgid "%s community articles"
+msgstr "Art&iacute;culos de la comunidad %s"
+
+#: templates/module/community/community-article-list.html:5 templates/module/community/community-article-list.html.py:14
+#: templates/module/community/community-forum-list.html:5 templates/module/community/community-forum-list.html.py:13
+#: templates/module/community/community-forum-view.html:6 templates/module/community/community-forum-view.html.py:15
+#: templates/module/community/community-user-list.html:6 templates/module/community/community-user-list.html.py:14
+#: templates/module/community/community-view.html:6 templates/module/community/community-view.html.py:31
+#, python-format
+msgid "%s community forums"
+msgstr "Foros de la comunidad %s"
+
+#: templates/module/community/community-article-list.html:12 templates/module/community/community-forum-list.html:11
+#: templates/module/user/user-view.html:10 templates/module/community/community-user-list.html:12
+#: templates/tag.html:11 templates/module/community/community-view.html:29
+#: templates/module/article/article-view.html:53 templates/module/user/user-contacts.html:11
+#: templates/index.html:12 templates/module/article/article-list.html:11
+#: templates/module/user/user-articles.html:11
+msgid "RSS"
+msgstr "RSS"
+
+#: templates/module/community/community-edit.html:4 templates/module/admin/admin-category-edit.html:5
+#: templates/module/article/article-edit.html:4
+msgid "Editing"
+msgstr "Editando"
+
+#: templates/module/community/community-edit.html:6 templates/module/community/community-edit.html.py:14
+#: templates/inc-quick-links.html:9
+msgid "New community"
+msgstr "Nueva comunidad"
+
+#: templates/module/community/community-edit.html:12 templates/inc-community-list.html:36
+#: templates/inc-community-header.html:51
+msgid "Edit community"
+msgstr "Editar comunidad"
+
+#: templates/module/community/community-edit.html:32 templates/module/admin/admin-category-edit.html:48
+msgid "Description"
+msgstr "Descripci&oacute;n"
+
+#: templates/module/community/community-edit.html:36 templates/module/user/user-edit.html:27
+msgid "Image"
+msgstr "Imagen"
+
+#: templates/module/community/community-edit.html:37 templates/module/user/user-edit.html:28
+msgid "Square image is cool"
+msgstr "Cuadrada queda m&aacute;s cool"
+
+#: templates/module/community/community-edit.html:40
+msgid ""
+"Allow all users to participate in the forum. Users outside the community as well."
+msgstr ""
+"Permitir a todos los usuarios participar en el foro. Tambi&eacute;n usuarios de "
+"otras comunidades."
+
+#: templates/module/community/community-edit.html:43 templates/module/article/article-comment-edit.html:44
+#: templates/module/admin/admin-category-edit.html:53 templates/module/community/community-thread-edit.html:74
+#: templates/module/admin/admin-application.html:67 templates/module/article/article-edit.html:56
+#: templates/module/user/user-edit.html:87
+msgid "Save changes"
+msgstr "Guardar cambios"
+
+#: templates/module/community/community-edit.html:45
+msgid "Create community"
+msgstr "Crear comunidad"
+
+#: templates/module/community/community-edit.html:56 templates/module/community/community-edit.html.py:59
+#: templates/module/user/user-register.html:65 templates/module/user/user-register.html.py:69
+#: templates/module/user/user-register.html:74 templates/module/article/article-edit.html:138
+#: templates/module/message/message-edit.html:44
+msgid "Mandatory field"
+msgstr "Campo obligatorio"
+
+#: templates/module/community/community-forum-list.html:2
+msgid "Discussion forum"
+msgstr "Foro de discusi&oacute;n"
+
+#: templates/module/community/community-forum-list.html:24
+msgid "There is no message in forums"
+msgstr "No hay mensajes en el foro"
+
+#: templates/module/community/community-forum-list.html:31 templates/module/community/community-forum-list.html.py:79
+#: templates/module/user/user-forums.html:15 templates/module/community/community-view.html:56
+#: templates/inc-forum-list.html:2
+msgid "Topic"
+msgstr "Tema"
+
+#: templates/module/community/community-forum-list.html:32
+msgid "Reads"
+msgstr "Lecturas"
+
+#: templates/module/community/community-forum-list.html:33
+msgid "Answers"
+msgstr "Respuestas"
+
+#: templates/module/community/community-forum-list.html:34 templates/module/user/user-forums.html:18
+#: templates/module/community/community-view.html:59 templates/inc-forum-list.html:5
+msgid "Updated"
+msgstr "Actualizado"
+
+#: templates/module/community/community-forum-list.html:45 templates/module/user/user-forums.html:31
+#: templates/module/community/community-view.html:74 templates/inc-forum-list.html:18
+msgid "Pages"
+msgstr "P&aacute;ginas"
+
+#: templates/module/community/community-forum-list.html:69
+msgid "Start a topic"
+msgstr "Iniciar un tema"
+
+#: templates/module/community/community-forum-list.html:83 templates/module/article/article-edit.html:51
+#: templates/module/message/message-edit.html:20
+msgid "Content"
+msgstr "Contenido"
+
+#: templates/module/community/community-forum-list.html:87
+msgid "Mail subscription"
+msgstr "Suscripci&oacute;n por mail"
+
+#: templates/module/community/community-forum-list.html:90
+msgid "Start topic"
+msgstr "Iniciar tema"
+
+#: templates/module/community/community-forum-list.html:90 templates/module/community/community-forum-list.html.py:94
+#: templates/module/article/article-comment-edit.html:46 templates/module/community/community-forum-view.html:174
+#: templates/module/community/community-forum-view.html:177 templates/module/community/community-thread-edit.html:72
+#: templates/module/community/community-thread-edit.html:81 templates/module/article/article-view.html:314
+#: templates/module/article/article-view.html.py:318 templates/module/article/article-edit.html:63
+#: templates/module/message/message-edit.html:27
+msgid "Preview"
+msgstr "Vista previa"
+
+#: templates/module/community/community-forum-list.html:102 templates/module/community/community-forum-view.html:187
+msgid "Only community members can write"
+msgstr "Solo los miembros de la comunidad pueden escribir"
+
+#: templates/module/community/community-forum-list.html:102 templates/module/community/community-forum-view.html:187
+msgid "Join this community"
+msgstr "&Uacute;nete a la comunidad"
+
+#: templates/invite-friends.html:3 templates/invite-friends.html.py:8
+msgid "Invite your contacts"
+msgstr "Invita a tus contactos"
+
+#: templates/invite-friends.html:16
+msgid ""
+"If you want you can write here a personal message to your contacts. "
+"Otherwise a default message will be sent."
+msgstr ""
+"Si quieres puedes escribir aqu&iacute; un mensaje personal para tus contactos. Sino "
+"se enviar&aacute; un mensaje por defecto "
+
+#: templates/invite-friends.html:21
+msgid "No mail address found"
+msgstr "No se han encontrado direcciones de correo"
+
+#: templates/invite-friends.html:24
+msgid "You can insert to 20 contacts (use comma as separator)"
+msgstr "Puedes escribir hasta 20 contactos (sep&aacute;ralos con comas)"
+
+#: templates/invite-friends.html:28
+msgid "invite"
+msgstr "invitar"
+
+#: templates/invite-friends.html:33
+msgid "Your invitations have been sent"
+msgstr "Tus invitaciones han sido enviadas"
+
+#: templates/invite-friends.html:34
+msgid "Emails which have received an invitation"
+msgstr "Los correos que han recibido una invitaci&oacute;n"
+
+#: templates/invite-friends.html:37
+msgid "Some of your contacts are already registered"
+msgstr "Algunos de tus contactos ya estan "
+
+#: templates/invite-friends.html:43
+msgid "Email"
+msgstr "Correo"
+
+#: templates/module/user/user-promote.html:2 templates/module/user/user-promote.html.py:6
+msgid "Promote your profile!!"
+msgstr "Promociona tu perfil!!"
+
+#: templates/module/user/user-promote.html:7
+msgid ""
+"You can show to the rest of the world what topics interest you, what do you "
+"know, which articles you write, etc. You can add this snippet on your blog, "
+"your e-mail, your web or wherever you want."
+msgstr ""
+"Ahora puedes ense&ntilde;ar al resto del mundo los temas que te interesan, lo que "
+"sabes, tus art&iacute;culos, etc. Pega este fragmento en tu blog, firma de correos, "
+"tu web o donde quieras."
+
+#: templates/module/user/user-promote.html:14 templates/module/user/user-promote.html.py:24
+#: templates/module/user/user-promote.html:34 templates/module/user/user-promote.html.py:44
+msgid "Check my profile in"
+msgstr "Ver mi perfil en"
+
+#: templates/inc-community-list.html:17 templates/inc-community-header.html:23
+msgid "topics in forum"
+msgstr "temas en el foro"
+
+#: templates/inc-community-list.html:20 templates/inc-community-header.html:31
+#: templates/inc-tag-cloud.html:4
+msgid "articles"
+msgstr "art&iacute;culos"
+
+#: templates/inc-community-list.html:23 templates/module/community/community-user-list.html:2
+#: templates/inc-community-header.html:34
+msgid "users"
+msgstr "usuarios"
+
+#: templates/inc-community-list.html:29 templates/inc-community-header.html:40
+msgid "Unjoin community"
+msgstr "Abandona la comunidad"
+
+#: templates/inc-community-list.html:33 templates/inc-community-header.html:45
+msgid "Join community"
+msgstr "&Uacute;nete a la comunidad"
+
+#: templates/base.html:220
+msgid "Welcome to "
+msgstr "Bienvenido a "
+
+#: templates/base.html:222
+msgid "Register and participate in your community"
+msgstr ""
+"Reg&iacute;strate y participa! Vikuit quiere ser la red social m&aacute;s ligera y f&aacute;cil "
+"de instalar."
+
+#: templates/base.html:234 templates/module/admin.html:3 templates/module/admin.html.py:7
+msgid "Administration"
+msgstr "Administraci&oacute;n"
+
+#: templates/base.html:236 templates/inc-quick-links.html:11
+#: templates/module/user/user-edit.html:2
+msgid "Preferences"
+msgstr "Preferencias"
+
+#: templates/base.html:237
+msgid "Logout"
+msgstr "Desconectar"
+
+#: templates/base.html:238 templates/static-faq.html:3
+#: templates/static-faq.html.py:6
+msgid "FAQ"
+msgstr "FAQ"
+
+#: templates/base.html:242 templates/module/user/user-register.html:47
+msgid "Register"
+msgstr "Reg&iacute;strate"
+
+#: templates/base.html:243 templates/inc-quick-links.html:60
+msgid "Forgot password?"
+msgstr "&iquest;Has olvidado tu contrase&ntilde;a?"
+
+#: templates/base.html:266 templates/base.html.py:276
+#: templates/search-result.html:3
+msgid "Search"
+msgstr "Busca"
+
+#: templates/base.html:334
+msgid "Most active communities"
+msgstr "Comunidades m&aacute;s activas"
+
+#: templates/base.html:335
+msgid "Below you can check most active communities"
+msgstr "A continuaci&oacute;n puedes consultar las comunidades m&aacute;s activas"
+
+#: templates/base.html:338
+msgid "Go to community"
+msgstr "Ir a la comunidad"
+
+#: templates/base.html:349
+msgid "Web stats"
+msgstr "Estad&iacute;sticas de la web"
+
+#: templates/module/admin/admin-users.html:3 templates/module/admin/admin-users.html.py:7
+msgid "Users administration"
+msgstr "Administraci&oacute;n de usuarios"
+
+#: templates/module/admin/admin-users.html:18
+msgid "Action"
+msgstr "Acci&oacute;n"
+
+#: templates/module/admin/admin-users.html:20
+msgid "Lock user"
+msgstr "Bloquear usuario"
+
+#: templates/module/admin/admin-users.html:21
+msgid "Unlock user"
+msgstr "Desbloquear usuario"
+
+#: templates/module/admin/admin-users.html:25
+msgid "User's nickname"
+msgstr "Apodo del usuario"
+
+#: templates/module/admin/admin-users.html:31 templates/module/message/message-edit.html:24
+#: templates/module/user/user-forgotpassword.html:22
+msgid "Send"
+msgstr "Enviar"
+
+#: templates/module/community/community-move.html:3 templates/module/community/community-move.html.py:7
+#: templates/module/community/community-move-result.html:3 templates/module/community/community-move-result.html.py:7
+msgid "Move communities"
+msgstr "Mover comunidades"
+
+#: templates/module/community/community-move.html:20
+msgid "Source community id (to remove)"
+msgstr "Identificador de la comunidad origen (a eliminar)"
+
+#: templates/module/community/community-move.html:24
+msgid "Target community id (to remain)"
+msgstr "Identificador de la comunidad destino (a mantener)"
+
+#: templates/module/community/community-move.html:28
+msgid "Move users"
+msgstr "Mover usuarios"
+
+#: templates/module/community/community-move.html:31
+msgid "Move threads"
+msgstr "Mover hilos"
+
+#: templates/module/community/community-move.html:34
+msgid "Move articles"
+msgstr "Mover &iacute;tems"
+
+#: templates/module/community/community-move.html:37
+msgid "Delete source community"
+msgstr "Eliminar comunidad origen"
+
+#: templates/module/community/community-move.html:39 templates/inc-community-header.html:59
+msgid "Move community"
+msgstr "Mover comunidad"
+
+#: templates/module/article/article-comment-edit.html:3
+msgid "Edit comment"
+msgstr "Editar comentario"
+
+#: templates/module/article/article-comment-edit.html:46 templates/module/article/article-view.html:314
+msgid "Publish comment"
+msgstr "Publicar comentario"
+
+#: templates/module/community/community-forum-view.html:31 templates/module/community/community-forum-view.html.py:91
+#: templates/module/article/article-view.html:236
+msgid "wrote"
+msgstr "escribi&oacute;"
+
+#: templates/module/community/community-forum-view.html:42 templates/module/community/community-forum-view.html:105
+#: templates/module/article/article-view.html:248
+msgid "Edited %(s) times. Last time %(s2) ago."
+msgstr "Editado %(s) veces. La &uacute;ltima vez hace %(s2)."
+
+#: templates/module/community/community-forum-view.html:46
+msgid "delete thread"
+msgstr "eliminar hilo"
+
+#: templates/module/community/community-forum-view.html:49 templates/module/community/community-forum-view.html.py:57
+msgid "edit thread"
+msgstr "editar hilo"
+
+#: templates/module/community/community-forum-view.html:52
+msgid "move thread"
+msgstr "mover hilo"
+
+#: templates/module/community/community-forum-view.html:65 templates/module/article/article-view.html:175
+#: templates/module/article/article-view.html.py:412
+msgid "Subscribe"
+msgstr "Suscripci&oacute;n"
+
+#: templates/module/community/community-forum-view.html:66 templates/module/community/community-forum-view.html:228
+msgid "Subscribe by email to the replies of this thread"
+msgstr "Suscribirme por correo a las respuesta de este hilo"
+
+#: templates/module/community/community-forum-view.html:70 templates/module/community/community-forum-view.html:231
+#: templates/module/community/community-forum-subscribe.html:3
+#: templates/module/community/community-forum-subscribe.html:7
+#: templates/module/article/article-comment-subscribe.html:3
+#: templates/module/article/article-comment-subscribe.html:7 templates/module/article/article-view.html:182
+#: templates/module/article/article-view.html.py:414
+msgid "Unsubscribe"
+msgstr "Cancelar la suscripci&oacute;n"
+
+#: templates/module/community/community-forum-view.html:71 templates/module/community/community-forum-view.html:231
+msgid "Unsubscribe this thread"
+msgstr "Cancelar la suscripci&oacute;n a este hilo"
+
+#: templates/module/community/community-forum-view.html:81 templates/module/user/user-forums.html:17
+#: templates/module/community/community-view.html:58 templates/inc-forum-list.html:4
+msgid "Replies"
+msgstr "Respuestas"
+
+#: templates/module/community/community-forum-view.html:109
+msgid "delete reply"
+msgstr "eliminar respuesta"
+
+#: templates/module/community/community-forum-view.html:112 templates/module/community/community-forum-view.html:117
+msgid "edit reply"
+msgstr "editar respuesta"
+
+#: templates/module/community/community-forum-view.html:131
+msgid "Deleted reply by"
+msgstr "Respuesta eliminada por"
+
+#: templates/module/community/community-forum-view.html:148
+msgid "Leave your reply"
+msgstr "Deja tu respuesta"
+
+#: templates/module/community/community-forum-view.html:169 templates/module/community/community-forum-view.html:228
+msgid "Subscribe by mail"
+msgstr "Suscribirse por mail"
+
+#: templates/module/community/community-forum-view.html:174 templates/module/community/community-thread-edit.html:70
+msgid "Publish reply"
+msgstr "Publicar respuesta"
+
+#: templates/module/community/community-forum-view.html:237
+msgid "There was an error :( "
+msgstr "Hubo un error :("
+
+#: templates/module/user/user-view.html:24 templates/module/user/user-view.html.py:199
+msgid "Delete contact"
+msgstr "Eliminar contacto"
+
+#: templates/module/user/user-view.html:27 templates/module/user/user-view.html.py:196
+msgid "Add to contacts"
+msgstr "A&ntilde;adir a contactos"
+
+#: templates/module/user/user-view.html:31
+#, python-format
+msgid "Send message to %s"
+msgstr "Enviar mensaje a %s"
+
+#: templates/module/user/user-view.html:34
+msgid "mail"
+msgstr "Correo"
+
+#: templates/module/user/user-view.html:52
+msgid "Full name"
+msgstr "Nombre completo"
+
+#: templates/module/user/user-view.html:53 templates/inc-user-list.html:2
+#: templates/module/user/user-edit.html:17
+msgid "Country"
+msgstr "pa&iacute;s"
+
+#: templates/module/user/user-view.html:54 templates/inc-user-list.html:3
+#: templates/module/user/user-edit.html:22
+msgid "City"
+msgstr "ciudad"
+
+#: templates/module/user/user-view.html:55
+#, python-format
+msgid "Registered %s ago"
+msgstr "Registrado desde hace %s"
+
+#: templates/module/user/user-view.html:62 templates/module/article/article-view.html:203
+msgid "About"
+msgstr "Acerca de"
+
+#: templates/module/user/user-view.html:66
+msgid "No description in profile."
+msgstr "No hay descripci&oacute;n en el perfil."
+
+#: templates/module/user/user-view.html:66
+msgid "Edit your profile"
+msgstr "Editar tu perfil"
+
+#: templates/module/user/user-view.html:70
+msgid "Links"
+msgstr "Enlaces"
+
+#: templates/module/user/user-view.html:78 templates/module/user/user-edit.html:51
+msgid "Linkedin profile"
+msgstr "Perfil de Linkedin"
+
+#: templates/module/user/user-view.html:81 templates/module/user/user-edit.html:56
+msgid "Ohloh profile"
+msgstr "Perfil de Ohloh"
+
+#: templates/module/user/user-view.html:90
+msgid "Contact addresses"
+msgstr "Direcciones de correo"
+
+#: templates/module/user/user-view.html:105 templates/module/community/community-view.html:97
+#: templates/index.html:4 templates/index.html.py:34
+#: templates/module/article/article-list.html:6 templates/index-articles.html:1
+msgid "Latest articles"
+msgstr "&Uacute;ltimos art&iacute;culos"
+
+#: templates/module/user/user-view.html:110 templates/module/article/article-view.html:227
+msgid "Comments"
+msgstr "Comentarios"
+
+#: templates/module/user/user-view.html:111
+msgid "Ratings average"
+msgstr "Valoraci&oacute;n media"
+
+#: templates/module/user/user-view.html:130
+msgid "Check all articles"
+msgstr "Ver todos los art&iacute;culos"
+
+#: templates/module/user/user-view.html:134
+msgid "Contacts"
+msgstr "Contactos"
+
+#: templates/module/user/user-view.html:151
+msgid "Check all contacts"
+msgstr "Ver todos los contactos"
+
+#: templates/module/user/user-view.html:173
+msgid "Check all communities"
+msgstr "Ver todas las comunidades"
+
+#: templates/module/user/user-view.html:204
+msgid "There was an error"
+msgstr "Hubo un error"
+
+#: templates/index-communities.html:13
+msgid "members"
+msgstr "miembros"
+
+#: templates/module/message/message-read.html:9
+msgid "Received message"
+msgstr "Mensajes recibidos"
+
+#: templates/module/message/message-read.html:27
+msgid "Reply"
+msgstr "Responder"
+
+#: templates/module/message/message-read.html:36
+msgid "Sent message"
+msgstr "Mensajes enviados"
+
+#: templates/module/message/message-read.html:43
+msgid "sent to"
+msgstr "enviar a"
+
+#: templates/module/message/message-read.html:54
+msgid "Sent message to"
+msgstr "Mensaje enviado a"
+
+#: templates/module/user/user-forums.html:2 templates/module/user/user-forums.html.py:8
+msgid "started threads"
+msgstr "hilos iniciados"
+
+#: templates/module/user/user-forums.html:14 templates/inc-forum-list.html:3
+msgid "Community"
+msgstr "Comunidad"
+
+#: templates/module/user/user-forums.html:16 templates/module/community/community-view.html:57
+msgid "Visits"
+msgstr "Visitas"
+
+#: templates/error403.html:3 templates/error403.html.py:7
+msgid "Permission denied"
+msgstr "Permiso denegado"
+
+#: templates/error403.html:12
+msgid ""
+"You are not allowed to execute this action, maybe your session has timed out"
+msgstr ""
+"No tienes permiso para ejecutar esta acci&oacute;n. Puede que tu sesi&oacute;n haya "
+"caducado"
+
+#: templates/inc-user-list.html:4
+msgid "Registered"
+msgstr "Registrado"
+
+#: templates/inc-user-list.html:5
+msgid "Articles and average rating"
+msgstr "art&iacute;culos y media de valoraci&oacute;n"
+
+#: templates/module/admin/admin-category-edit.html:7 templates/module/admin/admin-category-edit.html:16
+#: templates/module/admin/admin-categories.html:23
+msgid "New category"
+msgstr "Nueva categor&iacute;a"
+
+#: templates/module/admin/admin-category-edit.html:14
+msgid "Edit category"
+msgstr "Editar categor&iacute;a"
+
+#: templates/module/admin/admin-category-edit.html:31 templates/module/user/user-edit.html:12
+msgid "Name"
+msgstr "Nombre"
+
+#: templates/module/admin/admin-category-edit.html:36
+msgid "Parent category"
+msgstr "Categor&iacute;a padre"
+
+#: templates/module/admin/admin-category-edit.html:38
+msgid "None"
+msgstr "Ninguna"
+
+#: templates/module/admin/admin-category-edit.html:55
+msgid "Create category"
+msgstr "Crear categor&iacute;a"
+
+#: templates/module/admin/admin-category-edit.html:57
+#: templates/module/community/community-forum-subscribe.html:20
+#: templates/module/article/article-comment-subscribe.html:21
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: templates/module/message/message-deleted.html:3 templates/module/message/message-deleted.html.py:7
+msgid "Deleted message"
+msgstr "Mensaje eliminado"
+
+#: templates/module/message/message-deleted.html:10
+#, python-format
+msgid "<strong>%s</strong> message has been deleted."
+msgstr "El mensaje <strong>%s</strong> ha sido eliminado"
+
+#: templates/module/message/message-deleted.html:12
+msgid "Back to inbox"
+msgstr "Volver a la bandeja de entrada"
+
+#: templates/module/message/message-deleted.html:14
+msgid "Back to sent messages"
+msgstr "Volver a mensajes enviados"
+
+#: templates/tag.html:3 templates/tag.html.py:6 templates/tag.html.py:12
+#: templates/tag.html:24
+msgid "Articles tagged as"
+msgstr "Art&iacute;culos etiquetados como"
+
+#: templates/tag.html:17 templates/search.html:16
+msgid "Tags cloud"
+msgstr "Nube de etiquetas"
+
+#: templates/module/message/message-inbox.html:3 templates/module/message/message-inbox.html.py:7
+#: templates/inc-quick-links.html:28
+msgid "Inbox"
+msgstr "Bandeja de entrada"
+
+#: templates/module/message/message-inbox.html:12
+msgid "From"
+msgstr "De"
+
+#: templates/module/user/user-list.html:9
+msgid "Sort by"
+msgstr "Ordenar por"
+
+#: templates/module/user/user-list.html:10
+msgid "Registration date"
+msgstr "Fecha de registro"
+
+#: templates/search.html:10
+msgid "tagged as"
+msgstr "etiquetado como"
+
+#: templates/search.html:26
+msgid "Articles containing"
+msgstr "Art&iacute;culos que contienen"
+
+#: templates/search.html:29
+msgid "Communities containing"
+msgstr "Comunidades que contienen"
+
+#: templates/search.html:33
+msgid "Forums containing"
+msgstr "Foros que contienen"
+
+#: templates/module/community/community-move-result.html:12
+msgid "Community moved. Click here to go to home page"
+msgstr "Comunidad movida. Pulsa aqu&iacute; para ir a la p&aacute;gina principal"
+
+#: templates/module/community/community-move-result.html:16
+msgid "Oops, something unexpected... click here to go to return to community page"
+msgstr ""
+"Oops, algo inesperado... pulsa aqu&iacute; para volver a la p&aacute;gina de mover comunidad"
+
+#: templates/static-aviso-legal.html:3
+msgid "Terms and conditions"
+msgstr "T&eacute;rminos y condiciones"
+
+#: templates/static-aviso-legal.html:7
+msgid "Terms of Use"
+msgstr "Aviso legal"
+
+#: templates/module/community/community-thread-edit.html:4
+msgid "Edit thread"
+msgstr "Editar hilo"
+
+#: templates/module/community/community-thread-edit.html:68
+msgid "Publish thread"
+msgstr "Publicar hilo"
+
+#: templates/inc-community-header.html:27
+msgid "Start a new topic"
+msgstr "Iniciar un tema"
+
+#: templates/inc-community-header.html:56
+msgid "Delete community"
+msgstr "Eliminar comunidad"
+
+#: templates/module/community/community-forum-subscribe.html:15
+#, python-format
+msgid "Unsubscribe to the <strong>%s</strong> thread?"
+msgstr "Cancelar la suscripci&oacute;n al hilo <strong>%s</strong>"
+
+#: templates/module/community/community-forum-subscribe.html:19
+#: templates/module/article/article-comment-subscribe.html:20
+msgid "Yes, unsubscribe"
+msgstr "S&iacute;, cancelar la suscripci&oacute;n"
+
+#: templates/module/user/user-resetpassword.html:3 templates/module/user/user-resetpassword.html:7
+#: templates/module/user/user-resetpassword-error.html:3
+msgid "Reset password"
+msgstr "Recuperar contrase&ntilde;a"
+
+#: templates/module/user/user-resetpassword.html:19 templates/module/user/user-changepassword.html:23
+msgid "New password"
+msgstr "Nueva contrase&ntilde;a"
+
+#: templates/module/user/user-resetpassword.html:23
+msgid "Repeat new password"
+msgstr "Repetir la contrase&ntilde;a"
+
+#: templates/module/user/user-resetpassword.html:26 templates/inc-quick-links.html:10
+#: templates/module/user/user-changepassword.html:3 templates/module/user/user-changepassword.html:7
+#: templates/module/user/user-changepassword.html:30
+msgid "Change password"
+msgstr "Cambiar la contrase&ntilde;a"
+
+#: templates/module/admin/admin-application.html:3 templates/module/admin/admin-application.html.py:7
+msgid "Application configuration"
+msgstr "Configuraci&oacute;n de la aplicaci&oacute;n"
+
+#: templates/module/admin/admin-application.html:8
+msgid "Topics"
+msgstr "Temas"
+
+#: templates/module/admin/admin-application.html:19
+msgid "URL"
+msgstr "URL"
+
+#: templates/module/admin/admin-application.html:24
+msgid "Mail subject prefix"
+msgstr "Prefijo del tema del correo"
+
+#: templates/module/admin/admin-application.html:29
+msgid "Mail sender address"
+msgstr "Direcci&oacute;n de env&iacute;o del correo"
+
+#: templates/module/admin/admin-application.html:34
+msgid "Mail footer"
+msgstr "Firma del correo"
+
+#: templates/module/admin/admin-application.html:39
+msgid "Recaptcha public key"
+msgstr "Clave p&uacute;blica de Recaptcha"
+
+#: templates/module/admin/admin-application.html:44
+msgid "Recaptcha private key"
+msgstr "Clave privada de Recaptcha"
+
+#: templates/module/admin/admin-application.html:49 templates/module/user/user-edit.html:32
+msgid "Google Adsense"
+msgstr "Google Adsense"
+
+#: templates/module/admin/admin-application.html:54
+msgid "Google Adsense Channel"
+msgstr "Google Adsense Channel"
+
+#: templates/module/admin/admin-application.html:58
+msgid "Results per page (user.list, forum.list, community.list, article.list)"
+msgstr "Resultados por p&aacute;gina (user.list, forum.list, community.list, article.list)"
+
+#: templates/module/admin/admin-application.html:62
+msgid "Results per page (comments and answers)"
+msgstr "Resultados por p&aacute;gina (comentarios y respuestas)"
+
+#: templates/inc-quick-links.html:3
+msgid "Menu"
+msgstr "Menu"
+
+#: templates/inc-quick-links.html:5
+msgid "Actions"
+msgstr "Acciones"
+
+#: templates/inc-quick-links.html:7 templates/module/article/article-edit.html:6
+#: templates/module/article/article-edit.html.py:14
+msgid "New article"
+msgstr "Nuevo art&iacute;culo"
+
+#: templates/inc-quick-links.html:8 templates/module/article/article-edit.html:107
+msgid "Drafts"
+msgstr "Borradores"
+
+#: templates/inc-quick-links.html:16
+msgid "Your lifestreaming"
+msgstr "Tu rastro virtual"
+
+#: templates/inc-quick-links.html:17
+msgid "Your public profile"
+msgstr "Tu perfil p&uacute;blico"
+
+#: templates/inc-quick-links.html:18
+msgid "Your articles"
+msgstr "Tus art&iacute;culos"
+
+#: templates/inc-quick-links.html:19
+msgid "Your threads"
+msgstr "Tus hilos"
+
+#: templates/inc-quick-links.html:20
+msgid "Your favorites"
+msgstr "Tus favoritos"
+
+#: templates/inc-quick-links.html:21
+msgid "Your communities"
+msgstr "Tus comunidades"
+
+#: templates/inc-quick-links.html:22
+msgid "Your contacts"
+msgstr "Tus contactos"
+
+#: templates/inc-quick-links.html:23
+msgid "Invite your friends"
+msgstr "Invita a tus amigos"
+
+#: templates/inc-quick-links.html:49
+msgid "Start session"
+msgstr "Iniciar sesi&oacute;n"
+
+#: templates/inc-quick-links.html:59 templates/module/user/user-register.html:3
+#: templates/module/user/user-register.html.py:8
+msgid "Register new user"
+msgstr "Reg&iacute;strar un nuevo usuario"
+
+#: templates/module/article/article-comment-subscribe.html:16
+#, python-format
+msgid "Unsubscribe from receive comments of <br/><strong>%s</strong> article"
+msgstr ""
+"Cancelar la suscripci&oacute;n para recibir los comentarios del art&iacute;culo <strong>"
+"%s</strong>"
+
+#: templates/module/user/user-changepassword.html:19
+msgid "Current password"
+msgstr "Contrase&ntilde;a actual"
+
+#: templates/module/user/user-changepassword.html:27
+msgid "New password (validation)"
+msgstr "Nueva contrase&ntilde;a (validaci&oacute;n)"
+
+#: templates/module/community/community-view.html:14
+msgid "Bound communities"
+msgstr "Relacionar comunidades"
+
+#: templates/module/community/community-view.html:47
+msgid "Currently, no messages in forums"
+msgstr "Actualmente, no hay mensajes en el foro"
+
+#: templates/module/community/community-view.html:48
+msgid "Come on, why don't you encourage?"
+msgstr "Vamos, &iquest;porque no te an&iacute;mas?"
+
+#: templates/module/community/community-view.html:49
+msgid "Open a new thread"
+msgstr "Abrir un nuevo hilo"
+
+#: templates/module/community/community-view.html:90
+msgid "Read all threads or open a new one"
+msgstr "Ver todos los hilos o iniciar uno"
+
+#: templates/module/community/community-view.html:121 templates/index.html:57
+msgid "Read all articles"
+msgstr "Ver todos los art&iacute;culos"
+
+#: templates/module/community/community-view.html:129
+msgid "Check all community members"
+msgstr ""
+
+#: templates/module/article/article-view.html:4 templates/module/user/user-contacts.html:4
+#, python-format
+msgid "%s articles"
+msgstr "Art&iacute;culos %s"
+
+#: templates/module/article/article-view.html:18
+msgid "This article is linked in "
+msgstr "Este art&iacute;culo est&aacute; enlazado en "
+
+#: templates/module/article/article-view.html:26
+msgid "delete"
+msgstr "eliminar"
+
+#: templates/module/article/article-view.html:45
+msgid "Add to community"
+msgstr "A&ntilde;adir a la comunidad"
+
+#: templates/module/article/article-view.html:60
+#, python-format
+msgid "Other articles by %s"
+msgstr "Otros art&iacute;culos de %s "
+
+#: templates/module/article/article-view.html:79 templates/inc-article-list.html:6
+msgid "Deleted"
+msgstr "Eliminado"
+
+#: templates/module/article/article-view.html:79 templates/inc-article-list.html:6
+msgid "Draft"
+msgstr "Borrador"
+
+#: templates/module/article/article-view.html:81 templates/inc-article-list.html:8
+msgid "Written by"
+msgstr "Escrito por"
+
+#: templates/module/article/article-view.html:81
+#, python-format
+msgid "</strong>%s <strong>ago"
+msgstr "hace <strong>%s</strong>"
+
+#: templates/module/article/article-view.html:84
+msgid "Delete"
+msgstr "Eliminar"
+
+#: templates/module/article/article-view.html:88
+msgid "Edit"
+msgstr "Editar"
+
+#: templates/module/article/article-view.html:95
+msgid "deletes this article because"
+msgstr "elimin&oacute; este art&iacute;culo porque"
+
+#: templates/module/article/article-view.html:97
+msgid "Only an administrator or owner can read it"
+msgstr "S&oacute;lo un administrador o el propietario pueden leerlo"
+
+#: templates/module/article/article-view.html:145
+msgid "&copy; All rights reserved"
+msgstr "&copy; Todos los derechos reservados"
+
+#: templates/module/article/article-view.html:147
+msgid ""
+"<a href=\"http://creativecommons.org/licenses/publicdomain/\">Public domain</"
+"a>"
+msgstr ""
+"<a href=\"http://creativecommons.org/licenses/publicdomain/\">Dominio "
+"p&uacute;blico</a>"
+
+#: templates/module/article/article-view.html:154 templates/inc-article-list.html:15
+msgid "Tags"
+msgstr "Etiquetas"
+
+#: templates/module/article/article-view.html:158 templates/inc-article-list.html:19
+msgid "comments"
+msgstr "comentarios"
+
+#: templates/module/article/article-view.html:159 templates/inc-article-list.html:20
+msgid "visits"
+msgstr "visitas"
+
+#: templates/module/article/article-view.html:160 templates/inc-article-list.html:21
+msgid "votes"
+msgstr "votos"
+
+#: templates/module/article/article-view.html:163 templates/module/article/article-view.html.py:164
+#: templates/module/article/article-view.html:383
+msgid "Add to favorites"
+msgstr "A&ntilde;adir favorito"
+
+#: templates/module/article/article-view.html:167 templates/module/article/article-view.html.py:168
+#: templates/module/article/article-view.html:386
+msgid "Delete favorite"
+msgstr "Eliminar favorito"
+
+#: templates/module/article/article-view.html:177 templates/module/article/article-view.html.py:310
+#: templates/module/article/article-view.html:412
+msgid "Subscribe from receive comments of this article"
+msgstr "Suscribirme para recibir los comentarios de este art&iacute;culo"
+
+#: templates/module/article/article-view.html:184 templates/module/article/article-view.html.py:414
+msgid "Unsubscribe from receive comments of this article"
+msgstr "Cancelar la suscripci&oacute;n para recibir los comentarios de este art&iacute;culo"
+
+#: templates/module/article/article-view.html:207
+msgid "No description in profile"
+msgstr "No se ha encontrado descripci&oacute;n en tu perfil"
+
+#: templates/module/article/article-view.html:207
+msgid "Edit profile"
+msgstr "Editar perfil"
+
+#: templates/module/article/article-view.html:214
+msgid "Bound articles"
+msgstr "Art&iacute;culos enlazados"
+
+#: templates/module/article/article-view.html:253
+msgid "delete comment"
+msgstr "Eliminar comentario"
+
+#: templates/module/article/article-view.html:256 templates/module/article/article-view.html.py:259
+msgid "edit comment"
+msgstr "editar comentario"
+
+#: templates/module/article/article-view.html:272
+msgid "Deleted comment. Because"
+msgstr "Comentario eliminado por"
+
+#: templates/module/article/article-view.html:292
+msgid "Leave your comment"
+msgstr "Deja tu comentario"
+
+#: templates/module/article/article-view.html:330
+msgid "Please, enter a message to explain why this must be deleted"
+msgstr "Por favor, introduce un mensaje explicando porque debe ser eliminado"
+
+#: templates/module/article/article-view.html:391 templates/module/article/article-view.html.py:419
+#: templates/module/article/article-view.html:442 templates/module/article/article-edit.html:122
+msgid "There was an error :("
+msgstr "Hubo un error :("
+
+#: templates/module/user/user-contacts.html:7 templates/module/user/user-contacts.html.py:18
+msgid "contacts"
+msgstr "contactos"
+
+#: templates/inc-article-list.html:2
+msgid "No articles"
+msgstr "No hay art&iacute;culos"
+
+#: templates/inc-article-list.html:8
+#, python-format
+msgid "</strong>%s<strong> ago"
+msgstr "hace <strong>%s</strong>"
+
+#: templates/inc-article-list.html:23
+msgid "edit"
+msgstr "editar"
+
+#: templates/module/article/article-deleted.html:3 templates/module/article/article-deleted.html.py:7
+msgid "Deleted article"
+msgstr "Art&iacute;culo eliminado"
+
+#: templates/module/article/article-deleted.html:10
+#, python-format
+msgid "Article titled <strong>%s</strong> was deleted"
+msgstr "El art&iacute;culo <strong>%s</strong> ha sido borrado"
+
+#: templates/module/user/user-register.html:19
+msgid "Username"
+msgstr "Nombre del usuario"
+
+#: templates/module/user/user-register.html:21
+msgid "Validate"
+msgstr "Validar"
+
+#: templates/module/user/user-register.html:24
+msgid "Mail"
+msgstr "Correo"
+
+#: templates/module/user/user-register.html:28
+msgid "Repeat mail"
+msgstr "Repite el correo"
+
+#: templates/module/user/user-register.html:36
+msgid "Repeat password"
+msgstr "Repite la contrase&ntilde;a"
+
+#: templates/module/user/user-register.html:40
+msgid ""
+"I have read, understand, and accept the <br/><strong><a href=\"/html/aviso-"
+"legal.html\" target=\"_blank\">terms and conditions</a></strong>"
+msgstr ""
+"He le&iacute;do, entiendo y acepto los <br/><strong><a href=\"/html/aviso-legal.html"
+"\" target=\"_blank\">t&eacute;rminos y condiciones</a></strong>"
+
+#: templates/module/user/user-register.html:70
+msgid "Mail address incorrect"
+msgstr "Direcci&oacute;n de correo incorrecta"
+
+#: templates/module/user/user-register.html:75
+msgid "chars is minimum length"
+msgstr "car&aacute;cteres es el m&iacute;nimo aceptado"
+
+#: templates/module/user/user-register.html:75
+msgid "chars is maximum length"
+msgstr "car&aacute;cteres es el m&aacute;ximo aceptado"
+
+#: templates/inc-tag-cloud.html:1
+msgid "Cloud tags"
+msgstr "Nube de etiquetas"
+
+#: templates/inc-tag-cloud.html:4
+msgid "articles tagged as"
+msgstr "art&iacute;culo etiquetado como"
+
+#: templates/module/article/article-edit.html:12
+msgid "Edit article"
+msgstr "Editar art&iacute;culo"
+
+#: templates/module/article/article-edit.html:33
+msgid "License"
+msgstr "Licencia"
+
+#: templates/module/article/article-edit.html:42
+msgid "Tags comma separated"
+msgstr "Etiquetas separadas por coma"
+
+#: templates/module/article/article-edit.html:43
+msgid "ex.: first, second, another one"
+msgstr "ej.: primero, segundo, otro m&aacute;s"
+
+#: templates/module/article/article-edit.html:47
+msgid "Summary"
+msgstr "Resumen"
+
+#: templates/module/article/article-edit.html:58
+msgid "Publish article"
+msgstr "Publicar art&iacute;culo"
+
+#: templates/module/article/article-edit.html:58
+msgid "Save draft"
+msgstr "Guardar borrador"
+
+#: templates/module/article/article-edit.html:116
+msgid "Saved at"
+msgstr "Guardado a las"
+
+#: templates/module/message/message-edit.html:3
+msgid "New message"
+msgstr "Nuevo mensaje"
+
+#: templates/module/message/message-edit.html:7
+msgid "New message to"
+msgstr "Nuevo mensaje a"
+
+#: templates/module/article/article-delete.html:3 templates/module/article/article-delete.html.py:7
+#: templates/module/article/article-delete.html:20
+msgid "Delete article"
+msgstr "Eliminar art&iacute;culo"
+
+#: templates/module/article/article-delete.html:13
+#, python-format
+msgid ""
+"Please, enter a message to explain why <strong>%s</strong><br/> article must "
+"be deleted"
+msgstr ""
+"Por favor, introduce un mensaje explicando porque el art&iacute;culo <br/><strong>"
+"%s</strong> debe ser eliminado"
+
+#: templates/module/article/article-delete.html:17
+msgid "Message"
+msgstr "Mensaje"
+
+#: templates/index.html:5
+msgid "Social network with content, communities, forums..."
+msgstr "Red social con contenidos, comunidades, foros,..."
+
+#: templates/index.html:6
+msgid "social network, vikuit"
+msgstr "red social, vikuit"
+
+#: templates/index.html:9
+msgid "Vikuit welcome you to your social network"
+msgstr "Vikuit te da la bienvenida a tu red social"
+
+#: templates/index.html:13 templates/module/article/article-list.html:12
+msgid "Latest published articles"
+msgstr "&Uacute;ltimos art&iacute;culos publicados"
+
+#: templates/index.html:28
+msgid "Latest messages from the forums..."
+msgstr "&Uacute;ltimos mensajes en los foros..."
+
+#: templates/index.html:31
+msgid "Read all messages from the forums"
+msgstr "Ver todos los mensajes de los foros"
+
+#: templates/module/user/user-resetpassword-error.html:7
+msgid "URL Incorrect"
+msgstr "Direcci&oacute;n incorrecta"
+
+#: templates/module/user/user-resetpassword-error.html:9
+msgid "Unable to reset password, maybe link address is incorrect."
+msgstr ""
+"No es posible recuperar la contrase&ntilde;a, puede que el enlace sea incorrecto."
+
+#: templates/module/user/user-resetpassword-error.html:11
+msgid "Please, try to copy and paste it in the navigation bar of your browser"
+msgstr ""
+"Por favor, copia y pega el enlace en la barra de direcciones de tu navegador"
+
+#: templates/module/article/article-add-communities.html:3
+msgid "Add article to communities"
+msgstr "A&ntilde;adir art&iacute;culo a comunidad"
+
+#: templates/module/article/article-add-communities.html:7
+#, python-format
+msgid "Add <em>%s</em> to some of your communities"
+msgstr "A&ntilde;adir <em>%s</em> a alguna de tus comunidades"
+
+#: templates/module/article/article-add-communities.html:15
+#, python-format
+msgid "<em>%s</em> is published. Now you can link it to some of your communities"
+msgstr ""
+"<em>%s</em> est&aacute; publicado. Ahora lo puedes enlazar a alguna de tus comunidades."
+
+#: templates/module/user/user-communities.html:7 templates/module/user/user-communities.html.py:18
+#: templates/module/admin/admin-categories.html:15
+msgid "communities"
+msgstr "comunidades"
+
+#: templates/module/community/community-add-related.html:3 templates/module/community/community-add-related.html.py:6
+msgid "Add binding communities"
+msgstr "A&ntilde;adir comunidad relacionada"
+
+#: templates/module/community/community-add-related.html:16
+msgid "Source community id"
+msgstr "Identificador de la comunidad origen"
+
+#: templates/module/community/community-add-related.html:21
+msgid "Target community id"
+msgstr "Identificador de la comunidad destino"
+
+#: templates/module/community/community-add-related.html:26
+msgid "Bind"
+msgstr "Relacionar"
+
+#: templates/module/user/user-edit.html:33
+msgid "pub-xxxxxxxxxxxxxxxx format"
+msgstr "formato pub-xxxxxxxxxxxxxx"
+
+#: templates/module/user/user-edit.html:36
+msgid "Show description in RSS, not full content"
+msgstr "Mostrar la descripci&oacute;n en los RSS, no el contenido completo"
+
+#: templates/module/user/user-edit.html:46
+msgid "Personal blog"
+msgstr "Blog personal"
+
+#: templates/module/user/user-edit.html:61
+msgid "MSN messenger address"
+msgstr "Direcci&oacute;n de MSN messenger"
+
+#: templates/module/user/user-edit.html:66
+msgid "Jabber address"
+msgstr "Direcci&oacute;n de Jabber"
+
+#: templates/module/user/user-edit.html:71
+msgid "Gtalk address"
+msgstr "Direcci&oacute;n de Gtalk"
+
+#: templates/module/user/user-edit.html:76
+msgid "Personal message"
+msgstr "Mensaje personal"
+
+#: templates/module/user/user-edit.html:81
+msgid "About me (only plain text)"
+msgstr "Acerca de mi (s&oacute;lo texto plano)"
+
+#: templates/forum-list.html:2 templates/forum-list.html.py:8
+msgid "Discussion forums"
+msgstr "Foros de discusi&oacute;n"
+
+#: templates/module/user/user-events.html:2 templates/module/user/user-events.html.py:5
+msgid "lifestreaming"
+msgstr "tu rastro virtual"
+
+#: templates/module/user/user-events.html:19
+msgid "started a thread titled"
+msgstr "inici&oacute; un hilo titulado"
+
+#: templates/module/user/user-events.html:21 templates/module/user/user-events.html.py:25
+#: templates/module/user/user-events.html:43
+msgid "in community"
+msgstr "en la comunidad"
+
+#: templates/module/user/user-events.html:23
+msgid "replied a thread titled"
+msgstr "respondi&oacute; a un hilo titulado"
+
+#: templates/module/user/user-events.html:32
+msgid "wrote a new article titled"
+msgstr "escribi&oacute; un art&iacute;culo nuevo titulado"
+
+#: templates/module/user/user-events.html:34
+msgid "wrote a comment in article"
+msgstr "escribi&oacute; un comentario en el art&iacute;culo"
+
+#: templates/module/user/user-events.html:42
+msgid "wrote an article titled"
+msgstr "escribi&oacute; un art&iacute;culo titulado"
+
+#: templates/module/user/user-events.html:45
+msgid "created a community"
+msgstr "creado una comunidad"
+
+#: templates/module/user/user-events.html:47
+msgid "added"
+msgstr "a&ntilde;adido"
+
+#: templates/module/user/user-events.html:47
+msgid "to contacts"
+msgstr "a contactos"
+
+#: templates/module/user/user-events.html:49
+msgid "edited"
+msgstr "editado"
+
+#: templates/module/user/user-events.html:49
+msgid "own profile"
+msgstr "tu perfil"
+
+#: templates/module/user/user-events.html:51
+msgid "added an article titled"
+msgstr "a&ntilde;adido un art&iacute;culo titulado"
+
+#: templates/module/user/user-events.html:52
+msgid "to favorites"
+msgstr "a favoritos"
+
+#: templates/module/user/user-events.html:54
+msgid "unknown event"
+msgstr "evento desconocido"
+
+#: templates/module/admin.html:10
+msgid "Configure application"
+msgstr "Configuraci&oacute;n de la aplicaci&oacute;n"
+
+#: templates/module/admin.html:11
+msgid "Bind community"
+msgstr "Relacionar comunidad"
+
+#: templates/module/admin.html:12
+msgid "Administrate categories"
+msgstr "Administrar categor&iacute;as"
+
+#: templates/module/admin.html:13
+msgid "Administrate users"
+msgstr "Administrar usuarios"
+
+#: templates/module/article/article-list.html:25
+msgid ""
+"We encourage you to write! Below you can check a list of most recent article"
+msgstr ""
+"An&iacute;mate a escribir! A continuaci&oacute;n puedes ver la lista de los art&iacute;culos m&aacute;s "
+"recientes"
+
+#: templates/module/article/article-list.html:29
+msgid "Publish date"
+msgstr "Fecha de publicaci&oacute;n"
+
+#: templates/module/article/article-list.html:29
+msgid "Rating"
+msgstr "Valoraci&oacute;n"
+
+#: templates/module/article/article-list.html:29
+msgid "Number of comments"
+msgstr "N&uacute;mero de comentarios"
+
+#: templates/module/user/user-articles.html:7 templates/module/user/user-articles.html.py:18
+msgid "published articles"
+msgstr "art&iacute;culos publicados"
+
+#: templates/module/admin/admin-categories.html:3 templates/module/admin/admin-categories.html.py:7
+msgid "Categories administration"
+msgstr "Administraci&oacute;n de categor&iacute;as"
+
+#: templates/static-faq.html:7
+msgid "Under construction"
+msgstr "En construcci&oacute;n"
+
+#: templates/module/user/user-drafts.html:2 templates/module/user/user-drafts.html.py:4
+msgid "drafts"
+msgstr "borradores"
+
+#: templates/module/user/user-forgotpassword.html:3 templates/module/user/user-forgotpassword.html:7
+msgid "Recover password"
+msgstr "Recuperar contrase&ntilde;a"
+
+#: templates/module/user/user-forgotpassword.html:17
+msgid "We send you a mail with a link to change your password"
+msgstr "Te enviaremos un correo con un enlace para cambiar tu contrase&ntilde;a"
+
+#: templates/module/user/user-forgotpassword.html:19
+msgid "Your mail address"
+msgstr "Tu direcci&oacute;n de correo"
+
+#: templates/module/user/user-forgotpassword-sent.html:3
+#: templates/module/user/user-forgotpassword-sent.html:7
+msgid "Sent mail"
+msgstr "Correo enviado"
+
+#: templates/module/user/user-forgotpassword-sent.html:9
+#, python-format
+msgid ""
+"We sent you a mail to <strong>%s</strong>. Click in the attached link to "
+"change your password."
+msgstr ""
+"Te hemos enviado un correo a <strong>%s</strong>. Pulsa en el enlace del "
+"correo para cambiar tu contrase&ntilde;a."
+
+#: templates/module/user/user-forgotpassword-sent.html:10
+msgid "Continue"
+msgstr "Continuar"
+
+msgid "Sign in with your Google account"
+msgstr "Entra con tu cuenta de Google"
+
+msgid "You have requested to recover password but credentials you use in %(s) are from %(s2). Review your login information."
+msgstr "Has solicitado recuperar la contrase&ntilde;a pero los credenciales que usas en %(s) son de %(s2). Revisa tus datos de acceso."
+
+msgid "Application Name"
+msgstr "Nombre de la aplicaci&oacute;n"
+
+msgid "Application subject or slogan"
+msgstr "Tema o lema de la aplicaci&oacute;n"
+
+msgid "Language"
+msgstr "Idioma"
+
+msgid "Reload"
+msgstr "Recargar"
+
+msgid "Footprints"
+msgstr "Tu rastro"
+
+msgid "Account"
+msgstr "Cuenta"
+
+msgid "Write a post"
+msgstr "Escribe un post"
+
+msgid "Invalid login method"
+msgstr "M&eacute;todo de acceso no v&aacute;lido"
+
+msgid "User must be registered in %s"
+msgstr "Debes estar registrado en %s"
+
+msgid "Password must contain 4 chars at least"
+msgstr "La contrase&ntilde;a debe ser mayor de 4 car&aacute;cteres"
+
+msgid "New password and validation password are not equal"
+msgstr "La nueva contrase&ntilde;a y la contrase&ntilde;a de validaci&oacute;n no son iguales"
+
+msgid "Incorrect password"
+msgstr "Contrase&ntilde;a incorrecta"
+
+msgid "You must accept terms and conditions"
+msgstr "Debes aceptar los t&eacute;rminos y condiciones del servicio"
+
+msgid "Enter a valid mail"
+msgstr "Introduce una direcci&oacute;n de correo v&aacute;lida"
+
+msgid "Username can contain letters, numbers, dots, hyphens and underscores"
+msgstr "El nombre de usuario s&oacute;lo puede contener letras, n&uacute;meros, puntos, guiones y guiones bajos"
+
+msgid "Password must contain between 4 and 30 chars"
+msgstr "La contrase&ntilde;a debe ser de entre cuatro y treinta caracteres"
+
+msgid "This mail already exists"
+msgstr "Ya existe una cuenta con esa direcci&oacute;n de correo"
+
+msgid "Mail and validation mail are not equals"
+msgstr "El correo y el correo de validaci&oacute;n no son iguales"
+
+msgid "Thread not found"
+msgstr "Hilo no encontrado"
+
+msgid "Comment not found"
+msgstr "Comentario no encontrado"
+
+msgid "New community..."
+msgstr "Nueva comunidad..."
+
+msgid "Title and description are mandatory fields"
+msgstr "T&iacute;tulo y descripci&oacute;n son campos obligatorios"
+
+msgid "Community not exists."
+msgstr "La comunidad no existe"
+
+msgid "Source and target community are the same one."
+msgstr "La comunidad en el que est&aacute; el hilo y al que quieres mover es el mismo."
+
+msgid "Complete Nickname field"
+msgstr "Debes completar el campo apodo"
+
+msgid "User '%s' doesn't exists"
+msgstr "No existe el usuario %s"
+
+msgid "User '%s' was blocked"
+msgstr "El usuario %s ha sido bloqueado"
+
+msgid "User '%s' was unlocked"
+msgstr "El usuario %s ha sido desbloqueado"
+
+msgid "Action '%s' not found"
+msgstr "No existe la acci&oacute;n %s"
+
+msgid "Enter a valid source community"
+msgstr "Debe indicar una comunidad origen v&aacute;lido"
+
+msgid "Enter a valid target community"
+msgstr "Debe indicar una comunidad destino v&aacute;lido"
+
+msgid "Source community not found"
+msgstr "Comunidad origen no encontrada"
+
+msgid "Target community not found"
+msgstr "Comunidad destino no encontrada"
+
+msgid "Duplicated thread"
+msgstr "Hilo duplicado"
+
+msgid "Invalid user or password"
+msgstr "Usuario o contrase&ntilde;a incorrectos"
+
+msgid "User '%s' was blocked. Contact with an administrator."
+msgstr "El usuario '%s' est&aacute; bloqueado. Contacta con un administrador."
+
+msgid "Duplicated reply"
+msgstr "Respuesta duplicada"
+
+msgid "Duplicated comment"
+msgstr "Comentario duplicado"
+
+msgid "New message..."
+msgstr "Nuevo mensaje..."
+
+msgid "No user found with this mail"
+msgstr "No se encuentra un usuario con esa direcci&oacute;n"
+
+
+msgid "%d years"
+msgstr "%d a&ntilde;os"
+
+msgid "%d months"
+msgstr "%d meses"
+
+msgid "%d days"
+msgstr "%d d&iacute;as"
+
+msgid "%d hours"
+msgstr "%d horas"
+
+msgid "%d minutes"
+msgstr "%d minutos"
+
+msgid "%d seconds"
+msgstr "%d segundos"
+
+msgid "Previous"
+msgstr "Anterior"
+
+msgid "Next"
+msgstr "Siguiente"
+
+msgid "Page"
+msgstr "P&aacute;gina"
+
+msgid "Content is mandatory"
+msgstr "El contenido es obligatorio"
+
+msgid "Articles labeled with %s"
+msgstr "Art&iacute;culos etiquetados con %s"
+
+msgid "Forum %s"
+msgstr "Foro %s"
+
+msgid "Articles by community %s"
+msgstr "Art&iacute;culos de la comunidad %s"
+
+msgid "Articles by %s"
+msgstr "Art&iacute;culos de %s"
+
+msgid "New subject: '%s'"
+msgstr "Nuevo tema: '%s'"
+
+msgid "New subject by community %s.\nSubject title: %s\nFollow forum at:\n%s/module/community.forum/%s"
+msgstr "Nuevo tema en la comunidad %s.\nT&iacute;tulo del tema: %s\nEntra en el debate:\n%s/module/community.forum/%s"
+
+msgid "New reply to: '%s'"
+msgstr "Nueva respuesta en: '%s'"
+
+msgid "New reply to %s.\n%s%s\n\nAll replies:\n%s/module/community.forum/%s\n\nRemove this subscription:\n%s/module/community.forum.subscribe?key=%s"
+msgstr "Nueva respuesta en %s.\n%s%s\n\nTodas las respuestas:\n%s/module/community.forum/%s\n\nEliminar suscripci&oacute;n a este hilo:\n%s/module/community.forum.subscribe?key=%s"
+
+msgid "New article: '%s'"
+msgstr "Nuevo art&iacute;culo: '%s'"
+
+msgid "New article at community %s.\nArticle title: %s\nRead more at:\n%s/module/article/%s\n"
+msgstr "Nuevo art&iacute;culo en la comunidad %s.\nT&iacute;tulo del art&iacute;culo: %s\nLeelo en esta direcci&oacute;n:\n%s/module/article/%s\n"
+
+msgid "Source community not exists"
+msgstr "No existe la comunidad origen"
+
+msgid "Target community not exists"
+msgstr "No existe la comunidad destino"
+
+msgid "%s articles moved. Source community contains %s more."
+msgstr "Movidos %s articles. Quedan %s en la comunidad origen."
+
+msgid "Moved thread with %s replies. %s threads remain."
+msgstr "Movido un hilo con %s comentarios. Quedan %s hilos."
+
+msgid "Moved %s users. Source community contains %s more."
+msgstr "Movidos %s usuarios. Quedan %s en la comunidad origen."
+
+msgid "Deleted community. %s communities remain."
+msgstr "Comunidad borrada. Existen %s comunidades."
+
+msgid "Let me invite you to visit %s, %s. %s"
+msgstr "Te invito a visitar %s, %s. %s"  
+   
+msgid "%s invites you to participate in %s"
+msgstr "%s te invita a participar en %s"
+
+msgid "New comment in: '%s'"
+msgstr "Nuevo comentario en: '%s'"
+
+msgid "New comment in article: '%s':\n%s%s\n\nAll comments at:\n%s/module/article/%s#comments\n\nUnsuscribe this article:\n%s/module/article.comment.subscribe?key=%s\n"
+msgstr "Nuevo comentario en el art&iacute;culo: '%s':\n%s%s\n\nTodos los comentarios en:\n%s/module/article/%s#comments\n\nEliminar suscripci&oacute;n a este art&iacute;culo:\n%s/module/article.comment.subscribe?key=%s\n"
+
+msgid "%s has send you a missage"
+msgstr "%s te ha enviado un mensaje"
+
+msgid "%s has send you a missage.\nRead it at:\n%s/message.inbox\n"
+msgstr "%s te ha enviado un mensaje.\nLeelo en:\n%s/message.inbox\n"
+
+msgid "%s has added you as contact"
+msgstr "%s te ha agregado como contacto"
+
+msgid "%s has added you as contact in %s\nVisit profile page: %s/module/user/%s\n"
+msgstr "%s te ha agregado como contacto en %s\nPuedes visitar su perfil en: %s/module/user/%s\n"
+
+msgid "Password recovery"
+msgstr "Recuperar contrase&ntilde;a"
+
+msgid "Click this link to set your password.\n%s/module/user.resetpassword?nickname=%s&token=%s"
+msgstr "Haz click en el siguiente enlace para proceder a establecer tu password.\n%s/module/user.resetpassword?nickname=%s&token=%s"
+
+msgid "Welcome to %s"
+msgstr "Bienvenido a %s"
+
+msgid "Thanks for signing in %s. %s team welcome you to our social network. \n\nComplete your profile \n%s/module/user.edit\n\nPublish articles, \n\n\nBe part of the communities that interest you. Each community has a forum to share or discuss with people to whom the same interests as you.\nCommunities list %s/module/community.list\nThread list %s/forum.list\n\n\n\nFor futher information check our FAQ page\n%s/html/faq.html\n\nBest regards,\n\n%s Team."
+msgstr "Gracias por registrarte en %s. El equipo de %s te damos la bienvenida.\n\nCompleta tu perfil con tu informaci&oacute;n \n%s/module/user.edit\n\nPublica art&iacute;culos, \n\n\nForma parte de las comunidades que te interesan. Cada comunidad tiene un foro, para compartir o debatir con las personas a las que les interese lo mismo que a ti.\nListado de comunidades %s/module/community.list\nListado de hilos %s/forum.list\n\n\n\nPara m&aacute;s informaci&oacute;n tenemos una secci&oacute;n de FAQ\n%s/html/faq.html\n\nAtentamente,\n\nEl equipo de %s."
+
+msgid "Username must contain 4 chars at least"
+msgstr "El nombre de usuario debe ser de al menos cuatro caracteres"
+
+msgid "Username must contain less than 20 chars"
+msgstr "El nombre de usuario no debe ser mayor de 20 caracteres"
+
+msgid "User already exists"
+msgstr "El nombre de usuario ya existe"
+
+msgid "Creative Commons License"
+msgstr "Licencia Creative Commons"
+
+msgid "Delete from gallery"
+msgstr "Borrar de la librer&iacute;a"
+
+msgid "Embed in article"
+msgstr "Incluir en el art&iacute;culo"
+
+msgid "Send your message to %s"
+msgstr "Env&iacute;a tu mensaje a %s"
+
+msgid "Content is invalid"
+msgstr "Contenido no v&aacute;lido"
+
+msgid "Content is too large"
+msgstr "El contenido es demasiado largo"
+
+msgid "Content is empty"
+msgstr "El contenido est&aacute; vacio"
+
+msgid "Send post"
+msgstr "Enviar mensaje"
+
+msgid "Manage cache"
+msgstr "Gestionar cache"
+
+msgid "Flush cache"
+msgstr "Vaciar cache"
+
+msgid "Cache is clean"
+msgstr "Cache est&aacute; vac&iacute;a"

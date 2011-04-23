@@ -1,0 +1,60 @@
+{#
+(C) Copyright 2011 Jose Blanco <jose.blanco[a]vikuit.com>
+(C) Copyright 2011 Jose Carrasco <jose.carrasco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+{% extends "layouts/module-layout.html" %}
+{% block title %}
+	{{ _('Edit comment') }}
+{% endblock %}
+
+{% block content %}
+<h2>{{ _("Editing comment of article: ")}} <a href="/module/article/{{ comment.article.url_path }}">{{ comment.article.title|escape }}</a></h2>
+
+	<p class="info comment-info">
+		<img src="/images/user/thumbnail/{{ user.nickname|escape }}" alt="{{ user.nickname|escape }}" /> 
+		{{ _('Written by') }} <strong><a href="/module/user/{{ user.nickname|escape}}">{{ user.nickname|escape }}</a></strong>&nbsp;{{ _('<strong>%s </strong>ago')|format(comment.creation_date|relativize) }}
+	</p>
+	<br/>
+	{% if m %}
+		<p class="message">{{ m|escape }}</p>
+	{% endif %}
+	<p>
+			{% if comment.key() %}
+			<form action="/module/article.comment.edit" method="post" accept-charset="utf-8">
+				<input type="hidden" name="auth" value="{{ auth }}" />
+				<input type="hidden" name="key" value="{{ comment.key() }}" />
+			{% else %}
+			<form action="/module/article.comment" method="post" accept-charset="utf-8">
+				<input type="hidden" name="key" value="{{ comment.article.key() }}" />
+			{% endif %}
+				<textarea name="content" rows="8" cols="54" id="comment">{{ comment.content }}</textarea><br/>
+			{% if comment.key() %}
+				<input type="submit" value="{{ _('Save changes') }}" />
+			{% else %}
+				<input type="submit" value="{{ _('Publish comment') }}" />
+			{% endif %}
+			</form>
+	</p>
+{% endblock %}
+
+{% block javascript %}
+	<script type="text/javascript" src="/static/js/editor/ckeditor/ckeditor.js"></script>
+	<script type="text/javascript" charset="utf-8">
+		CKEDITOR.replace( 'comment',{toolbar : 'Basic'});
+	</script>
+{% endblock %}

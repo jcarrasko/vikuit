@@ -1,0 +1,69 @@
+{#
+(C) Copyright 2011 Jose Carrasco <jose.carrasco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>
+. #}
+
+{% set navigation_bar = [
+    ('/', 'index', _('Init')),
+    ('/module/article.list', 'article', _('Articles')),
+    ('/module/community.list', 'community', _('Communities')),
+    ('/forum.list', 'forum', _('Forums')),
+    ('/module/user.list', 'user', _('Users')),
+    ('/module/mblog/mblog.list', 'microblogging', _('Microblogging')),
+    ('/html/about.html', 'about', _('About vikuit'))
+] %}
+
+<div class="navigation_box" style="width: 998px;">
+	<div class="subMenu" id="subMenu_118" style="display: block">
+		<div class="subMenuOvr">
+		<table class="navigation_info_box" cellspacing="0" cellpadding="0">
+			<tr>
+				<td>
+				<div style="width: 60px"></div>
+				</td>
+				<td class="link_section"><a href="{{ tab }}">{% block title %}{% endblock %}</a></td>
+				<td style="width: 90%;">
+				<div class="sys_tm_title_addon">
+				<div class="clear_both"></div>
+				</div>
+				</td>
+				<td style="width: 10px;"></td>
+			</tr>
+		</table>
+		<div class="clear_both"></div>
+		<div class="subMenuContainer">
+			<table cellspacing="0" cellpadding="0">
+				<tr>	 
+				{% for href, id, caption in navigation_bar %}
+				  {% if  href == tab %}
+					<td class="tabbed">
+						<div class="sublinks_tabbed">{{ caption}}</div>
+					</td>
+				  {% else %}
+					<td class="usual">
+						<div><a class="sublinks" href="{{ href|e }}">{{ caption }}</a></div>
+					</td>
+				  {% endif %}
+				{% endfor %}
+				</tr>
+			</table>
+		</div>
+	</div>
+	</div>
+</div>
+
+{% block javascript %} {% endblock %}

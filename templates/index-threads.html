@@ -1,0 +1,32 @@
+{#
+(C) Copyright 2011 Jose Blanco <jose.blanco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+<div class="box">
+	<h1>{{ _('Latest messages in forums') }}</h1>
+	<ul>
+	{% for thread in threads %}
+		<li>
+			<strong><a href="/module/community.forum/{{ thread.url_path }}">{{ thread.title|escape }}</a></strong>
+			<br/><span class="info">{{ _('%s ago')|format(thread.last_response_date|relativize) }}</span>
+		</li>
+	{% endfor %}
+	</ul>
+	<p style="text-align:right"><strong><a href="/forum.list">{{ _('Check all') }} »</a></strong></p>
+	<p class="end-box">&nbsp;</p>
+</div>

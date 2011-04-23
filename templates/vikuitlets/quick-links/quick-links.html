@@ -1,0 +1,60 @@
+{#
+(C) Copyright 2011 Jose Carrasco <jose.carrasco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+{% extends "includes/vikuitlet/base.html" %}
+  
+ 	{% block vikuitlet_title %} 
+		{{ _('Menu') }} 
+	{% endblock %}
+	
+	{% block vikuitlet_content %}
+	
+		<form>
+			<p><strong>{{ _('Actions') }}</strong></p>
+			<ul>
+				<li><strong><a href="/module/article.edit"><img src="/static/images/page_white_edit.png" alt="" class="icon" /> {{ _('New article') }}</a></strong></li>
+				<li><a id="drafts" href="/module/user.drafts"><img src="/static/images/page_white_text.png" alt="" class="icon" /> {{ _('Drafts') }} ({{ user.draft_articles }})</a></li>
+				<li><a href="/module/community.edit"><img src="/static/images/community.png" alt="" class="icon" /> {{ _('New community') }}</a></li>
+				<li><a href="/module/user.changepassword?redirect_to={{ redirect }}"><img src="/static/images/key.png" alt="" class="icon" /> {{ _('Change password') }}</a></li>
+				<li><a href="/module/user.edit"><img src="/static/images/cog.png" alt="" class="icon" /> {{ _('Preferences') }}</a></li>
+			</ul>
+			
+			<p><strong>{{ _('Footprints')}}</strong></p>
+			<ul>
+				<li><strong><a href="/module/user.events"><img src="/static/images/heart.png" alt="" class="icon" /> {{ _('Your lifestreaming') }}</a></strong></li>
+				<li><a href="/module/user/{{ user.nickname }}"><img src="/static/images/user.png" alt="" class="icon" /> {{ _('Your public profile') }}</a></li>
+				<li><a href="/module/user.articles/{{ user.nickname }}"><img src="/static/images/page_white_text.png" alt="" class="icon" /> {{ _('Your articles') }}</a></li>
+				<li><a href="/module/user.forums/{{ user.nickname }}"><img src="/static/images/comments.png" alt="" class="icon" /> {{ _('Your threads') }}</a></li>
+				<li><a href="/module/user.favourites/{{ user.nickname }}"><img src="/static/images/star.png" alt="" class="icon" /> {{ _('Your favorites') }}</a></li>
+				<li><a href="/module/user.communities/{{ user.nickname }}"><img src="/static/images/community.png" alt="" class="icon" /> {{ _('Your communities') }}</a></li>
+				<li><a href="/module/user.contacts/{{ user.nickname }}"><img src="/static/images/user.png" alt="" class="icon" /> {{ _('Your contacts') }}</a></li>
+				<li><a href="/invite"><img src="/static/images/user_comment.png" alt="" class="icon" /> {{ _('Invite your friends') }} </a></li>
+			</ul>
+		
+			<p><strong>{{ _('Mail')}}</strong></p>
+			<ul>
+				<li><a href="/message.inbox"><img src="/static/images/email.png" alt="" class="icon" /> {{ _('Inbox') }} {% if user.unread_messages %}({{ user.unread_messages}}){% endif %}</a></li>
+				<li><a href="/message.sent"><img src="/static/images/email_edit.png" alt="" class="icon" /> {{ _('Sent messages') }}</a></li>
+			</ul>
+		</form>
+	{% endblock %}
+
+{% block javascript %}
+ 
+{% endblock %}

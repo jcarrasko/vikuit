@@ -1,0 +1,45 @@
+{#
+(C) Copyright 2011 Jose Carrasco <jose.carrasco at vikuit dot com>
+(C) Copyright 2011 Jose Blanco <jose.blanco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+{% extends "layouts/module-layout.html" %}
+
+{% block head %}
+	<link rel="alternate" type="application/rss+xml" title="{{ _('Latest articles') }}" href="/feed/" />
+	<meta name="description" content="{{ _('Social network with content, communities, forums...') }}" />
+	<meta name="keywords" content="{{ _('social network, vikuit') }}" />
+
+{% endblock %}
+{% block title %} 
+	{% if app.name %}{{ app.name }} - {% endif %}{% if app.subject %}{{ app.subject }}{% endif %}
+{% endblock %}
+
+{% block content %}
+
+	
+	<!-- div style="text-align:center;"><img src="/static/images/banner/banner1.png" alt="banner"/></div-->
+	<div>
+	
+		{% include 'vikuitlets/last-articles/last-articles.html' %}		 
+		{% include 'vikuitlets/last-posts/last-posts.html' %}	
+		
+		
+	</div>
+	<div class="clear">&nbsp;</div>
+{% endblock %}

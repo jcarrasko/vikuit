@@ -1,0 +1,43 @@
+{#
+(C) Copyright 2011 Jose Blanco <jose.blanco[a]vikuit.com>
+(C) Copyright 2011 Jose Carrasco <jose.carrasco at vikuit dot com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+{% extends "layouts/module-layout.html" %}
+
+{% block title %} {{ _('Articles') }} {% endblock %}
+
+{% block head %}
+	<link rel="alternate" type="application/rss+xml" title="{{ _('Latest articles') }}" href="/feed/" />
+{% endblock %}
+
+
+{% block content %}
+
+	<div class="info">
+		<h1>{{ _('Articles') }}</h1>
+		<br/>
+		<strong>{{ _('We encourage you to write! Below you can check a list of most recent article') }}:</strong>
+		<br/><br/>
+		
+		
+		<p class="options">{{ _('Sorted by') }}: <a href="?o=-creation_date"><img src="/static/images/date.png" alt="" class="icon" /> {{ _('Publish date') }}</a> | <a href="?o=-rating_average"><img src="/static/images/tick.png" alt="" class="icon" /> {{ _('Rating') }}</a> | <a href="?o=-responses"><img src="/static/images/comments.png" alt="" class="icon" /> {{ _('Number of comments') }}</a></p>
+	</div>
+{% include 'inc-article-list.html' %}
+<div class="clear">&nbsp;</div>
+{% endblock %}

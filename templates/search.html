@@ -1,0 +1,60 @@
+{#
+(C) Copyright 2011 Jose Blanco <jose.blanco[a]vikuit.com>
+(C) Copyright 2011 Jose Carrasco <jose.carrasco at vikuit dot com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+{% extends "base.html" %}
+{% block title %} 
+	{% if t == 'articles' %}
+		{{ _('Articles') }}
+	{% elif t == 'communities' %}
+		{{ _('Communities') }}
+	{% elif t == 'forums' %}
+		{{ _('Forums') }}
+	{% endif %}
+	{{ _('tagged as') }} "{{ tag }}"
+{% endblock %}
+
+{% block rightSidebar %}
+	{% if tag_cloud %}
+		{% include 'vikuitlets/tag-cloud/tag-cloud.html' %}	
+	{% endif %}
+{% endblock %}
+
+{% block content %}
+
+{% if t == 'articles' %}
+	<h1>{{ _('Articles containing') }} "<em>{{ q|escape }}</em>"</h1>
+	{% include 'inc-article-list.html' %}
+{% elif t == 'communities' %}
+	<h1>{{ _('Communities containing') }} "<em>{{ q|escape }}</em>"</h1>
+	{% include 'inc-community-list.html' %}
+	{% include 'inc-pagination.html' %}
+{% elif t == 'forums' %}
+	<h1>{{ _('Forums containing') }} "<em>{{ q|escape }}</em>"</h1>
+	{% include 'inc-forum-list.html' %}
+{% endif %} 
+
+{% endblock %}
+
+{% block javascript %}
+<script type="text/javascript" src="/static/js/searchTerms.js"></script>
+<script type="text/javascript" charset="utf-8">
+	highlightSearchTerms('{{ q|escape }}', false, false, '<span class="highlight">', '</span>');
+</script>
+{% endblock %}

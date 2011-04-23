@@ -1,0 +1,26 @@
+{#
+(C) Copyright 2011 Jose Blanco <jose.blanco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+<div id="special-box"> 
+<h2>{{ _('Cloud tags') }}</h2> <div id="special-box-inside">
+<ol class='tag-cloud'>
+{% for tag in tag_cloud %}
+	<li class="size{{tag.1}}"><span>{{tag.2}} {{ _('articles tagged as') }} </span><a href='/tag/{{tag.0}}' class='tag' title="{{tag.2}} {{ _('articles') }}">{{tag.0}}</a></li>
+{% endfor %}
+</ol></div></div>

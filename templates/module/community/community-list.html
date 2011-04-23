@@ -1,0 +1,70 @@
+{#
+(C) Copyright 2011 Jose Blanco <jose.blanco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+{% extends "layouts/module-layout.html" %}
+{% block title %} {{ _('Communities') }} {% endblock %}
+
+{% block content %}
+	<div class="info">
+		<h1>{{ _('Communities') }}</h1>
+		<br/>
+		<strong>{{ _('Create a community!! Below you can check list of all communities') }}:</strong>
+		<br/><br/>
+			<form action="/module/community.list" method="get" accept-charset="utf-8" id="category-chooser-form">
+				<input type="hidden" name="o" value="{{ o }}" />
+				
+				<p class="options">
+				<label for="cat">{{ _('Category') }}</label>
+				<select name="cat" id="category-chooser-select">
+					<option value="">{{ _('All') }}</option>
+					{% for cat in categories %}
+					<optcommunity label="{{ cat.title|escape }}">
+					{% if cat.subcategories %}
+					{% for subcategory in cat.subcategories %}
+					<option value="{{ subcategory.url_path }}"{% if category and category.key() == subcategory.key() %} selected="selected"{% endif %}>{{ subcategory.title|escape }}</option>
+					{% endfor %}
+					{% endif %}
+					</optcommunity>
+					{% endfor %}
+				</select>
+				<input type="submit" value="{{ _('Filter') }}" id="category-chooser-submit" /> <br/>
+				{{ _('Sorted by') }}: <a href="?o=-creation_date&amp;cat={{ cat }}"><img src="/static/images/date.png" alt="" class="icon" /> {{ _('Creation date') }}</a> | <a href="?o=-members&amp;cat={{ cat }}"><img src="/static/images/community.png" alt="" class="icon" /> {{ _('Number of users') }}</a> | <a href="?o=-articles&amp;cat={{ cat }}"><img src="/static/images/page_white_edit.png" alt="" class="icon" /> {{ _('Number of articles') }}</a>
+				</p>
+			</form>
+	</div>
+
+{% if len == 0 %}
+	<p>{{ _('No communities') }}</p>
+{% endif %}
+
+{% include 'inc-community-list.html' %}
+
+{% include 'inc-pagination.html' %}
+{% endblock %}
+
+{% block javascript %}
+<script type="text/javascript" charset="utf-8">
+$("#category-chooser-select").change(function() {
+     $("#category-chooser-form").submit();
+     $("#category-chooser-select").hide();
+});
+
+
+</script>
+{% endblock %}

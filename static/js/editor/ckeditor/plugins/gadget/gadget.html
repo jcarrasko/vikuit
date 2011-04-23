@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!--
+ * Copyright 2008 Google Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+-->
+<html>
+  <head>
+    <title>Gadget Properties</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta content="noindex, nofollow" name="robots">
+    <script type="text/javascript">
+    
+var dialog = window.parent;
+var oEditor = dialog.InnerDialogLoaded();
+var FCKConfig = oEditor.FCKConfig;
+var FCKLang = oEditor.FCKLang;
+var FCKGadget = oEditor.FCKGadget;
+
+var headElt = document.getElementsByTagName('head')[0];
+var newScript = document.createElement('script');
+newScript.type = 'text/javascript';
+newScript.src = FCKConfig.BasePath + 'dialog/common/fck_dialog_common.js';
+headElt.appendChild(newScript);
+
+    </script>
+  </head>
+  <body scroll="no" style="OVERFLOW: hidden">
+    <div>
+      <span fckLang="GadgetDlgUrl">Gadget URL</span><br>
+      <input id="txtUrl" type="text" style="width: 280px;">
+    </div>
+    <div>
+      <span fckLang="GadgetDlgHeight">Gadget Height</span><br>
+      <input id="txtHeight" type="text">
+    </div>
+    <div>
+      <span fckLang="GadgetDlgWidth">Gadget Width</span><br>
+      <input id="txtWidth" type="text">
+    </div>
+    
+    <script language="javascript">
+    
+window.onload = function ()
+{
+  oEditor.FCKLanguageManager.TranslatePage(document);
+
+  // Show the "Ok" button.
+  dialog.SetOkButton(true) ;
+
+  // Select text field on load.
+  SelectField('txtUrl') ;
+}
+
+function insertIframe(url, height, width) {
+  var newIframe = oEditor.FCK.InsertElement('iframe');
+  newIframe.src = 'http://gmodules.com/ig/ifr?url=' + url;
+  newIframe.style.height = height;
+  newIframe.style.width = width;
+  newIframe.scrolling = 'no';
+  newIframe.style.border = '0px';
+}
+
+function Ok()
+{
+  var url = document.getElementById('txtUrl').value;
+  var height = document.getElementById('txtHeight').value;
+  var width = document.getElementById('txtWidth').value;
+
+  if (url.length == 0)
+  {
+    alert(FCKLang.GadgetErrNoUrl);
+    return false;
+  }
+  if (height.length == 0)
+  {
+    alert(FCKLang.GadgetErrNoHeight);
+    return false;
+  }
+  if (width.length == 0)
+  {
+    alert(FCKLang.GadgetErrNoWidth);
+    return false;
+  }
+  
+  insertIframe(url, height, width);
+  return true;
+}
+    </script>
+  </body>
+</html>

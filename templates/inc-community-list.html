@@ -1,0 +1,65 @@
+{#
+(C) Copyright 2011 Jose Blanco <jose.blanco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+{% for community in communities %}
+<div class="grid_2 alpha" >
+
+	<p class="center"><a href="/module/community/{{ community.url_path}}">
+	{% if community.image_version %}
+		<img src="/images/community/avatar/{{ community.key().id() }}/{{ community.image_version }}" alt="{{ community.title|escape }}" />
+	{% else %}
+		<img src="/images/community/avatar/{{ community.key().id() }}" alt="{{ community.title|escape }}" />
+	{% endif %}
+	</a></p>
+</div>
+<div class="grid">
+	<div class="info">
+		<h2><a href="/module/community/{{ community.url_path}}">{{ community.title|escape }}</a></h2>
+		<p class="options">
+			<a href="/module/community.forum.list/{{ community.url_path }}">
+				<img src="/static/images/comments.png" alt="" class="icon" /> {{ community.threads }} {{ _('topics in forum') }}
+			</a>
+			| <a href="/module/community.article.list/{{ community.url_path }}">
+				<img src="/static/images/page_white_edit.png" alt="" class="icon" /> {{ community.articles }} {{ _('articles') }}
+			</a>
+			| <a href="/module/community.user.list/{{ community.url_path }}">
+				<img src="/static/images/community.png" alt="" class="icon" /> {{ community.members }} {{ _('users') }}
+			</a>
+{% if user %}
+	{% if joined == 'True' %}
+			{% if user.nickname != community.owner.nickname %}
+				| <a href="/module/community.user.unjoin?community={{ community.key() }}&amp;redirect={{ redirect }}">
+					<img src="/static/images/delete.png" class="icon" alt="" /> {{ _('Unjoin community') }}</a>
+			{% endif %}
+	{% elif joined == 'False' %}
+			| <a href="/module/community.user.join?community={{ community.key() }}&amp;redirect={{ redirect }}">
+				<img src="/static/images/add.png" class="icon" alt="" /> {{ _('Join community') }}</a>
+	{% endif %}
+	{% if user.nickname == community.owner.nickname %}
+			| <strong><a href="/module/community.edit?key={{ community.key() }}"> {{ _('Edit community') }}</a></strong>
+	{% endif %}
+{% endif %}
+		</p>
+	</div>
+
+	<p>{{ community.description|escape }}</p>
+</div>
+<div class="clear">&nbsp;</div>
+	<hr class="separator"/>
+{% endfor %}

@@ -1,0 +1,118 @@
+{#
+(C) Copyright 2011 Jose Carrasco <jose.carrasco at vikuit dot com>
+(C) Copyright 2011 Jose Blanco <jose.blanco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+{% extends "layouts/module-layout.html" %}
+{% block title %} {{ _('Preferences') }} {% endblock %}
+{% block content %}
+	<h1>Preferencias</h1>
+	
+	<form action="/module/user.edit" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+		<input type="hidden" name="auth" value="{{ auth }}" />
+		
+		<div class="grid_4 alpha">
+			<div class="form">
+				<p>
+					<label for="real_name">{{ _('Name') }}</label>
+					<input type="text" name="real_name" value="{{ real_name }}" id="real_name" size="30" maxlength="30" />
+				</p>
+   
+				<p>
+					<label for="country">{{ _('Country') }}</label>
+					<input type="text" name="country" value="{{ country }}" size="30" maxlength="30" />
+				</p>
+   
+				<p>
+					<label for="city">{{ _('City') }}</label>
+					<input type="text" name="city" value="{{ city }}" size="30" maxlength="30" />
+				</p>
+   
+				<p>
+					<label for="user_image">{{ _('Image') }}</label>
+					<input type="file" name="img" />&nbsp;{{ _('Square image is cool') }} :)
+				</p>
+				
+				<p>
+					<label for="google_adsense">{{ _('Google Adsense') }}</label>
+					<input type="text" name="google_adsense" value="{{ google_adsense }}" /> <br/> {{ _('pub-xxxxxxxxxxxxxxxx format') }} 
+				</p>
+				<p>
+					<input type="checkbox" name="not_full_rss" {% if not_full_rss %}checked="checked"{% endif %}/> {{ _('Show description in RSS, not full content') }}
+					
+				</p>
+			</div>
+		</div>
+		
+		<div class="grid_5 omega">
+			<div class="form">
+   
+				<p>
+					<label for="blog">{{ _('Personal blog') }}</label>
+					<input type="text" name="blog" size="40" value="{% for link in links %}{% if link.0 == 'blog' %}{{ link.1 }}{% endif %}{% endfor %}" />
+				</p>
+   
+				<p>
+					<label for="linkedin">{{ _('Linkedin profile') }}</label>
+					<input type="text" name="linkedin" size="40" value="{% for link in links %}{% if link.0 == 'linkedin' %}{{ link.1 }}{% endif %}{% endfor %}" />
+				</p>
+   
+				<p>
+					<label for="ohloh">{{ _('Ohloh profile') }}</label>
+					<input type="text" name="ohloh" size="40" value="{% for link in links %}{% if link.0 == 'ohloh' %}{{ link.1 }}{% endif %}{% endfor %}"/>
+				</p>
+
+				<p>
+					<label for="msn">{{ _('MSN messenger address') }}</label>
+					<input type="text" name="msn" size="40" value="{% for im_address in im_addresses %}{% if im_address.0 == 'msn' %}{{ im_address.1 }}{% endif %}{% endfor %}"/>
+				</p>
+
+				<p>
+					<label for="jabber">{{ _('Jabber address') }}</label>
+					<input type="text" name="jabber" size="40" value="{% for im_address in im_addresses %}{% if im_address.0 == 'jabber' %}{{ im_address.1 }}{% endif %}{% endfor %}"/>
+				</p>
+
+				<p>
+					<label for="gtalk">{{ _('Gtalk address') }}</label>
+					<input type="text" name="gtalk" size="40" value="{% for im_address in im_addresses %}{% if im_address.0 == 'gtalk' %}{{ im_address.1 }}{% endif %}{% endfor %}"/>
+				</p>
+
+				<p>
+					<label for="personal_message">{{ _('Personal message') }}</label>
+					<input type="text" name="personal_message" value="{{ personal_message }}" id="personal_message" size="40" maxlength="40" />
+				</p>
+   
+				<p>
+					<label for="about_user">{{ _('About me (only plain text)') }}</label>
+					<textarea type="text" name="about_user" rows="10" cols="32">{{ about }}</textarea>
+				</p>
+			</div>
+		</div>
+
+		<p><input type="submit" value="{{ _('Save changes') }}"/></p>
+	</form>
+	
+	<div class="clear">&nbsp;</div>
+	
+{% endblock %}
+
+{% block javascript %}
+<script type="text/javascript" charset="utf-8">
+	$('real_name').focus();
+</script>
+{% endblock %}

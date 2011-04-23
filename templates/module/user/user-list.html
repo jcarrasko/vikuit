@@ -1,0 +1,39 @@
+{#
+(C) Copyright 2011 Jose Blanco <jose.blanco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+
+{% extends "layouts/module-layout.html" %}
+{% block title %} {{ _('Users') }} {% endblock %}
+{% block head %}
+
+{% endblock %}
+{% block content %}
+	<div class="info">
+		<h1>{{ _('Users') }}</h1>
+		<p class="options">{{ _('Sort by') }}:
+			<a href="?o=-creation_date"><img src="/static/images/date.png" alt="" class="icon" /> {{ _('Registration date') }}</a>
+			| <a href="?o=-articles"><img src="/static/images/page_white_edit.png" alt="" class="icon" /> {{ _('Number of articles') }}</a>
+		</p>
+	</div>
+	
+{% include 'inc-user-list.html' %}
+
+{% include 'inc-pagination.html' %}
+
+{% endblock %}

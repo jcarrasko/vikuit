@@ -1,0 +1,116 @@
+{#
+(C) Copyright 2011 Jose Carrasco <jose.carrasco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+<table class="topMenu" cellpadding="0" cellspacing="0"
+	style="float: right; padding-left: 5px; margin-right: 0px ! important;">
+	<tr>
+		<td style="min-width: 450px;">
+			{% include 'includes/base/search-box.html' %}	
+		</td>
+		
+		{% if sess.user %}
+			 	
+			{% if user.rol == 'admin' %}
+
+				<td class="top"><a href="/admin" class="top_link"><span class="down" style="font-weight: bold;">{{ _('Administration') }}</span>
+				<!--[if gte IE 7]><!--></a><!--<![endif]-->
+				<div style="position: relative; display: block;"><!--[if lte IE 6]><table id="mmm"><tr><td><![endif]-->
+				<ul class="sub main_elements">
+					<li><a href="/module/admin.application" class="button more_ntop_element">{{ _('Configure application') }}</a></li>
+					<li><a href="/module/community.add.related" class="button more_ntop_element">{{ _('Bind community') }}</a></li>
+					<li><a href="/module/admin.categories" class="button more_ntop_element">{{ _('Administrate categories') }}</a></li>
+					<li><a href="/module/admin.users" class="button more_ntop_element">{{ _('Administrate users') }}</a></li>
+					<li><a href="/module/admin.cache" class="button more_ntop_element">{{ _('Manage cache') }}</a></li>
+					<li class="li_last_round">&nbsp;</li>
+				</ul>
+				<!--[if lte IE 6]></td></tr></table></a><![endif]--></div>
+				</td>
+
+			{% else %}		
+				<td class="top">
+					<a href="/" class="top_link"><span class="down" style="font-weight: bold;">{{ _('Init') }}</span>
+				</td>	
+				
+			{% endif %}
+				
+				
+				<td class="top"><a href="/module/user.edit" class="top_link"><span class="down" style="font-weight: bold;">{{ _('Footprints') }}</span>
+				<!--[if gte IE 7]><!--></a><!--<![endif]-->
+				<div style="position: relative; display: block;"><!--[if lte IE 6]><table id="mmm"><tr><td><![endif]-->
+				<ul class="sub main_elements">
+					<li><a href="/module/user.events"  class="button more_ntop_element"><img src="/static/images/heart.png" alt="" class="icon" /> {{ _('Your lifestreaming') }}</a></li>
+					<li><a href="/module/user/{{ user.nickname }}"  class="button more_ntop_element"><img src="/static/images/user.png" alt="" class="icon" /> {{ _('Your public profile') }}</a></li>
+					<li><a href="/module/user.articles/{{ user.nickname }}"  class="button more_ntop_element"><img src="/static/images/page_white_text.png" alt="" class="icon" /> {{ _('Your articles') }}</a></li>
+					<li><a href="/module/user.forums/{{ user.nickname }}"  class="button more_ntop_element"><img src="/static/images/comments.png" alt="" class="icon" /> {{ _('Your threads') }}</a></li>
+					<li><a href="/module/user.favourites/{{ user.nickname }}"  class="button more_ntop_element"><img src="/static/images/star.png" alt="" class="icon" /> {{ _('Your favorites') }}</a></li>
+					<li><a href="/module/user.communities/{{ user.nickname }}"  class="button more_ntop_element"><img src="/static/images/community.png" alt="" class="icon" /> {{ _('Your communities') }}</a></li>
+					<li><a href="/module/user.contacts/{{ user.nickname }}"  class="button more_ntop_element"><img src="/static/images/user.png" alt="" class="icon" /> {{ _('Your contacts') }}</a></li>
+					<li><a href="/invite"  class="button more_ntop_element"><img src="/static/images/user_comment.png" alt="" class="icon" /> {{ _('Invite your friends') }} </a></li>
+					
+				<li><hr></li>	
+				
+				<li><a href="/message.inbox"  class="button more_ntop_element"><img src="/static/images/email.png" alt="" class="icon" /> {{ _('Inbox') }} {% if user.unread_messages %}({{ user.unread_messages}}){% endif %}</a></li>
+		<li><a href="/message.sent"  class="button more_ntop_element"><img src="/static/images/email_edit.png" alt="" class="icon" /> {{ _('Sent messages') }}</a></li>
+				
+					
+					<li class="li_last_round">&nbsp;</li>
+				</ul>
+				<!--[if lte IE 6]></td></tr></table></a><![endif]--></div>
+				</td>
+  
+   
+  
+ 				<td class="top"><a href="/admin" class="top_link"><span class="down" style="font-weight: bold;">{{ _('Account')}}</span>
+				<!--[if gte IE 7]><!--></a><!--<![endif]-->
+				<div style="position: relative; display: block;"><!--[if lte IE 6]><table id="mmm"><tr><td><![endif]-->
+				<ul class="sub main_elements">
+					<li><a href="/module/user.changepassword?redirect_to={{ redirect }}" class="button more_ntop_element"><img src="/static/images/key.png" alt="" class="icon" />{{ _('Change password') }}</a></li>
+					<li><a href="/module/user.edit" class="button more_ntop_element"><img src="/static/images/cog.png" alt="" class="icon" />{{ _('Preferences') }}</a></li>
+					
+					<li><hr></li>	
+					<li><a href="{{ logout }}" class="button more_ntop_element"><img src="/static/images/logout.png" alt="" class="icon" />{{ _('Logout') }}</a></li>
+				
+			
+				
+				<li class="li_last_round">&nbsp;</li>
+				</ul>
+				<!--[if lte IE 6]></td></tr></table></a><![endif]--></div>
+				</td>
+ 	 
+		{% else %}	
+
+			<td class="top">
+				<a href="/module/user.login?redirect_to={{ redirect }}" class="top_link"><span class="down" style="font-weight: bold;">{{ _('Log in') }}</span>
+			</td>	
+			<td class="top">
+				<a href="/module/user.register?redirect_to={{ redirect }}" class="top_link"><span class="down" style="font-weight: bold;">{{ _('Register') }}</span>
+			</td>	
+			<td class="top">
+				<a href="/module/user.forgotpassword?redirect_to={{ redirect }}" class="top_link"><span class="down" style="font-weight: bold;">{{ _('Forgot password?') }}</span>
+			</td>	
+ 	 
+		{% endif %}
+	 
+	</tr>
+</table>
+
+
+{% block javascript %}
+	
+{% endblock %}

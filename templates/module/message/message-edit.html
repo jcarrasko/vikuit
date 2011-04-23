@@ -1,0 +1,76 @@
+{#
+(C) Copyright 2011 Jose Blanco <jose.blanco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+{% extends "layouts/module-layout.html" %}
+{% block title %}
+	{{ _('New message') }}
+{% endblock %}
+
+{% block content %}
+	<h1>{{ _('New message to') }} {{ user_to }}</h1>
+
+<form id="msg_edit" action="/message.edit" method="post" accept-charset="utf-8">
+	<input id="key" type="hidden" name="user_to" value="{{ user_to }}" />
+	<input type="hidden" name="auth" value="{{ auth }}" />
+
+	<div class="form">
+		<p>
+			<label for="title">{{ _('Title') }}</label>
+			<input id="title" type="text" name="title" value="{{ title|escape }}" style="font-size:200%" size="40" />
+		</p>
+		
+		<p>
+			<label for="content">{{ _('Content') }}</label>
+			<textarea name="content" rows="30" cols="50" id="markdown_example"></textarea>
+		</p>
+
+		<p><input type="submit" value="{{ _('Send') }}" /></p>
+		
+		<p>
+			<label for="preview">{{ _('Preview') }}</label>
+			<div class="comment"><div id="markdown_formatted"></div></div>
+		</p>
+	</div>
+</form>
+{% endblock %}
+{% block javascript %}
+<script type="text/javascript" src="/static/js/jquery.validate.min.js"></script>
+<script type="text/javascript" charset="utf-8">
+	$(document).ready(function(){
+		$('#msg_edit').validate({
+			rules: {
+				title: {
+					required: true
+				},
+				markdown_example: {
+					required: true
+				}
+			},
+			messages: {
+					title: {
+						required: "{{ _('Mandatory field') }}"
+					},
+					markdown_example: {
+						required: "{{ _('Mandatory field') }}"
+					}	
+				}
+			});
+	});
+</script>
+{% endblock %}

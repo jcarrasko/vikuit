@@ -1,0 +1,63 @@
+{#
+(C) Copyright 2011 Jose Blanco <jose.blanco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+{% extends "layouts/module-layout.html" %}
+{% block title %}
+	{{ _('Log in') }}
+{% endblock %}
+
+{% block content %}
+    <h1>{{ _('Log in') }}</h1>
+	
+	{% if error %}
+		{% if nickname %}
+			<p class="message">{{ _(error)|format(nickname) }}</p>
+		{% else %}
+			<p class="message">{{ _(error|escape) }}</p>
+		{% endif %}
+	{% endif %}
+	
+	<form action="/module/user.login" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+		<input type="hidden" name="redirect_to" value="{{ redirect_to }}" />
+		
+		<div class="form">
+			<p>
+				<label for="nickname">{{ _('User') }}</label>
+				<input id="nickname" type="text" name="nickname" value="{{ nickname }}" style="width:270px" />
+			</p>
+			<p>
+				<label for="password">{{ _('Password') }}</label>
+				<input type="password" name="password" value="" size="30" maxlength="50" style="width:270px" />
+			</p>
+			<p>
+				<input type="checkbox" name="remember" value="remember" /> {{ _('Stay signed in') }}
+			</p>
+			<p><input type="submit" value="{{ _('Login') }}" /></p>
+		</div>
+	</form>
+	<p class="specialbox">
+		<a href="{{ glogin }}" >{{ _('Sign in with your Google account') }}</a> * {{ _('User must be registered in %s')|format('Google') }} <br/>
+	</p>
+{% endblock %}
+
+{% block javascript %}
+<script type="text/javascript" charset="utf-8">
+	$('nickname').focus()
+</script>
+{% endblock %}

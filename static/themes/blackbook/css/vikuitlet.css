@@ -1,0 +1,97 @@
+.vk_box {
+margin-bottom:10px;
+background-color:transparent;
+position:relative;
+}
+.vk_title {
+height:21px;
+line-height:21px;
+color:#000;
+text-align:left;
+border-bottom-width:1px;
+padding-bottom:2px;
+border-bottom-style:solid;
+font-weight:700;
+font-size:13px;
+border-bottom-color:#d2d2d2;
+position:relative;
+}
+
+.vk_title_high {
+height:21px;
+line-height:21px;
+font-size:11px;
+color:#000;
+font-weight:700;
+text-align:left;
+text-transform:capitalize;
+background-color:#eceff5;
+border-top-width:1px;
+padding-bottom:0;
+border-top-style:solid;
+border-top-color:#94a3c4;
+border-bottom:0 solid #FFF;
+}
+
+.vk_content {
+font-size:11px;
+background-color:#fff;
+}
+
+.vk_content > .form_advanced > .form_advanced_wrapper,.vk_content > .dbContentHtml,.vk_content > .RSSAggrCont > .rss_feed_wrapper,.login_box_text {
+margin:9px;
+}
+
+.vk_box .dbTopMenu,.vk_box .caption_item {
+position:absolute;
+top:0;
+right:0;
+white-space:nowrap;
+font-size:11px;
+text-transform:capitalize;
+font-weight:700;
+}
+
+.vk_box .caption_item {
+padding-top:3px;
+padding-right:5px;
+}
+
+
+
+div.vk_box div.dbClose img {
+width:28px;
+height:28px;
+}
+
+ 
+
+div.TransBox .vk_box,table.popup_form_wrapper div.vk_box {
+margin-bottom:0;
+}
+
+.vk_content .submit_button {
+	font:12px/100% Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	color:#fff;
+	background:#4690d6;
+	border:1px solid #4690d6;
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+	width:auto;
+	height:25px;
+	padding:2px 6px 2px 6px;
+	margin:10px 0 10px 0;
+	cursor:pointer
+}
+
+
+.vk_content .form
+{
+	float:left;
+	width:80px;
+	text-align:right;
+	margin-right:7px;
+	height:21px;
+	line-height:21px;
+}

@@ -1,0 +1,39 @@
+{#
+(C) Copyright 2011 Jose Carrasco <jose.carrasco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+{% extends "includes/vikuitlet/base.html" %}
+ 
+{% block vikuitlet_title %} 
+	{{ _('Most active communities') }} 
+{% endblock %} 
+
+{% block vikuitlet_content %}
+<p>{{ _('Below you can check most active communities') }}:</p> 
+<ul>
+	{% for ag in activity_communities %}
+		<li><a href="/module/community/{{ ag.url_path }}" title="{{ _('Go to community') }} {{ ag.title }}">{{ ag.title }}</a></li>
+	{% endfor %}
+</ul>
+	
+{% endblock %}  
+
+		
+{% block javascript %}
+ 
+{% endblock %}
