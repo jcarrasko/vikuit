@@ -32,7 +32,7 @@ class AdminCache(AuthenticatedHandler):
 	def execute(self):
 		method = self.request.method
 		user = self.values['user']
-		self.values['tab'] = '/admin'
+		self.values['tab'] = '/module/admin.cache'
 		
 		if user.rol != 'admin':
 			self.forbidden()
