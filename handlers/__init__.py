@@ -36,6 +36,7 @@ from handlers.module.admin.AdminLookAndFeel import *
 from handlers.module.admin.AdminGoogle import *
 from handlers.module.admin.AdminMail import *
 from handlers.module.admin.AdminCache import *
+from handlers.module.admin.AdminStats import *
 # Articles
 from handlers.module.article.ArticleList import *
 from handlers.module.article.ArticleEdit import *

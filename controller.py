@@ -127,6 +127,7 @@ def main():
 									   ('/module/admin.modules',		AdminModules),
 									   ('/module/admin.mail',			AdminMail),
 									   ('/module/admin.google',			AdminGoogle),
+									   ('/module/admin.stats',			AdminStats),
                                        ('/module/admin.cache',          AdminCache),
 									   # Ohters									   									   
 									   ('/mail.queue',			MailQueue),
