@@ -18,113 +18,32 @@ You should have received a copy of the GNU Affero General Public License
 along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
 #}
 
-{% extends "layouts/module-layout.html" %}
+{% extends "module/admin/layout/layout.html" %}
 
-{% block title %} {{ _('Application configuration') }} {% endblock %}
+{% block title %} {{ _('Configure modules') }} {% endblock %}
 
 {% block content %}
 	<div class="info">
-		<h1>{{ _('Application configuration') }}</h1>
-		<p class="options">{{ _('Users') }}: {{ app.users }}. {{ _('Articles') }}: {{ app.articles }}. {{ _('Communities') }}: {{ app.communities }}. {{ _('Topics') }}: {{ app.threads }}</p>
+		<h1>{{ _('Configure modules') }}</h1>
 	</div>
 	
 	{% if m %}
 		<p class="message">{{ m|escape }}</p>
 	{% endif %}
-
-	<form action="/module/admin.application" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+	
+	<p class="message">Work in progress. Will be ready for 0.9</p>
+{#
+	<form action="/module/admin.modules" method="post" accept-charset="utf-8" enctype="multipart/form-data">
 		<input type="hidden" name="auth" value="{{ auth }}" />
 		<div class="form">
 			<p>
-				<label for="appName">{{ _('Application Name') }}</label>
-				<input id="appName" type="text" name="appName" value="{{ appName|escape }}" style="width: 250px" /> Ej: Vikuit
-			</p>
-			<p>
-				<label for="appSubject">{{ _('Application subject or slogan') }}</label>
-				<input id="appSubject" type="text" name="appSubject" value="{{ appSubject|escape }}" style="width: 250px" /> Ej: On a mountain top with a radio and good batteries to keep you awake!!
-			</p>
-			<p>
-				<label for="locale">{{ _('Language') }}</label>
-				<select id="locale" name="locale">
-					<option value="en"{% if locale == 'en' %} selected="selected"{% endif %}>English</option>
-					<option value="es"{% if locale == 'es' %} selected="selected"{% endif %}>Espa&ntilde;ol</option>
-				</select> <i>*{{ _('Language per instance') }}</i>
-			</p>
-			
-			<p>
-				<label for="logo">{{ _('Logo') }}</label>
-				<input type="file" name="logo" />&nbsp;
-			</p>
-		 
-				<p>
-				<label for="theme">{{ _('Theme') }}</label>
-				<select id="theme" name="theme">
-					<option value="blackbook"{% if theme == 'blackbook' %} selected="selected"{% endif %}>Blackbook</option>
-					<option value="cps"{% if theme == 'cps' %} selected="selected"{% endif %}>Cold Plain Style</option>
-				</select>
-			</p>		
-			<p>
-				<label for="url">{{ _('URL') }}</label>
-				<input id="url" type="text" name="url" value="{{ url|escape }}" style="width: 250px" /> Ej: http://example.com
-			</p>
-			
-			<p>
-				<label for="mail_contact">{{ _('Mail contact address') }}</label>
-				<input id="mail_contact" type="text" name="mail_contact" value="{{ mail_contact|escape }}" style="width: 250px" /> Ej: [contact@example.com]
-			</p>
-			
-			<p>
-				<label for="mail_subject_prefix">{{ _('Mail subject prefix') }}</label>
-				<input id="mail_subject_prefix" type="text" name="mail_subject_prefix" value="{{ mail_subject_prefix|escape }}" style="width: 250px" /> Ej. [example.com]
-			</p>
-
-			<p>
-				<label for="mail_sender">{{ _('Mail sender address') }}</label>
-				<input id="mail_sender" type="text" name="mail_sender" value="{{ mail_sender|escape }}" style="width: 250px" /> Ej: [notifications@example.com]
-			</p>
-
-			<p>
-				<label for="mail_footer">{{ _('Mail footer') }}</label>
-				<textarea id="mail_footer" name="mail_footer" value="{{ mail_footer|escape }}" style="width: 250px" ></textarea>
-			</p>
-			
-			<p>
-				<label for="recaptcha_public_key">{{ _('Recaptcha public key') }}</label>
-				<input id="recaptcha_public_key" type="text" name="recaptcha_public_key" value="{{ recaptcha_public_key|escape }}" style="width: 250px" />
-			</p>
-			
-			<p>
-				<label for="recaptcha_private_key">{{ _('Recaptcha private key') }}</label>
-				<input id="recaptcha_private_key" type="text" name="recaptcha_private_key" value="{{ recaptcha_private_key|escape }}" style="width: 250px" />
-			</p>
-			
-			<p>
-				<label for="google_adsense">{{ _('Google Adsense') }}</label>
-				<input id="google_adsense" type="text" name="google_adsense" value="{{ google_adsense|escape }}" style="width: 250px" />
-			</p>
-			
-			<p>
-				<label for="google_adsense_channel">{{ _('Google Adsense Channel') }}</label>
-				<input id="google_adsense_channel" type="text" name="google_adsense_channel" value="{{ google_adsense_channel|escape }}" style="width: 250px" />
-			</p>
-			
-			<p>
-				<label for="google_analytics">{{ _('Google Analytics') }}</label>
-				<input id="google_analytics" type="text" name="google_analytics" value="{{ google_analytics|escape }}" style="width: 250px" />
-			</p>
-			
-			<p>
-				<label for="max_results">{{ _('Results per page (user.list, forum.list, community.list, article.list)') }}</label>
-				<input id="max_results" type="text" name="max_results" value="{{ max_results }}" style="width: 250px" />
-			</p>
-			
-			<p>
-				<label for="max_results_sublist">{{ _('Results per page (comments and answers)') }}</label>
-				<input id="max_results_sublist" type="text" name="max_results_sublist" value="{{ max_results_sublist }}" style="width: 250px" />
-			</p>
+				<label for="userDirectory">{{ _('Users') }}</label>
+				<input type="checkbox" name="option2" value="userDirectory" {% if userDirectory == 'true' %} checked{% endif %} />
+				<label for="microblogging">{{ _('Microblogging') }}</label>
+				<input type="checkbox" name="option2" value="microblogging" {% if microblogging == 'true' %} checked{% endif %} />
+			</p>				
 		</div>
-	
 		<p><input type="submit" value="{{ _('Save changes') }}" /></p>
 	</form>
-
+#}
 {% endblock %}

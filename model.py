@@ -120,6 +120,9 @@ class Mblog(search.SearchableModel):
 	deletion_date = db.DateTimeProperty()
 	deletion_user_nick = db.StringProperty()
 
+class Module(db.Model):
+	name = db.TextProperty(required=True)
+	active = db.BooleanProperty()
 
 class Comment(db.Model):
 	content = db.TextProperty(required=True)
