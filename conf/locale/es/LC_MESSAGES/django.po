@@ -1946,3 +1946,15 @@ msgstr "Vaciar cache"
 
 msgid "Cache is clean"
 msgstr "Cache est&aacute; vac&iacute;a"
+
+msgid "Configure look and feel"
+msgstr "Configuraci&oacute;n visual"
+
+msgid "Configure mail stuff"
+msgstr "Configuraci&oacute;n correo"
+
+msgid "Configure modules"
+msgstr "Configuraci&oacute;n m&oacute;dulos"
+
+msgid "Configure google stuff"
+msgstr "Configuraci&oacute;n varia Google"
