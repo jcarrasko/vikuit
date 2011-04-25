@@ -33,7 +33,7 @@ class AdminMail(AuthenticatedHandler):
 	def execute(self):
 		method = self.request.method
 		user = self.values['user']
-		self.values['tab'] = '/module/admin.mail'
+		self.values['tab'] = '/admin'
 		
 		if user.rol != 'admin':
 			self.forbidden()
