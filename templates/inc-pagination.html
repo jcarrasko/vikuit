@@ -1,1 +1,35 @@
-{{ ''|pagination }}
+{% if prev or next %}
+        <ul class="paginator">
+            {% if prev %}
+                {% if prev == 1 %}
+                    <li class="previous"><a href="?{{ common }}">« {{_("Previous") }}</a></li>
+                {% else %}
+                    <li class="previous"><a href="?p={{ prev }}&amp;{{ common }}">« {{_("Previous")}}</a></li>
+                {% endif %}
+            {% else %}
+                <li class="previous-off">« {{_("Previous")}}</li>
+            {% endif %}
+
+            {% if pages %}
+                {% for page in pagesList %}
+                    {% if page == p %}
+                        <li class="active">{{ _('%d')|format(page) }}</li>
+                    {% else %}
+                        {% if page.counter == 1 %}
+                            <li><a href="?{{ common }}">{{ _('%d')|format(page) }}</a></li>
+                        {% else %}
+                            <li><a href="?p={{ _('%d')|format(page) }}&amp;{{common}}">{{ _('%d')|format(page) }}</a></li>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            {% else %}
+               <li class="active">{{_("Page")}} {{p}} </li>
+            {% endif %}
+
+            {% if next %}
+                <li class="next"><a href="?p={{ next }}&{{ common }}">{{ _('Next') }} »</a></li>
+            {% else %}
+                <li class="next-off">{{ _('Next') }}  »</li>
+            {% endif %}
+        <ul><br/><br/>
+{% endif %}

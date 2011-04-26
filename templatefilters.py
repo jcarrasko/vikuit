@@ -96,6 +96,7 @@ def smiley(value):
 	return value
 register.filter(smiley)
 
+#This Pagination is deprecated
 class Pagination(template.Node):
 
 	def render(self,context):
@@ -119,7 +120,7 @@ class Pagination(template.Node):
 
 		s = ''
 		if prev or next:
-			s = '<p class="pagination">'
+			s = '<p class="paginator">'
 			if prev:
 				if prev == 1:
 					if q:

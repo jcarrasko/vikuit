@@ -713,6 +713,12 @@ class BaseHandler(webapp.RequestHandler):
 			if total % max > 0:
 				pages += 1
 			self.values['pages'] = pages
+			i = 1
+			pagesList = []
+			while i <= pages:
+				pagesList.append(i)
+				i += 1
+			self.values['pagesList'] = pagesList
 		try:
 			p = int(self.get_param('p'))
 			if p < 1:
@@ -750,11 +756,8 @@ class BaseHandler(webapp.RequestHandler):
 	
 	
 	def pagination(self, value):
-		prev = self.value('prev')
-		next = self.value('next')
-
-		s = ''
-		if prev or next:
+		##Pagination
+		if self.value('prev') or self.value('next'):
 			params = []
 			p = self.value('p')
 			q = self.value('q')
@@ -767,54 +770,28 @@ class BaseHandler(webapp.RequestHandler):
 			# order
 			if cat:
 				params.append('cat=%s' % cat)
-   
+
 			# query string
 			if q:
 				params.append('q=%s' % q)
-   
+
 			# type
 			if t:
 				params.append('t=%s' % t)
-   
+
 			# order
 			if o:
 				params.append('o=%s' % o)
-   
+
 			# anchor
 			if a:
 				a = '#%s' % str(a)
 			else:
 				a = ''
 
-			common = '%s%s' % ('&amp;'.join(params), a)
-			s = '<ul class="pagination">'
-			if prev:
-				if prev == 1:
-					s = (u'%s <li class="previous"><a href="?%s">« ' % (s, common))+self.getLocale("Previous")+u'</a></li>'
-				else:
-					s = (u'%s <li class="previous"><a href="?p=%d&amp;%s">« ' % (s, prev, common))+self.getLocale("Previous")+u'</a></li>'
-			else:
-				s = (u'%s <li class="previous-off">« ' % s)+self.getLocale("Previous")+u'</li>'
-			
-			if pages:
-				i = 1
-				while i <= pages:
-					if i == p:
-						s = u'%s <li class="active">%d</li>' % (s, i)
-					else:
-						if i == 1:
-							s = u'%s <li><a href="?%s">%d</a></li>' % (s, common, i)
-						else:
-							s = u'%s <li><a href="?p=%d&amp;%s">%d</a></li>' % (s, i, common, i)
-					i += 1
-			else:
-				s = (u'%s <li class="active">' % s)+self.getLocale("Page")+u' %d </li>' % p
-			if next:
-				s = (u'%s <li class="next"><a href="?p=%d&amp;%s">' % (s, next, common))+self.getLocale("Next")+(u' »</a></li>')
-			else:
-				s = (u'%s <li class="next-off">' % s)+self.getLocale("Next")+u' »</li>'
-			s = '%s</ul><br/><br/>' % s
-		return s
+			self.values['p'] = p
+			self.values['common'] = '%s%s' % ('&amp;'.join(params), a)
+		return ''
 	
 	
 	def to_url_path(self, value):

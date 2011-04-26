@@ -1313,3 +1313,13 @@ div.nblog blockquote p {
 	margin: 0px;
 	padding: 10px;
 }
+.paginator {font-size:12px;line-height:22px;padding-top:6px;margin-left:auto;margin-right:auto;}
+.paginator li {display: inline;}
+.paginator a {padding:2px 6px;border:solid 1px #eee;background:#fff;text-decoration:none;}
+.paginator a:visited {padding:2px 6px;border:solid 1px #eee;background:#fff;text-decoration:none;}
+.paginator .previous-off {margin-right:20px;padding:2px 6px;border:solid 1px #eee;background:#fff;color:#bbb;}
+.paginator .previous {margin-right:20px;padding:2px 6px;background:#fff;}
+.paginator .next {margin-left:20px;padding:2px 6px;background:#fff;}
+.paginator .next-off {margin-left:20px;padding:2px 6px;border:solid 1px #eee;background:#fff;color:#bbb;}
+.paginator .active {padding:2px 6px;border:solid 1px #eee;font-weight:bold;vertical-align:top;background:#eee;}
+.paginator a:visited:hover,.paginator a:hover,.paginator a:active{color:#fff;background:#ccc;border-color:#fff;text-decoration:none;padding:2px 6px;border:solid 1px #eee;}
