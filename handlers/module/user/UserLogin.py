@@ -58,7 +58,10 @@ class UserLogin(BaseHandler):
 					self.sess.store(str(user.key()), expires)
 					rt = self.request.get('redirect_to')
 					if rt:
-						self.redirect(rt)
+						if rt.find("user.login") >-1:
+							self.redirect('/')
+						else:
+							self.redirect(rt)
 					else:
 						self.redirect('/')
 				else:
