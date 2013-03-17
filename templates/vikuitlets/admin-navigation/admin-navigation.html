@@ -25,20 +25,20 @@ along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
 
 {% block vikuitlet_content %}
 
-{% set menu_bar = [
+{% set admin_menu_bar = [
     ('/module/admin.application', 'admin.application', _('Configure application')),
     ('/module/admin.lookandfeel', 'admin.lookandfeel', _('Configure look and feel')),
     ('/module/admin.mail', 'admin.mail', _('Configure mail stuff')),
     ('/module/admin.modules', 'admin.modules', _('Configure modules')),
     ('/module/admin.google', 'admin.google', _('Configure google stuff')),
-    ('/module/community.add.related', 'community.add.related', _('Bind community')),
+    ('/module/admin.community.add.related', 'admin.community.add.related', _('Bind community')),
     ('/module/admin.categories', 'admin.categories', _('Administrate categories')),
     ('/module/admin.stats', 'admin.stats', _('Web stats')),
     ('/module/admin.cache', 'admin.flush.cache', _('Manage cache'))
 ] %}
  
 	<ul>
-		{% for href, id, caption in menu_bar %}
+		{% for href, id, caption in admin_menu_bar %}
 		  {% if  href == tab %}
 		 	<li><strong><a href="{{ href|e }}">{{ caption }}</a></strong></li>
 		  {% else %}
