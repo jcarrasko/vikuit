@@ -26,6 +26,7 @@ import datetime
 from google.appengine.ext import db
 from google.appengine.api import memcache
 from handlers.AuthenticatedHandler import *
+from utilities.TTSUtil import *
 
 class ArticleEdit(AuthenticatedHandler):
 
@@ -103,6 +104,7 @@ class ArticleEdit(AuthenticatedHandler):
 				article.tags = self.parse_tags(self.get_param('tags'))
 				article.description = ' '.join(self.get_param('description').splitlines())
 				article.content = self.get_param('content')
+								
 				if article.draft:
 					# title and url_path can change only if the article hasn't already been published
 					article.title = self.get_param('title')
@@ -190,6 +192,7 @@ class ArticleEdit(AuthenticatedHandler):
 				html.put()
 				article.content_html = html
 				article.subscribers = [user.email]
+				self.set_tts(article)
 				article.put()
 				
 				self.add_user_subscription(user, 'article', article.key().id())
@@ -228,3 +231,21 @@ class ArticleEdit(AuthenticatedHandler):
 	
 	def create_recommendations(self, article):
 		self.create_task('article_recommendation', 1, {'article': article.key().id(), 'offset': 0})
+	
+	def set_tts(self, article):
+		tts_util=TTSUtil()
+		content=""
+		tts_urls=[]
+		# render the title	
+		tts_urls.extend(tts_util.get_tts_url_from_html(article.title))
+		# render the author
+		tts_urls.extend(tts_util.get_tts_url_from_html("Escrito por " + article.author.nickname))
+		# render the content
+		tts_urls.extend(tts_util.get_tts_url_from_html(article.content))
+		# get the stream
+		content=tts_util.get_tts_stream_from_tts_urs(tts_urls) 
+		
+		# TODO Removed because fail ...
+		#article.content_tts.tts_stream=content
+		#article.content_tts.tts_urls=tts_urls
+		

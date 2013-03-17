@@ -29,7 +29,7 @@ from handlers.module.admin.Admin import *
 from handlers.module.admin.AdminCategories import *
 from handlers.module.admin.AdminCategoryEdit import *
 from handlers.module.admin.AdminApplication import *
-from handlers.module.admin.CommunityAddRelated import *
+from handlers.module.admin.AdminCommunityAddRelated import *
 from handlers.module.admin.AdminUsers import *
 from handlers.module.admin.AdminModules import *
 from handlers.module.admin.AdminLookAndFeel import *
@@ -41,6 +41,7 @@ from handlers.module.admin.AdminStats import *
 from handlers.module.article.ArticleList import *
 from handlers.module.article.ArticleEdit import *
 from handlers.module.article.ArticleView import *
+from handlers.module.article.ArticleTTS import *
 from handlers.module.article.ArticleVote import *
 from handlers.module.article.ArticleDelete import *
 from handlers.module.article.ArticleComment import *

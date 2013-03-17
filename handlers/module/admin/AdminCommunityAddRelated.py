@@ -22,7 +22,7 @@
 
 from handlers.AuthenticatedHandler import *
 
-class CommunityAddRelated(AuthenticatedHandler):
+class AdminCommunityAddRelated(AuthenticatedHandler):
 
 	def execute(self):
 		method = self.request.method
@@ -35,18 +35,18 @@ class CommunityAddRelated(AuthenticatedHandler):
 
 		if method == 'GET':
 			self.values['m'] = self.get_param('m')
-			self.render('templates/module/community/community-add-related.html')
+			self.render('templates/module/admin/admin-community-add-related.html')
 		elif self.auth():
 			fromId = self.request.get('community_from')
 			toId = self.request.get('community_to')
 			
 			if fromId is None or len(fromId.strip()) == 0 or not fromId.isdigit():
 				self.values['m'] = "Enter a valid source community"
-				self.render('templates/module/community/community-add-related.html')
+				self.render('templates/module/admin/admin-community-add-related.html')
 				return
 			if toId is None or len(toId.strip()) == 0:
 				self.values['m'] = "Enter a valid target community"
-				self.render('templates/module/community/community-add-related.html')
+				self.render('templates/module/admin/admin-community-add-related.html')
 				return
 			
 			community_from = model.Community.get_by_id(int(fromId))
@@ -54,22 +54,22 @@ class CommunityAddRelated(AuthenticatedHandler):
 			
 			related = model.RelatedCommunity.all().filter('community_from', community_from).filter('community_to', community_to).get()
 			if related:
-				self.redirect('/module/community.add.related?m=Already_exists')
+				self.redirect('/module/admin.community.add.related?m=Already_exists')
 				return
 			
 			if community_from is None:
 				self.values['m'] = "Source community not found"
-				self.render('templates/module/community/community-add-related.html')
+				self.render('templates/module/admin/admin-community-add-related.html')
 				return
 			if community_to is None:
 				self.values['m'] = "Target community not found"
-				self.render('templates/module/community/community-add-related.html')
+				self.render('templates/module/admin/admin-community-add-related.html')
 				return
 			
 			self.create_related(community_from, community_to)
 			self.create_related(community_to, community_from)
 			
-			self.redirect('/module/community.add.related?m=Updated')
+			self.redirect('/module/admin.community.add.related?m=Updated')
 	
 	def create_related(self, community_from, community_to):
 		related = model.RelatedCommunity(community_from = community_from,
