@@ -83,6 +83,10 @@ class UserData(search.SearchableModel):
 class ArticleHtml(db.Model):
 	content = db.TextProperty(required=True)
 
+class ArticleTTS(db.Model):
+	tts_stream = db.TextProperty(required=True)
+	tts_urls = db.StringListProperty()
+	
 class Article(search.SearchableModel):
 	author = db.ReferenceProperty(UserData,required=True)
 	author_nickname = db.StringProperty()
@@ -90,6 +94,7 @@ class Article(search.SearchableModel):
 	description = db.StringProperty(required=True)
 	content = db.TextProperty(required=True)
 	content_html = db.ReferenceProperty(ArticleHtml)
+	content_tts = db.ReferenceProperty(ArticleTTS)
 	lic = db.StringProperty(required=True)
 	views = db.IntegerProperty(required=True)
 	rating_count = db.IntegerProperty(required=True)
