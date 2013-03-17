@@ -82,6 +82,7 @@ along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
 		{% for article in related %}
 			<li>
 				<strong><a href="/module/article/{{ article.url_path }}">{{ article.title|escape }}</a></strong> <br/>
+				
 				<p class="rating star{{ article.rating_average }}">&nbsp;</p>
 			</li>
 		{% endfor %}
@@ -96,7 +97,7 @@ along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
 {% block content %}
 	<div class="grid_9 alpha omega">
 		<div class="info">
-			<h1>{% if article.deletion_date %}{{ _('Deleted') }}: {% else %}{% if article.draft %}{{ _('Draft') }}: {% endif %}{% endif %}{{ article.title|escape }}</h1>
+			<h1>{% if article.deletion_date %}{{ _('Deleted') }}: {% else %}{% if article.draft %}{{ _('Draft') }}: {% endif %}{% endif %}{{ article.title|escape }}</h1><a href="javascript:$('#article').jtts();" >leer</a>
 			<p class="options">
 				{{ _('Written by') }} <strong><a href="/module/user/{{ article.author_nickname|escape}}">{{ article.author_nickname|escape }}</a></strong>&nbsp;{{ _('<strong>%s </strong>ago')|format(article.creation_date|relativize) }}
 				{% if user.rol == 'admin' or  user.nickname == article.author_nickname %}

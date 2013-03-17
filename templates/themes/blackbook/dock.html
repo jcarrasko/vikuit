@@ -27,18 +27,32 @@ along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
 		{% if sess.user %}
 			 	
 			{% if user.rol == 'admin' %}
+			
+			{% set admin_menu_bar = [
+			    ('/module/admin.application', 'admin.application', _('Configure application')),
+			    ('/module/admin.lookandfeel', 'admin.lookandfeel', _('Configure look and feel')),
+			    ('/module/admin.mail', 'admin.mail', _('Configure mail stuff')),
+			    ('/module/admin.modules', 'admin.modules', _('Configure modules')),
+			    ('/module/admin.google', 'admin.google', _('Configure google stuff')),
+			    ('/module/admin.community.add.related', 'admin.community.add.related', _('Bind community')),
+			    ('/module/admin.categories', 'admin.categories', _('Administrate categories')),
+			    ('/module/admin.stats', 'admin.stats', _('Web stats')),
+			    ('/module/admin.cache', 'admin.flush.cache', _('Manage cache'))
+			] %}
+ 
 
 				<td class="top"><a href="/admin" class="top_link"><span class="down" style="font-weight: bold;">{{ _('Administration') }}</span>
 				<!--[if gte IE 7]><!--></a><!--<![endif]-->
 				<div style="position: relative; display: block;"><!--[if lte IE 6]><table id="mmm"><tr><td><![endif]-->
-				<ul class="sub main_elements">
-					<li><a href="/module/admin.application" class="button more_ntop_element">{{ _('Configure application') }}</a></li>
-					<li><a href="/module/community.add.related" class="button more_ntop_element">{{ _('Bind community') }}</a></li>
-					<li><a href="/module/admin.categories" class="button more_ntop_element">{{ _('Administrate categories') }}</a></li>
-					<li><a href="/module/admin.users" class="button more_ntop_element">{{ _('Administrate users') }}</a></li>
-					<li><a href="/module/admin.cache" class="button more_ntop_element">{{ _('Manage cache') }}</a></li>
-					<li class="li_last_round">&nbsp;</li>
-				</ul>
+					<ul class="sub main_elements">
+						{% for href, id, caption in admin_menu_bar %}
+						  {% if  href == tab %}
+						 	<li><strong><a href="{{ href|e }}">{{ caption }}</a></strong></li>
+						  {% else %}
+							<li><a href="{{ href|e }}">{{ caption }}</a></li>
+						  {% endif %}
+						{% endfor %}
+					</ul>
 				<!--[if lte IE 6]></td></tr></table></a><![endif]--></div>
 				</td>
 
