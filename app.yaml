@@ -1,5 +1,5 @@
 application: vikuit
-version: 0-8
+version: 0-9
 runtime: python
 api_version: 1
 
@@ -29,3 +29,7 @@ handlers:
   
 - url: /.*
   script: controller.py
+
+
+inbound_services:
+- xmpp_message

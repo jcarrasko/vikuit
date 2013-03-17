@@ -43,6 +43,7 @@ def main():
 									   ('/module/article.edit',				ArticleEdit),
 									   ('/module/article.favourite',		ArticleFavourite),
 									   ('/module/article.vote',				ArticleVote),
+									   ('/module/article.tts/.*',			ArticleTTS),
 									   ('/module/article/.*',				ArticleView),
 									   ('/module/article.comment.subscribe',ArticleCommentSubscribe),
 									   ('/module/article.comment',			ArticleComment),
@@ -76,7 +77,7 @@ def main():
 									   ('/module/community.move',			CommunityMove),
 									   ('/module/community.delete',			CommunityDelete),
 									   ('/module/community/.*',				CommunityView),
-									   ('/module/community.add.related',	CommunityAddRelated),
+									  
 									   # Community forums
 									   ('/module/community.forum.list/.*',	CommunityForumList),
 									   ('/module/community.forum.edit',		CommunityForumEdit),
@@ -129,6 +130,7 @@ def main():
 									   ('/module/admin.google',			AdminGoogle),
 									   ('/module/admin.stats',			AdminStats),
                                        ('/module/admin.cache',          AdminCache),
+                                       ('/module/admin.community.add.related',	AdminCommunityAddRelated),
 									   # Ohters									   									   
 									   ('/mail.queue',			MailQueue),
 									   ('/task.queue',			TaskQueue),
