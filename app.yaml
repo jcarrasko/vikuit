@@ -1,8 +1,15 @@
 application: vikuit
-version: 0-9
-runtime: python
+version: 1-0
+runtime: python27
 api_version: 1
+threadsafe: false
 
+libraries:
+- name: jinja2
+  version: "2.6"
+- name: webapp2
+  version: "2.5.1"
+  
 handlers:
 - url: /favicon.ico
   static_files: static/images/favicon.ico
@@ -24,11 +31,11 @@ handlers:
   static_dir: static
   
 - url: /remote_api  
-  script: $PYTHON_LIB/google/appengine/ext/remote_api/handler.py  
+  script: google.appengine.ext.remote_api.handler.app
   login: admin
   
 - url: /.*
-  script: controller.py
+  script: controller.app
 
 
 inbound_services:
