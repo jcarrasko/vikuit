@@ -29,17 +29,19 @@ along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
 
 {% endblock %}
 {% block leftSidebar %}
-	{% include 'vikuitlets/nanoblogging/nanoblogging.html' %}
-	{% include 'vikuitlets/most-active-communities/most-active-communities.html' %}	
-	{% include 'vikuitlets/rss/rss.html' %}	
-		
+	{% include 'vikuitlets/user/user.html' %}
+	{% include 'vikuitlets/action/action.html' %}
 	
 {% endblock %}
 {% block rightSidebar %}
 	{% include 'vikuitlets/translator/translator.html' %}
-	{% include 'vikuitlets/user/user.html' %}	
-	{% include 'vikuitlets/action/action.html' %}
-	{% include 'vikuitlets/tag-cloud/tag-cloud.html' %}
+	{% include 'vikuitlets/nanoblogging/nanoblogging.html' %}
+	
+	
+	{% include 'vikuitlets/most-active-communities/most-active-communities.html' %}	
+	{% include 'vikuitlets/rss/rss.html' %}	
+		
+
 	
 		 
 {% endblock %}
