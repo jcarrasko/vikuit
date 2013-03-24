@@ -19,6 +19,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
 ##
+
 import model
 import PropertiesUtil
 import Constant
@@ -47,10 +48,10 @@ class AppProperties (object):
     '''
     def getJinjaEnv(self):
         import os
+        import jinja2
         import gettext
-        from jinja2 import Template, Environment, FileSystemLoader
-        if self.__env is None:
-            self.__env = Environment(loader=FileSystemLoader(os.path.join(os.path.dirname(__file__), '..', 'templates' )), extensions=['jinja2.ext.i18n'])##MOD
+        if self.__env is None: 
+            self.__env = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.join(os.path.dirname(__file__), '..', 'templates' )), extensions=['jinja2.ext.i18n'])##MOD
             '''self.__env.filters['relativize'] = self.relativize
             self.__env.filters['markdown'] = self.markdown
             self.__env.filters['smiley'] = self.smiley
