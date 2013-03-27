@@ -33,7 +33,7 @@ import random
 import sha
 import Cookie
 import pickle
-import __main__
+
 
 # google appengine imports
 from google.appengine.ext import db
