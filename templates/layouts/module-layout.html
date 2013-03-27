@@ -17,7 +17,7 @@ You should have received a copy of the GNU Affero General Public License
 along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
 #}
 
-{% extends "base.html" %}
+{% extends "themes/"+app.theme+"/layout.html"  %}
 
 {% block head %}
 	<link rel="alternate" type="application/rss+xml" title="{{ _('Latest articles') }}" href="/feed/" />
