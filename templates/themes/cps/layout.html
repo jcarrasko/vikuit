@@ -1,0 +1,48 @@
+{#
+(C) Copyright 2013 Vikuit
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+{% extends "base.html" %}
+{% block layout %} 
+
+{% include 'themes/'+app.theme+'/top.html' %}
+	<!-- end of top --> 
+	<div class="main" style="border:0px; width:998px;"> 
+    <!-- first column -->
+    	<div class="left_column">
+    		{% block leftSidebar %}{% endblock %}
+		</div> 
+    <!-- second column -->
+		<div class="center_column">
+			{% block content %}{% endblock %}
+		</div>
+	<!-- third column -->
+		<div class="right_column">
+			{% block rightSidebar %}{% endblock %}
+		</div> 
+			
+        <div class="clear_both"></div>		
+		<div class="banner_bottom"></div> 
+		<!-- end of body --> 
+	</div> 
+	
+<!-- Foot -->
+
+      {% include 'themes/'+app.theme+'/bottom.html' %}
+      
+	  {% block javascript %}{% endblock %}
+{% endblock %}
