@@ -25,6 +25,8 @@ along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
     <!-- first column -->
     	<div class="left_column">
     		{% block leftSidebar %}{% endblock %}
+    		{% include 'vikuitlets/user/user.html' %}
+    		{% include 'vikuitlets/action/action.html' %}
 		</div> 
     <!-- second column -->
 		<div class="center_column">
@@ -33,6 +35,10 @@ along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
 	<!-- third column -->
 		<div class="right_column">
 			{% block rightSidebar %}{% endblock %}
+			{% include 'vikuitlets/translator/translator.html' %}
+			{% include 'vikuitlets/nanoblogging/nanoblogging.html' %}
+			{% include 'vikuitlets/most-active-communities/most-active-communities.html' %}	
+			{% include 'vikuitlets/rss/rss.html' %}	
 		</div> 
 			
         <div class="clear_both"></div>		
