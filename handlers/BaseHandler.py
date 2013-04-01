@@ -95,6 +95,7 @@ class BaseHandler(webapp.RequestHandler):
 		self.values['redirect'] = redirect
 		self.values['app'] = self.get_application()
 		self.values['activity_communities'] = self.communities_by_activity()
+		self.values['all_user_communities'] = self.all_user_communities()
 
 		if self.user:
 			self.values['auth'] = self.sess.auth
@@ -419,9 +420,18 @@ class BaseHandler(webapp.RequestHandler):
 			memcache.add(key, communities, 3600)
 			return communities
 
-	
+	def all_user_communities(self):
+		key = 'all_user_communities'
+		g = memcache.get(key)
+		if g is not None:
+			return g
+		else:
+			all_user_communities = model.Community.all().order('title').fetch(30)
+			memcache.add(key, all_user_communities, 3600)
+			return all_user_communities
+		
 	def add_categories(self):
-		cats = list(model.Category.all().order('title'))
+		cats = model.Category.all().order('title').fetch(50)
 		categories = {}
 		for category in cats:
 			# legacy code
