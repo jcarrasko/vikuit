@@ -1,0 +1,39 @@
+{#
+(C) Copyright 2011 Jose Carrasco <jose.carrasco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+	<div class="bottomCopyright" style="width: 998px"> 
+        
+		<div class="bottomLinks"> 		
+		   <span><a href="/about">{{ _('About vikuit') }}</a> |
+			<a href="mailto:{% if app.mail_contact%}{{ app.mail_contact }}{% endif %}">Contacto</a> |
+			<a href="/html/aviso-legal.html">Aviso Legal</a> |  
+			<a href="/html/faq.html" class="header">{{ _('FAQ') }}</a></span>
+		</div> 
+		<div class="bottomCpr">
+		&copy; Copyright 2010-2011 {% if app.name %}{{ app.name }}{% endif %} <br/>
+					Iconos gracias a <strong><a href="http://www.famfamfam.com/lab/icons/silk/">Silk icons</a></strong>. Creative Commons, <a href="http://creativecommons.org/licenses/by/2.5/" title="Creative Commons Attribution 2.5 License">algunos derechos reservados</a>.
+		</div> 	 
+		
+		<div class="clear_both"></div> 
+		 
+	</div> 
+ 
+{% block javascript %}
+	
+{% endblock %}

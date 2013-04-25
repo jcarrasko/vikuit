@@ -1,0 +1,59 @@
+{#
+(C) Copyright 2013 Vikuit
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+{% extends "base.html" %}
+{% block layout %} 
+
+<!-- modal forms -->		 		
+{% include 'vikuitlets/login/login.html' %}
+
+<!-- top -->
+{% include 'themes/'+app.theme+'/top.html' %}
+	<!-- end of top --> 
+ 
+	<div class="row">  
+    <!-- first column -->
+    	<div class="span9">
+    		{% block content %}{% endblock %}
+		</div> 
+    <!-- second column -->
+		<div class="span3">
+			{% block leftSidebar %}{% endblock %}
+    		{% include 'vikuitlets/user/user.html' %}
+    		{% include 'vikuitlets/action/action.html' %}
+    			{% block rightSidebar %}{% endblock %}
+			{% include 'vikuitlets/translator/translator.html' %}
+			{% include 'vikuitlets/nanoblogging/nanoblogging.html' %}
+			{% include 'vikuitlets/most-active-communities/most-active-communities.html' %}	
+			{% include 'vikuitlets/rss/rss.html' %}	
+		
+		</div>
+ 
+			
+        <div class="clear_both"></div>		
+		<div class="banner_bottom"></div> 
+		<!-- end of body --> 
+	</div> 
+ 
+	
+<!-- Foot -->
+
+      {% include 'themes/'+app.theme+'/bottom.html' %}
+      
+	  {% block javascript %}{% endblock %}
+{% endblock %}

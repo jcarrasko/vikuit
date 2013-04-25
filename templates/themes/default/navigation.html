@@ -1,0 +1,138 @@
+{#
+(C) Copyright 2011 Jose Carrasco <jose.carrasco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>
+. #}
+
+{% set navigation_bar = [
+    ('/module/article.list', 'article', _('Articles')),
+    ('/module/community.list', 'community', _('Communities')),
+    ('/forum.list', 'forum', _('Forums')),
+    ('/module/user.list', 'userDirectory', _('Users'))
+
+] %}
+
+<div class="nav-collapse collapse">
+
+
+   			
+            <ul class="nav">
+            
+            	{% for href, id, caption in navigation_bar %}
+				  {% if  href == tab %}
+				  	<li class="active"><a href="#">{{ caption}}</a></li>
+				  {% else %}
+					<li><a href="{{ href|e }}">{{ caption }}</a></li>
+				  {% endif %}
+				{% endfor %}
+             
+              
+              
+		{% if sess.user %}
+			 	
+			{% if user.rol == 'admin' %}
+			
+			{% set admin_menu_bar = [
+			    ('/module/admin.application', 'admin.application', _('Configure application')),
+			    ('/module/admin.lookandfeel', 'admin.lookandfeel', _('Configure look and feel')),
+			    ('/module/admin.mail', 'admin.mail', _('Configure mail stuff')),
+			    ('/module/admin.modules', 'admin.modules', _('Configure modules')),
+			    ('/module/admin.google', 'admin.google', _('Configure google stuff')),
+			    ('/module/admin.community.add.related', 'admin.community.add.related', _('Bind community')),
+			    ('/module/admin.categories', 'admin.categories', _('Administrate categories')),
+			    ('/module/admin.stats', 'admin.stats', _('Web stats')),
+			    ('/module/admin.cache', 'admin.flush.cache', _('Manage cache'))
+			] %}
+  
+				<li class="dropdown">
+  					<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ _('Administration') }} <b class="caret"></b></a>
+					
+					<ul class="dropdown-menu">
+ 						{% for href, id, caption in admin_menu_bar %}
+						  {% if  href == tab %}
+						 	<li><strong><a href="{{ href|e }}">{{ caption }}</a></strong></li>
+						  {% else %}
+							<li><a href="{{ href|e }}">{{ caption }}</a></li>
+						  {% endif %}
+						{% endfor %}
+						<li class="nav-header">Nav header</li>
+                  <li><a href="#">Separated link</a></li>
+                  <li><a href="#">One more separated link</a></li>
+					</ul>
+				</li>
+				
+		 
+				 
+			{% endif %}
+			 
+					<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ _('Account') }} <b class="caret"></b></a>
+  					
+					<ul class="dropdown-menu">
+				
+			 
+					<li><a href="/module/user.events"  class="button more_ntop_element"><img src="/static/images/heart.png" alt="" class="icon" /> {{ _('Your lifestreaming') }}</a></li>
+					<li><a href="/module/user/{{ user.nickname }}"  class="button more_ntop_element"><img src="/static/images/user.png" alt="" class="icon" /> {{ _('Your public profile') }}</a></li>
+					<li><a href="/module/user.articles/{{ user.nickname }}"  class="button more_ntop_element"><img src="/static/images/page_white_text.png" alt="" class="icon" /> {{ _('Your articles') }}</a></li>
+					<li><a href="/module/user.forums/{{ user.nickname }}"  class="button more_ntop_element"><img src="/static/images/comments.png" alt="" class="icon" /> {{ _('Your threads') }}</a></li>
+					<li><a href="/module/user.favourites/{{ user.nickname }}"  class="button more_ntop_element"><img src="/static/images/star.png" alt="" class="icon" /> {{ _('Your favorites') }}</a></li>
+					<li><a href="/module/user.communities/{{ user.nickname }}"  class="button more_ntop_element"><img src="/static/images/community.png" alt="" class="icon" /> {{ _('Your communities') }}</a></li>
+					<li><a href="/module/user.contacts/{{ user.nickname }}"  class="button more_ntop_element"><img src="/static/images/user.png" alt="" class="icon" /> {{ _('Your contacts') }}</a></li>
+					<li><a href="/invite"  class="button more_ntop_element"><img src="/static/images/user_comment.png" alt="" class="icon" /> {{ _('Invite your friends') }} </a></li>
+					
+				<li><hr></li>	
+				
+				<li><a href="/message.inbox"  class="button more_ntop_element"><img src="/static/images/email.png" alt="" class="icon" /> {{ _('Inbox') }} {% if user.unread_messages %}({{ user.unread_messages}}){% endif %}</a></li>
+				<li><a href="/message.sent"  class="button more_ntop_element"><img src="/static/images/email_edit.png" alt="" class="icon" /> {{ _('Sent messages') }}</a></li>
+				
+					
+					<li class="li_last_round">&nbsp;</li>
+			 
+					<li><a href="/module/user.changepassword?redirect_to={{ redirect }}" class="button more_ntop_element"><img src="/static/images/key.png" alt="" class="icon" />{{ _('Change password') }}</a></li>
+					<li><a href="/module/user.edit" class="button more_ntop_element"><img src="/static/images/cog.png" alt="" class="icon" />{{ _('Preferences') }}</a></li>
+					
+					<li><hr></li>	
+					<li><a href="{{ logout }}" class="button more_ntop_element"><img src="/static/images/logout.png" alt="" class="icon" />{{ _('Logout') }}</a></li>
+				
+			
+				
+				<li class="li_last_round">&nbsp;</li>
+				</ul>
+				<!--[if lte IE 6]></td></tr></table></a><![endif]--></div>
+
+
+{% else %}
+
+				
+				<li><a data-toggle="modal" href="remote.html" data-target="#loginForm">{{ _('Log in') }}</a></li>
+				
+				<li><a href="/module/user.register?redirect_to={{ redirect }}">{{ _('Register') }}</a></li>
+				<li><a href="/module/user.forgotpassword?redirect_to={{ redirect }}">{{ _('Forgot password?') }}</a></li> 
+				 	 
+		{% endif %}
+	 
+            </ul>
+ 
+        
+          </div><!--/.nav-collapse -->
+
+ <!-- Modal -->
+ 
+			
+ {% include 'vikuitlets/login/login.html' %}
+ 
+            
+{% block javascript %} {% endblock %}

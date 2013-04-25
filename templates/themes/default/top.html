@@ -1,0 +1,35 @@
+{#
+(C) Copyright 2011 Jose Carrasco <jose.carrasco[a]vikuit.com>
+
+This file is part of "vikuit".
+
+"vikuit" is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+"vikuit" is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
+#}
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container">
+			<div class="row">
+				<div class="span2">
+					<a class="brand" href="/"><img src="/images/application/logo" alt="logo" style="height: 32px" />
+					</a>
+				</div>
+				<div class="span8">{% include 'includes/base/search-box.html' %}</div>
+			</div>
+			<div class="row">
+				<div class="span8">{% include 'themes/blackbook/navigation.html' %}</div>
+			</div>
+		</div>
+	</div>
+{% block javascript %} {% endblock %}
