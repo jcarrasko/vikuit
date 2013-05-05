@@ -18,42 +18,61 @@ along with "vikuit".  If not, see <http://www.gnu.org/licenses/>.
 #}
 {% extends "base.html" %}
 {% block layout %} 
-
+ 
+      
 <!-- modal forms -->		 		
 {% include 'vikuitlets/login/login.html' %}
 
-<!-- top -->
-{% include 'themes/'+app.theme+'/top.html' %}
-	<!-- end of top --> 
- 
-	<div class="row">  
-    <!-- first column -->
-    	<div class="span9">
-    		{% block content %}{% endblock %}
-		</div> 
-    <!-- second column -->
-		<div class="span3">
-			{% block leftSidebar %}{% endblock %}
-    		{% include 'vikuitlets/user/user.html' %}
-    		{% include 'vikuitlets/action/action.html' %}
-    			{% block rightSidebar %}{% endblock %}
-			{% include 'vikuitlets/translator/translator.html' %}
-			{% include 'vikuitlets/nanoblogging/nanoblogging.html' %}
-			{% include 'vikuitlets/most-active-communities/most-active-communities.html' %}	
-			{% include 'vikuitlets/rss/rss.html' %}	
-		
-		</div>
- 
-			
-        <div class="clear_both"></div>		
-		<div class="banner_bottom"></div> 
-		<!-- end of body --> 
-	</div> 
- 
-	
-<!-- Foot -->
+ <div class="frame">
+      <div id="menu" class="menu nav-collapse collapse width">
+        <div class="collapse-inner">
+          <div class="navbar navbar-inverse">
+            <div class="navbar-inner">
+              Menu
+            </div>
+          </div>
+          	<form class="navbar-search pull-right">
+							<input type="text" class="search-query animated" placeholder="Search"> <i class="icon-search"></i>
+			</form>
+          <ul class="nav nav-tabs  nav-stacked">
+             {% set navigation_bar = [
+	   				('/module/article.list', 'article', _('Articles')),
+	   				('/module/community.list', 'community', _('Communities')),
+	   				('/forum.list', 'forum', _('Forums')),
+	 				('/module/user.list', 'userDirectory', _('Users'))
+ 				] %}
+            	{% for href, id, caption in navigation_bar %}
+					{% if  href == tab %}
+					  	<li class="active"><a href="#">{{ caption}}</a></li>
+					{% else %}
+						<li><a href="{{ href|e }}">{{ caption }}</a></li>
+					{% endif %}
+				{% endfor %}        
+        <li>
+            <a href="#">Sample menu</a><span>3</span>
+            <ul>
+                <li><a href="sample.html">Sample item 1</a></li>
+                <li><a href="sample.html">Sample item 2</a></li>
+                <li><a href="sample.html">Sample item 3</a></li>
+            </ul>
+        </li>
+     
+          </ul>
+        </div>
+      </div>
+      <div class="view">
+      <!-- top -->
+		{% include 'themes/'+app.theme+'/top.html' %}
+        <div id="content">
+        
+          {% block content %}{% endblock %}
+        </div>
+      </div>
+    </div>
 
-      {% include 'themes/'+app.theme+'/bottom.html' %}
-      
+
+
+
+
 	  {% block javascript %}{% endblock %}
 {% endblock %}
