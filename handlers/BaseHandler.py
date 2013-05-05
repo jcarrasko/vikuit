@@ -39,7 +39,7 @@ class BaseHandler(webapp.RequestHandler):
 	### Handler functions ###
 	#########################
 	def get(self):
-				
+	
 		if self.request.url.split('/')[2] == AppProperties().getAppDic().get(Constant.domain):#'vikuit.com':
 			self.redirect(self.get_application().url + self.request.url.split('/', 3)[3], permanent=True)# 'http://www.vikuit.com/'
 			return
@@ -69,6 +69,7 @@ class BaseHandler(webapp.RequestHandler):
 		import session
 		#app = model.Application.all().get()
 		app = self.get_application()
+		
 		if app:
 			self.sess = session.Session(app.session_seed)
 			if self.sess.load():
@@ -89,14 +90,14 @@ class BaseHandler(webapp.RequestHandler):
 
 		else:
 			self.sess = None
-			
+		
 		redirect = '%s?%s' % (self.request.path, self.request.query)
 		self.values['sess'] = self.sess
 		self.values['redirect'] = redirect
 		self.values['app'] = self.get_application()
 		self.values['activity_communities'] = self.communities_by_activity()
-		self.values['all_user_communities'] = self.all_user_communities()
-
+		#self.values['all_user_communities'] = self.all_user_communities()
+		 
 		if self.user:
 			self.values['auth'] = self.sess.auth
 			self.values['logout'] = '/module/user.logout?redirect_to=%s&auth=%s' % (self.quote(redirect), self.sess.auth)
@@ -426,7 +427,7 @@ class BaseHandler(webapp.RequestHandler):
 		if g is not None:
 			return g
 		else:
-			all_user_communities = model.Community.all().order('title').fetch(30)
+			all_user_communities = model.Community.all()
 			memcache.add(key, all_user_communities, 3600)
 			return all_user_communities
 		
