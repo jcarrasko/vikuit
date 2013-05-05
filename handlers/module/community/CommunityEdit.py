@@ -142,9 +142,12 @@ class CommunityEdit(AuthenticatedHandler):
 				
 				app = model.Application.all().get()
 				if app:
-					app.communities += 1
+					if app.communities:
+						app.communities += 1
+					else:
+						app.communities =1
 					app.put()
-				memcache.delete('app')
+					memcache.delete('app')
 				
 				community_user = model.CommunityUser(user=user,
 					community=community,
